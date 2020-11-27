@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FRONTEND"
+    }
+  },
+  "defaultProject": "FRONTEND",
+  "cli": {
+    "analytics": false
+  }
 }

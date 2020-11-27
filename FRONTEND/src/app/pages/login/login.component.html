@@ -1,0 +1,27 @@
+<div class="flex">
+  <label class="logo">X</label><label class="logo2">TECDigital</label>
+  <form class="custom-form" method="post">
+    <h1>Iniciar sesión</h1>
+    <input
+      type="username"
+      name="username"
+      placeholder="Usuario"
+      required="required"
+      (change) = "setUser($event.target.value)"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+      (change) = "setPassword($event.target.value)"
+    />
+    <select class="form-control" (change)="rolSet($event.target.value)">
+      <option value="">Seleccione una opción</option>
+      <option value="estudiante">Estudiante</option>
+      <option value="profesor">Profesor</option>
+      <option value="admin">Admin</option>
+      </select>
+    <button (click)="login()">Iniciar sesión</button>
+  </form>
+</div>
