@@ -8,19 +8,31 @@
 
 <div class="barracurso">
   <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+  <button class="docs">DOCUMENTOS</button>
+  <button class="evaluaciones">EVALUACIONES</button>
+  <button class="admin">ADMIN</button>
 </div>
 
 
 <div class="look">
+  <button class="agreCarpeta">Agregar carpeta</button>
+  <label class="nombre">Nombre de la carpeta</label>
+  <input
+  class="nombreInput"
+  type="text"
+  name="password"
+  placeholder="Nombre de la carpeta nueva"
+  (change)="crearCarpeta($event.target.value)"
+/>
 
     <div class = "lookfil" style="overflow: auto">
       <div class="tramos">
         <div *ngFor="let carpeta of carpetas">
           <mat-card class="productor">
             <h3>{{ carpeta }} &nbsp;</h3>
-            <button>
+            <button class="searchbt" (click)="visitarCarpeta(carpeta)">
                 <h3>
-                Visitar
+                Ver
                 </h3>
             </button>
         </mat-card>
