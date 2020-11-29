@@ -1,0 +1,166 @@
+.linea {
+    position: absolute;
+    width: 1512px;
+    height: 0px;
+    left: 0px;
+    top: 70px;
+  
+    border: 1px solid #000000;
+    transform: rotate(0.01deg);
+  }
+  
+  .logo {
+    position: absolute;
+    top: -50px;
+    width: 300px;
+    height: 0.25px;
+    font-family: Arial Black;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 200px;
+    color: #00147a;
+    opacity: 0.66;
+  }
+
+  
+  .inicio {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 250px;
+    top: 30px;
+  }
+  
+  .buscar {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 400px;
+    top: 30px;
+  }
+  
+  .retos {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    left: 580px;
+    top: 30px;
+  }
+  
+  .competencia {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 700px;
+    top: 30px;
+  }
+  
+  .perfil {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    left: 900px;
+    top: 30px;
+  }
+  .logOut {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 1000px;
+    top: 30px;
+  }
+  
+  .cuerpo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardTitulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 600px;
+    margin-top: 100px;
+    background: #FFFFFF;
+    box-shadow: 10px 4px 21px 21px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    flex-direction: column;
+    margin-right: 100px;
+  }
+  
