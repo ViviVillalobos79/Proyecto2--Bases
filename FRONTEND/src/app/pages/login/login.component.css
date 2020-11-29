@@ -2,15 +2,12 @@
 
 * {
   box-sizing: border-box;
-  background-image: url('/src/assets/imagenes/fondo.jpg');
+
 }
 html,
 body {
   background: #d794e2;
-  background-image: url('/src/assets/imagenes/fondo.jpg');
-}
-header {
-  background-image: url('/src/assets/imagenes/fondo.jpg');
+  background: url('/src/assets/imagenes/fondo.jpg') no-repeat center top;
 }
 h1 {
   flex-direction: column;

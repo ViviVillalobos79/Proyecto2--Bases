@@ -1,0 +1,33 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="cursos" (click)="buscargo()">Cursos</button>
+<button class="micuenta" (click)="competenciasGo()">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+</div>
+
+
+<div class="look">
+
+    <div class = "lookfil" style="overflow: auto">
+      <div class="tramos">
+        <div *ngFor="let carpeta of carpetas">
+          <mat-card class="productor">
+            <h3>{{ carpeta }} &nbsp;</h3>
+            <button>
+                <h3>
+                Visitar
+                </h3>
+            </button>
+        </mat-card>
+        </div>
+      </div>
+    </div>
+
+
+
+</div>
