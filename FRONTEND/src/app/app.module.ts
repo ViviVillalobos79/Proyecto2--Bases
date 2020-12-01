@@ -15,13 +15,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { GesDocosProfeComponent } from './pages/ges-docos-profe/ges-docos-profe.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { GesDocsEstComponent } from './pages/ges-docs-est/ges-docs-est.component';
+import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     GesDocosProfeComponent,
-    ProfileComponent
+    ProfileComponent,
+    GesDocsEstComponent,
+    DocsEstComponent
   ],
   imports: [
     BrowserModule,
