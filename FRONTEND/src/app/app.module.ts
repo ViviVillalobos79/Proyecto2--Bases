@@ -15,13 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { GesDocosProfeComponent } from './pages/ges-docos-profe/ges-docos-profe.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { GesEvaluacionesComponent } from './pages/ges-evaluaciones/ges-evaluaciones.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     GesDocosProfeComponent,
-    ProfileComponent
+    ProfileComponent,
+    GesEvaluacionesComponent
   ],
   imports: [
     BrowserModule,
