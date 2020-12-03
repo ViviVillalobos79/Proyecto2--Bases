@@ -25,7 +25,7 @@ import { DocsEstComponent } from './pages/docs-est/docs-est.component';
     LoginComponent,
     GesDocosProfeComponent,
     ProfileComponent,
-    GesEvaluacionesComponent
+    GesEvaluacionesComponent,
     GesDocsEstComponent,
     DocsEstComponent
   ],
