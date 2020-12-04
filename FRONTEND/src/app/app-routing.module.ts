@@ -7,6 +7,7 @@ import { GesEvaluacionesComponent } from "./pages/ges-evaluaciones/ges-evaluacio
 import { GesDocsEstComponent } from './pages/ges-docs-est/ges-docs-est.component';
 import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
 import { MAR } from '@angular/material/core';
+import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -15,6 +16,10 @@ const routes: Routes = [
   { path: "gesEvaluaciones/:cedula/:idCurso", component: GesEvaluacionesComponent, pathMatch: "full"},
   { path: "gesDocEst/:carnet", component: GesDocsEstComponent, pathMatch: "full" },
   { path: "matrizEvaluaciones/:cedula/:idCurso", component: MatrizEvaluacionesComponent, pathMatch: "full"},
+  { path: "gesEvaluaciones/:cedula", component: GesEvaluacionesComponent, pathMatch: "full"},
+  { path: "gesDocEst", component: GesDocsEstComponent, pathMatch: "full" },
+  { path: "sendEva", component: SendEvaComponent, pathMatch: "full" },
+
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

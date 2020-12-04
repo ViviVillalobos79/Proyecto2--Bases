@@ -1,0 +1,47 @@
+<hr class="linea" />
+<label class="logo">XTECDigital</label>
+
+<button class="inicio">Inicio</button>
+<button class="cursos">Cursos</button>
+<button class="perfil">Perfil</button>
+
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+
+<div class="barracurso">
+    <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+    <button class="noticias">Noticias</button>
+    <button class="documentos">Documentos</button>
+    <button class="evaluaciones">Evaluaciones</button>
+</div>
+  
+<div class="look" >
+    <div *ngFor="let asig of asignaciones">
+        <mat-card>
+            <mat-accordion>
+                <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h1>
+                            {{asig}}
+                        </h1>
+                    </mat-panel-title>
+                <mat-panel-description>
+                    <h2>
+                        Rubro
+                    </h2>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div *ngFor="let rubro of rubros">
+                    <h2>
+                        {{rubro}}
+                    </h2>
+                    <button>Entregar</button>
+                </div>
+                
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card>
+    </div>
+    
+</div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { GesEvaluacionesComponent } from './pages/ges-evaluaciones/ges-evaluacio
 import { GesDocsEstComponent } from './pages/ges-docs-est/ges-docs-est.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
+import { SendEvaComponent } from './pages/send-eva/send-eva.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-
     GesEvaluacionesComponent,
     GesDocsEstComponent,
     DocsEstComponent,
-    MatrizEvaluacionesComponent
+    MatrizEvaluacionesComponent,
+    SendEvaComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-
     ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
 
   ],
   providers: [],
