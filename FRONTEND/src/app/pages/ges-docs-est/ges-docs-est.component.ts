@@ -27,4 +27,8 @@ export class GesDocsEstComponent implements OnInit {
   perfilGo() {
     this.router.navigate(['profile']);
   }
+
+  abrir() {
+    this.router.navigate(['docEst']);
+  }
 }
