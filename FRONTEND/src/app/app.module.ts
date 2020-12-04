@@ -18,6 +18,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { GesEvaluacionesComponent } from './pages/ges-evaluaciones/ges-evaluaciones.component';
 import { GesDocsEstComponent } from './pages/ges-docs-est/ges-docs-est.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
+import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DocsEstComponent } from './pages/docs-est/docs-est.component';
     ProfileComponent,
     GesEvaluacionesComponent,
     GesDocsEstComponent,
-    DocsEstComponent
+    DocsEstComponent,
+    MatrizEvaluacionesComponent
   ],
   imports: [
     BrowserModule,

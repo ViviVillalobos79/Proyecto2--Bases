@@ -16,12 +16,19 @@ export class GesEvaluacionesComponent implements OnInit {
   cedula:string;
   nombrecurso:string;
   grupo:string;
+  idCurso:string;
 
   constructor(
     private router: Router,
     private _route: ActivatedRoute
   ) {
     this.cedula = this._route.snapshot.paramMap.get('cedula');
+    this.idCurso = this._route.snapshot.paramMap.get('idCurso');
+  }
+
+  ngOnInit(): void {
+    this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
+    this.grupo = "4";
   }
 
   iniciogo() {
@@ -39,14 +46,12 @@ export class GesEvaluacionesComponent implements OnInit {
     this.router.navigate(['verCompetencias', this.cedula]);
   }
 
-
-  visitarCarpeta(nombre){
-    //Visitar la carpeta
+  docsCurso(){
+    this.router.navigate(['gesDocProfe', this.cedula, this.idCurso]);
   }
 
-  ngOnInit(): void {
-    this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
-    this.grupo = "4";
-  }
+
+
+
 
 }
