@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { LoginComponent } from './pages/login/login.component';
 import { GesDocosProfeComponent } from './pages/ges-docos-profe/ges-docos-profe.component';
@@ -20,6 +22,7 @@ import { GesDocsEstComponent } from './pages/ges-docs-est/ges-docs-est.component
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
+import { PruebasComponent } from './pages/pruebas/pruebas.component';
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { SendEvaComponent } from './pages/send-eva/send-eva.component';
     GesDocsEstComponent,
     DocsEstComponent,
     MatrizEvaluacionesComponent,
-    SendEvaComponent
+    SendEvaComponent,
+    PruebasComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { SendEvaComponent } from './pages/send-eva/send-eva.component';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule,
+    MatChipsModule
 
   ],
   providers: [],

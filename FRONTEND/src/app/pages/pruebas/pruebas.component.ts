@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { matriz } from 'src/app/models/matriz';
 
 @Component({
-  selector: 'app-matriz-evaluaciones',
-  templateUrl: './matriz-evaluaciones.component.html',
-  styleUrls: ['./matriz-evaluaciones.component.css'],
+  selector: 'app-pruebas',
+  templateUrl: './pruebas.component.html',
+  styleUrls: ['./pruebas.component.css'],
 })
-export class MatrizEvaluacionesComponent {
+export class PruebasComponent implements OnInit {
   cedula: string;
   nombrecurso: string;
   grupo: string;
