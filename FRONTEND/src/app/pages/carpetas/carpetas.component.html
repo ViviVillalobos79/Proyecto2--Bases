@@ -1,0 +1,14 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="cursos" (click)="buscargo()">Cursos</button>
+<button class="micuenta" (click)="competenciasGo()">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+  <button class="docs">DOCUMENTOS</button>
+  <button class="evaluaciones">EVALUACIONES</button>
+  <button class="admin">ADMIN</button>
+</div>

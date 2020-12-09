@@ -2,14 +2,14 @@
 <label class="logo3">XTECDigital</label>
 
 <button class="inicio" (click)="iniciogo()">Inicio</button>
-<button class="cursos" (click)="buscargo()">Cursos</button>
-<button class="micuenta" (click)="competenciasGo()">Mi Cuenta</button>
+<button class="cursos" (click)="cursosgo()">Cursos</button>
+<button class="micuenta" (click)="perfilGo()">Mi Cuenta</button>
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 <div class="barracurso">
   <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
   <button class="docs" (click)="docsCurso()" >DOCUMENTOS</button>
-  <button class="evaluaciones">EVALUACIONES</button>
+  <button class="evaluaciones" (click)="evaluacionCurso()" >EVALUACIONES</button>
   <button class="admin">ADMIN</button>
 </div>
 
@@ -18,7 +18,4 @@
   <button class="rubros">Rubros</button>
   <button class="detalles">Detalles de notas y entregas</button>
   <button class="notificaciones">Notificaciones</button>
-
-
-
 </div>

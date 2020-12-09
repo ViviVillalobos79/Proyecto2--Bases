@@ -32,26 +32,23 @@ export class GesEvaluacionesComponent implements OnInit {
   }
 
   iniciogo() {
-    this.router.navigate(['inicio-deport', this.cedula]);
+    //this.router.navigate(['inicio-deport', this.cedula]);
   }
-  buscargo() {
-    this.router.navigate(['buscar', this.cedula]);
-  }
-
-  retosGo() {
-    this.router.navigate(['verRetos', this.cedula]);
+  cursosgo() {
+    //this.router.navigate(['buscar', this.cedula]);
   }
 
-  competenciasGo() {
-    this.router.navigate(['verCompetencias', this.cedula]);
+  perfilGo() {
+    this.router.navigate(['profile', this.cedula]);
   }
 
-  docsCurso(){
+  docsCurso() {
     this.router.navigate(['gesDocProfe', this.cedula, this.idCurso]);
   }
 
-
-
+  evaluacionCurso(){
+    this.router.navigate(['gesEvaluaciones', this.cedula, this.idCurso]);
+  }
 
 
 }

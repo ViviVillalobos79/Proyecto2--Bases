@@ -9,7 +9,8 @@ import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-
 import { MAR } from '@angular/material/core';
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
-
+import { CarpetasComponent } from './pages/carpetas/carpetas.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: "matrizEvaluaciones/:cedula/:idCurso", component: MatrizEvaluacionesComponent, pathMatch: "full"},
   { path: "gesDocEst", component: GesDocsEstComponent, pathMatch: "full" },
   { path: "sendEva", component: SendEvaComponent, pathMatch: "full" },
-  { path: "pruebas/:cedula/:idCurso", component: PruebasComponent, pathMatch: "full"},
+  { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
+  { path: "carpetas/:cedula/:idCurso/:idCarpeta", component: CarpetasComponent, pathMatch: "full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

@@ -1,25 +1,7 @@
-<hr class="linea" />
-<label class="logo3">XTECDigital</label>
-
-<button class="inicio" (click)="iniciogo()">Inicio</button>
-<button class="cursos" (click)="cursosgo()">Cursos</button>
-<button class="micuenta" (click)="perfilGo()">Mi Cuenta</button>
-<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
-
-<div class="barracurso">
-  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
-  <button class="docs" (click)="docsCurso()" >DOCUMENTOS</button>
-  <button class="evaluaciones" (click)="evaluacionCurso()" >EVALUACIONES</button>
-  <button class="admin">ADMIN</button>
-</div>
-<mat-chip-list>
-  <div class="flexp" >
-    <div class="flexr" *ngFor="let valor of val">
-      <div class="flexr" *ngFor="let valors of valor.valores">
-        <mat-chip-list>
-          {{ valors }}
-        </mat-chip-list>
-      </div>
-    </div>
-  </div>
-</mat-chip-list>
+<h1>Upload,View & Delete File</h1>
+<input type="file" id="customFile" (change)="selectFile($event)" placeholder="File To Upload">
+<button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Save File</button>
+<br><br><br>
+<input type="text" placeholder="File to View or Delete"  name="image" [(ngModel)]="file">
+<button class="btn btn-primary" style="margin-left: 10px" (click)="viewFile()">View File</button>
+<button class="btn btn-primary" style="margin-left: 10px" (click)="deleteFile()">Delete File</button>

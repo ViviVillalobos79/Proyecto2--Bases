@@ -8,8 +8,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class GesDocosProfeComponent implements OnInit {
 
-  filtro: string;
-  busqueda: string;
   username: string;
   nombrecurso:string;
   grupo:string;

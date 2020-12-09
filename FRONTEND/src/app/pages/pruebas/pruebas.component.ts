@@ -1,94 +1,50 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { matriz } from 'src/app/models/matriz';
+import { UploadFileService } from '../../services/upload-file.service';
 
 @Component({
   selector: 'app-pruebas',
   templateUrl: './pruebas.component.html',
   styleUrls: ['./pruebas.component.css'],
 })
-export class PruebasComponent implements OnInit {
-  cedula: string;
-  nombrecurso: string;
-  grupo: string;
-  idCurso: string;
+export class PruebasComponent {
 
-  headers = [
-    'Carné',
-    'Nombre',
-    'Examen1',
-    'Examen2',
-    'Total(30%)',
-    'Quiz1',
-    'Quiz2',
-    'Total(30%)',
-    'Proyecto1',
-    'Proyecto2',
-    'Total(40%)',
-  ];
-
-  val = [
-    {
-      valores: [
-        'Carné',
-        '2018104702',
-        '2017097108',
-        '2018085151',
-        '2019053776'
-      ],
-    },
-    {
-      valores: [
-        'Nombre',
-        'Viviana Villalobos Valverde',
-        'Sebastian Cortez Mora',
-        'Ana Gaston Lola',
-        'Max Guzman Jilas'
-      ],
-    },
-    {valores: ['Examen1','20','50','100','95']},
-    {valores: ['Examen2','20','50','100','95']},
-  ];
-
-  carnets = ['2018104702', '2017097108', '2018085151', '2019053776'];
-
-  nombres = [
-    'Viviana Villalobos Valverde',
-    'Sebastian Cortez Mora',
-    'Ana Gaston Lola',
-    'Max Guzman Jilas',
-  ];
-
-  examen1 = ['20','50','100','95'];
-  examen2 = ['20','50','100','95'];
-
-
-  constructor(private router: Router, private _route: ActivatedRoute) {
-    this.cedula = this._route.snapshot.paramMap.get('cedula');
-    this.idCurso = this._route.snapshot.paramMap.get('idCurso');
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  selectedFile = null;
+  changeImage = false;
+  file:string;
+  constructor(private uploadService: UploadFileService, private https:HttpClient){}
+  viewFile(){
+window.open('https://bucketName.s3.cloudLocation.amazonaws.com/'+this.file);
   }
-
-  ngOnInit(): void {
-    this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    this.grupo = '4';
+  deleteFile()
+  {
+    this.https.post<string>('http://localhost:8080/deleteFile',this.file).subscribe(
+      res => {
+        this.file = res;
+      }
+    );
   }
-
-  iniciogo() {
-    //this.router.navigate(['inicio-deport', this.cedula]);
+  change(event) {
+    this.changeImage = true;
   }
-  cursosgo() {
-    //this.router.navigate(['buscar', this.cedula]);
+  changedImage(event) {
+    this.selectedFile = event.target.files[0];
   }
-
-  perfilGo() {
-    this.router.navigate(['profile', this.cedula]);
+  upload() {
+    this.progress.percentage = 0;
+    this.currentFileUpload = this.selectedFiles.item(0);
+this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      this.selectedFiles = undefined;
+    });
   }
-
-  docsCurso() {
-    this.router.navigate(['gesDocProfe', this.cedula, this.idCurso]);
-  }
-
-  evaluacionCurso(){
-    this.router.navigate(['gesEvaluaciones', this.cedula, this.idCurso]);
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 }
+
+

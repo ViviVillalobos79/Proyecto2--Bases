@@ -23,6 +23,7 @@ import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
+import { CarpetasComponent } from './pages/carpetas/carpetas.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PruebasComponent } from './pages/pruebas/pruebas.component';
     DocsEstComponent,
     MatrizEvaluacionesComponent,
     SendEvaComponent,
-    PruebasComponent
+    PruebasComponent,
+    CarpetasComponent
   ],
   imports: [
     BrowserModule,
