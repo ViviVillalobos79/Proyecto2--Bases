@@ -50,5 +50,9 @@ export class GesEvaluacionesComponent implements OnInit {
     this.router.navigate(['gesEvaluaciones', this.cedula, this.idCurso]);
   }
 
+  goMatriz(){
+    this.router.navigate(['matrizEvaluaciones', this.cedula, this.idCurso]);
+  }
+  
 
 }

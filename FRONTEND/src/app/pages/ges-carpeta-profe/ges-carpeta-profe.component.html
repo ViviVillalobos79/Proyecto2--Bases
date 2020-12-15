@@ -1,0 +1,31 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio">Inicio</button>
+<button class="cursos">Cursos</button>
+<button class="micuenta">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
+  <button class="docs">DOCUMENTOS</button>
+  <button class="evaluaciones">EVALUACIONES</button>
+  <button class="admin">ADMIN</button>
+</div>
+
+<div class="files" style="overflow: auto">
+  <div class="panel panel-primary">
+    <div class="tit" >Documentos de X Carpeta</div>
+    <div *ngFor="let file of allFiles | async" >
+      <div class="doc">
+        <a href="{{ file.url }}">{{ file.name }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="newFile">
+  <button class="agreCarpeta" [disabled]="!selectedFiles" (click)="upload()">Agregar documento</button>
+  <label class="nombre">Seleccione el archivo a subir</label>
+  <input  class="seleArchivo" type="file" (change)="selectFile($event)" />
+</div>

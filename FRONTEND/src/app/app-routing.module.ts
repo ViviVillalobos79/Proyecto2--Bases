@@ -11,6 +11,7 @@ import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
 import { CarpetasComponent } from './pages/carpetas/carpetas.component';
 import { from } from 'rxjs';
+import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "sendEva", component: SendEvaComponent, pathMatch: "full" },
   { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
   { path: "carpetas/:cedula/:idCurso/:idCarpeta", component: CarpetasComponent, pathMatch: "full"},
+  { path: "carpeta/:cedula/:idCurso/:idCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

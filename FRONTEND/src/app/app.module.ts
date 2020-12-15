@@ -24,6 +24,8 @@ import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
 import { CarpetasComponent } from './pages/carpetas/carpetas.component';
+import { DetailsUploadComponent } from './pages/details/details-upload/details-upload.component';
+import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { CarpetasComponent } from './pages/carpetas/carpetas.component';
     MatrizEvaluacionesComponent,
     SendEvaComponent,
     PruebasComponent,
-    CarpetasComponent
+    CarpetasComponent,
+    DetailsUploadComponent,
+    GesCarpetaProfeComponent
   ],
   imports: [
     BrowserModule,

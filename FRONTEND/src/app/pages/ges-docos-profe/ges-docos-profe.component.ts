@@ -13,7 +13,7 @@ export class GesDocosProfeComponent implements OnInit {
   grupo:string;
   nombreCarpeta:string;
 
-  carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"]
+  carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"];
 
   constructor(
     private router: Router,
