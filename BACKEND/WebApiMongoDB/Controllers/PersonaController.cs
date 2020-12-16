@@ -48,7 +48,7 @@ namespace WebApiMongoDB.Controllers
         public ActionResult<Persona> Create(Persona persona)
         {
             _personaDB.Create(persona);
-            return Ok(_personaDB);// CreatedAtRoute("GetPersona", new { id = persona.Identificador.ToString() }, persona);
+            return Ok(_personaDB); // CreatedAtRoute("GetPersona", new { id = persona.Identificador.ToString() }, persona);
             
         }
         //Para actualizar datos de una persona por medio del identificador

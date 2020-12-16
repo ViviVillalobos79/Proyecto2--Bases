@@ -1,0 +1,13 @@
+string stringSQL = "Server=tcp:xtecdigitaldb.database.windows.net,1433;Initial Catalog=XTecDigitalDB;Persist Security Info=False;User ID=xtecadmin;Password=Admin12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+string stringMongo = "mongodb://xtecdigitaldbmongo:M7CwGEvcPbdzeIuSkHOj2unreFLdhRH3qhiHZBhG56lE4czRCwFEXwDiGoDu8ghb1DxQUCJKoDsxRpfbH90i5g==@xtecdigitaldbmongo.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@xtecdigitaldbmongo@";
+
+
+{
+    "Identificador": 702360597,
+    "Primer_Nombre": "Marco",
+    "Apellido1": "Avila",
+    "Apellido2": "Camacho",
+    "Correo": "jacamacho@gmail.com",
+    "Clave": "camacho14",
+    "Tipo_Persona": "Administrador"
+}
