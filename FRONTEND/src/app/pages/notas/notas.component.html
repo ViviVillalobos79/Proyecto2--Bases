@@ -1,0 +1,33 @@
+<hr class="linea" />
+<label class="logo">XTECDigital</label>
+
+<button class="inicio">Inicio</button>
+<button class="cursos">Cursos</button>
+<button class="perfil">Perfil</button>
+
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+
+<div class="barracurso">
+    <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+    <button class="noticias">Noticias</button>
+    <button class="documentos">Documentos</button>
+    <button class="evaluaciones">Evaluaciones</button>
+</div>
+
+<div class="look" >
+    <div *ngFor="let h of headers">
+        <mat-card>
+            <h1>
+                {{h["head"]}} &nbsp;&nbsp; {{h["value"]}}
+            </h1>
+
+        </mat-card>
+    </div>
+    
+</div>
+<button class="btn">
+    <h2>
+        Descargar
+    </h2>
+</button>

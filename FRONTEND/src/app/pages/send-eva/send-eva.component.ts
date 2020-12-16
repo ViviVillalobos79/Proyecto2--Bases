@@ -17,8 +17,8 @@ export class SendEvaComponent implements OnInit {
   ngOnInit(): void {
     this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
     this.grupo = "4";
-    this.asignaciones=["Tarea corta","Examen","Proyecto"]
-    this.rubros=["Primera entrega","Segunda entrega","Tercer entrega"]
+    this.asignaciones=["Tarea corta","Examen","Proyecto"];
+    this.rubros=["Primera entrega","Segunda entrega","Tercer entrega"];
   }
 
 }
