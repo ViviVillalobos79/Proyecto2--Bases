@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonaService } from '../../services/mongo/persona.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [PersonaService]
 })
 export class LoginComponent implements OnInit {
 
@@ -11,10 +14,12 @@ export class LoginComponent implements OnInit {
   password:string;
   rol:string;
 
-  constructor() { }
+  constructor(private personaSvc:PersonaService) { }
 
   ngOnInit(): void {
-
+    this.personaSvc.getAll().subscribe((res) => {
+      console.log('Res ', res);
+    });
   }
 
   login(){

@@ -28,3 +28,33 @@ C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\
 C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.dll
 C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.pdb
 C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.genruntimeconfig.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\appsettings.Development.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\appsettings.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.exe
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.deps.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.runtimeconfig.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.runtimeconfig.dev.json
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.pdb
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\DnsClient.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\SharpCompress.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csprojAssemblyReference.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.AssemblyInfoInputs.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.AssemblyInfo.cs
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csproj.CoreCompileInputs.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.MvcApplicationPartsAssemblyInfo.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.RazorTargetAssemblyInfo.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csproj.CopyComplete
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\staticwebassets\WebApiMongoDB.StaticWebAssets.Manifest.cache
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\staticwebassets\WebApiMongoDB.StaticWebAssets.xml
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.dll
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.pdb
+V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.genruntimeconfig.cache
