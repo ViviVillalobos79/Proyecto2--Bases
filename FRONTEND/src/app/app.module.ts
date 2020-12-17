@@ -28,6 +28,7 @@ import { DetailsUploadComponent } from './pages/details/details-upload/details-u
 import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
+import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { NotasComponent } from './pages/notas/notas.component';
     DetailsUploadComponent,
     GesCarpetaProfeComponent,
     NoticiasComponent,
-    NotasComponent
+    NotasComponent,
+    GesCursosComponent
   ],
   imports: [
     BrowserModule,

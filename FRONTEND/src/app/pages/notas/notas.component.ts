@@ -21,7 +21,7 @@ export class NotasComponent implements OnInit {
     {head:"Nombre",value:"Estudiante"},
     {head:"Examen I",value:70},
     {head:"Examen II",value:70},
-    {head:"Promedio",value:3}
+    {head:"Promedio",value:70}
     ]
   }
 

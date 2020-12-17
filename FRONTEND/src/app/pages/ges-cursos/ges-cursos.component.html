@@ -1,0 +1,36 @@
+<hr class="linea" />
+<label class="logo">XTECDigital</label>
+
+<button class="inicio">Inicio</button>
+<button class="cursos">Cursos</button>
+<button class="semestre">Iniciar semestre</button>
+
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<table class="container">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Codigo</th> 
+        <th scope="col">Nombre</th>
+        <th scope="col">Creditos</th>
+        <th scope="col">Carrera</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let curso of cursos">
+            <th scope="row"></th>
+            <td>{{curso.codigo}}&nbsp;&nbsp;</td>
+            <td>{{curso.nombre}}&nbsp;&nbsp;</td>
+            <td>{{curso.creditos}}&nbsp;&nbsp;</td>
+            <td>{{curso.carrera}}&nbsp;&nbsp;</td>
+            <td>
+                <button mat-flat-button>
+                    Deshabilitar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    
+  </table>

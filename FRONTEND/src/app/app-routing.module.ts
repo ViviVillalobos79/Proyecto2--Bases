@@ -14,6 +14,7 @@ import { from } from 'rxjs';
 import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
+import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: "carpeta/:cedula/:idCurso/:idCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
   {path: "noticias", component:NoticiasComponent, pathMatch: "full"},
   {path: "notas", component:NotasComponent, pathMatch: "full"},
+  {path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }
