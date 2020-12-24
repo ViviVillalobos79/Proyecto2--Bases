@@ -1,0 +1,58 @@
+<hr class="linea" />
+<label class="logo">XTECDigital</label>
+
+<button class="inicio">Inicio</button>
+<button class="cursos">Cursos</button>
+<button class="semestre">Iniciar semestre</button>
+
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="container">
+    <select class="form-control" (change)="periodoSet($event.target.value)">
+        <option value="">Seleccione el periodo</option>
+        <option value="estudiante">1</option>
+        <option value="profesor">2</option>
+        <option value="admin">V</option>
+    </select>
+</div>
+<div *ngFor="let curso of cursos" class="cont">
+    <mat-card>
+        <mat-accordion>
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="cont">
+                        <select class="form-control" (change)="periodoSet($event.target.value)">
+                            <option value="">Seleccione el curso</option>
+                            <option value="a">Bases de datos</option>
+                            <option value="b">Datos 1</option>
+                            <option value="c">Datos 2</option>
+                        </select>
+                        <p>&nbsp;&nbsp;&nbsp; </p>
+                        <select class="form-control" (change)="periodoSet($event.target.value)">
+                            <option value="">Seleccione el grupo</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <p>&nbsp;&nbsp;&nbsp; </p>
+                        <select class="form-control" (change)="periodoSet($event.target.value)">
+                            <option value="">Seleccione el profesor</option>
+                            <option value="a">Diego</option>
+                            <option value="b">Isaac</option>
+                        </select>
+                    </div>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let estudiante of estudiantes">
+                <section class="example-section">
+                    <mat-checkbox class="example-margin">{{estudiante}}</mat-checkbox>
+                </section>
+            </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card>
+</div>
+    
+
+    

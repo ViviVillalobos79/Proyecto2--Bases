@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { LoginComponent } from './pages/login/login.component';
 import { GesDocosProfeComponent } from './pages/ges-docos-profe/ges-docos-profe.component';
@@ -29,6 +30,7 @@ import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
 import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
+import { SemestreComponent } from './pages/semestre/semestre.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
     GesCarpetaProfeComponent,
     NoticiasComponent,
     NotasComponent,
-    GesCursosComponent
+    GesCursosComponent,
+    SemestreComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
     HttpClientModule,
     MatExpansionModule,
     MatTableModule,
-    MatChipsModule
+    MatChipsModule,
+    MatCheckboxModule
 
   ],
   providers: [],
