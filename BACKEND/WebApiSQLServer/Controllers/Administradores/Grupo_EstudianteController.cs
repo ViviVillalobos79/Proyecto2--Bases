@@ -25,10 +25,10 @@ namespace WebApiSQLServer.Controllers.Administradores
         {
             return Grupo_EstudianteRepositorio.GetAllGrupo_Estudiantes();
         }
-        [HttpGet("{id_grupo}")]
-        public IEnumerable<Grupo_Estudiante> GetGrupo_Estudiante(int id_grupo)
+        [HttpGet("{carnet}")]
+        public IEnumerable<Grupo_Estudiante> GetGrupo_Estudiante(int carnet)
         {
-            return Grupo_EstudianteRepositorio.GetGrupo_Estudiante(id_grupo);
+            return Grupo_EstudianteRepositorio.GetGrupo_Estudiante(carnet);
         }
 
         [HttpPost]
@@ -36,16 +36,16 @@ namespace WebApiSQLServer.Controllers.Administradores
         {
             return Grupo_EstudianteRepositorio.PostGrupo_Estudiante(Grupo_Estudiante);
         }
-        [HttpPut("{id_grupo}")]
-        public bool UpdateGrupo_Estudiante(Grupo_Estudiante Grupo_Estudiante, int id_grupo)
+        [HttpPut("{carnet}")]
+        public bool UpdateGrupo_Estudiante(Grupo_Estudiante Grupo_Estudiante, int carnet)
         {
-            return Grupo_EstudianteRepositorio.UpdateGrupo_Estudiante(Grupo_Estudiante, id_grupo);
+            return Grupo_EstudianteRepositorio.UpdateGrupo_Estudiante(Grupo_Estudiante, carnet);
         }
 
-        [HttpDelete("{id_grupo}")]
-        public bool DeleteGrupo_Estudiante(int id_grupo)
+        [HttpDelete("{carnet}")]
+        public bool DeleteGrupo_Estudiante(int carnet)
         {
-            return Grupo_EstudianteRepositorio.DeleteGrupo_Estudiante(id_grupo);
+            return Grupo_EstudianteRepositorio.DeleteGrupo_Estudiante(carnet);
         }
     }
 }

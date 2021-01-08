@@ -46,7 +46,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
             return listaGrupo;
         }
 
-        public static List<Grupo> GetGrupo(int Codigo_Grupo)
+        public static List<Grupo> GetGrupo(int id_Grupo)
         {
 
             Conexion conexion = new Conexion();
@@ -59,7 +59,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
             var query = "SELECT ID_Grupo, Numero_Grupo, Semestre, Profesor " +
                         "FROM xtec.GRUPO WHERE ID_Grupo = @ID_Grupo";
 
-            query = query.Replace("@ID_Grupo", Codigo_Grupo.ToString());
+            query = query.Replace("@ID_Grupo", id_Grupo.ToString());
 
             sqlCmd.CommandText = query;
             sqlCmd.Connection = connection;
@@ -116,7 +116,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
             var query = "UPDATE xtec.Grupo SET Numero_Grupo = @Numero_Grupo, Semestre = @Semestre, Profesor = @Profesor " +
-                        "WHERE ID_Grupo = '@ID_Grupo'";
+                        "WHERE ID_Grupo = @ID_Grupo";
 
             query = query.Replace("@Numero_Grupo", grupo.numero_grupo.ToString())
                          .Replace("@Semestre", grupo.semestre.ToString())

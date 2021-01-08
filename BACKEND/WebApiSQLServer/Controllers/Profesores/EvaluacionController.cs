@@ -23,7 +23,7 @@ namespace WebApiSQLServer.Controllers.Profesores
         [HttpGet]
         public IEnumerable<Evaluacion> GetAllEvaluacions()
         {
-            return EvaluacionRepositorio.GetAllEvaluacions();
+            return EvaluacionRepositorio.GetAllEvaluaciones();
         }
         [HttpGet("{id_Evaluacion}")]
         public IEnumerable<Evaluacion> GetEvaluacion(int id_Evaluacion)

@@ -22,8 +22,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT ID_Evaluacion, Tipo_Evaluacion, Especificacion, Fecha " +
-                        "Hora, Rubro, Grupo"+
+            var query = "SELECT ID_Evaluacion, Tipo_Evaluacion, Especificacion, Fecha, " +
+                        "Hora, Rubro, Grupo "+
                         "FROM xtec.EVALUACION";
 
             sqlCmd.CommandText = query;
@@ -60,8 +60,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT ID_Evaluacion, Tipo_Evaluacion, Especificacion, Fecha " +
-                        "Hora, Rubro, Grupo" +
+            var query = "SELECT ID_Evaluacion, Tipo_Evaluacion, Especificacion, Fecha, " +
+                        "Hora, Rubro, Grupo " +
                         "FROM xtec.EVALUACION WHERE ID_Evaluacion = @ID_Evaluacion";
 
             query = query.Replace("@ID_Evaluacion", id_Evaluacion.ToString());

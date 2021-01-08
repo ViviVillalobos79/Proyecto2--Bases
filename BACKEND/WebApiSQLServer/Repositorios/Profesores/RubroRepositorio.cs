@@ -22,7 +22,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT ID_Rubro, Numero_Rubro, Porcentaje, Grupo " +
+            var query = "SELECT ID_Rubro, Nombre_Rubro, Porcentaje, Grupo " +
                         "FROM xtec.RUBRO";
 
             sqlCmd.CommandText = query;
@@ -56,7 +56,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT ID_Rubro, Numero_Rubro, Porcentaje, Grupo " +
+            var query = "SELECT ID_Rubro, Nombre_Rubro, Porcentaje, Grupo " +
                         "FROM xtec.RUBRO WHERE ID_Rubro = @ID_Rubro";
 
             query = query.Replace("@ID_Rubro", id_Rubro.ToString());

@@ -9,7 +9,7 @@ using WebApiSQLServer.Repositorios.Profesores;
 
 namespace WebApiSQLServer.Controllers.Profesores
 {
-    [Route("apis/profesor/Entregable")]
+    [Route("apis/profesor/entregable")]
     [ApiController]
     public class EntregableController : ControllerBase
     {
