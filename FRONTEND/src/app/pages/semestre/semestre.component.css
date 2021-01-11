@@ -119,8 +119,20 @@
     left: 10px;
     top: 130px;
   }
+
+  .year{
+    padding-top: 190px;
+  }
+
+  .cur{
+    padding-top: 200px;
+  }
+
   .cont{
     display:flex;
     flex-direction: row;
-    margin-top: 80px;
+  }
+
+  .btn{
+    margin-top: 200px;
   }

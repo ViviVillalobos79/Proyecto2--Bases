@@ -69,7 +69,6 @@ import { SemestreComponent } from './pages/semestre/semestre.component';
     MatTableModule,
     MatChipsModule,
     MatCheckboxModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
