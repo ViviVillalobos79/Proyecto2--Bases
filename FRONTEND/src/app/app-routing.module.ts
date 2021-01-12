@@ -16,6 +16,7 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
 import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
 import { SemestreComponent } from './pages/semestre/semestre.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
@@ -29,10 +30,11 @@ const routes: Routes = [
   { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
   { path: "carpetas/:cedula/:idCurso/:idCarpeta", component: CarpetasComponent, pathMatch: "full"},
   { path: "carpeta/:cedula/:idCurso/:idCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
-  {path: "noticias", component:NoticiasComponent, pathMatch: "full"},
-  {path: "notas", component:NotasComponent, pathMatch: "full"},
-  {path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},
-  {path: "semestre", component:SemestreComponent, pathMatch: "full"},
+  { path: "noticias", component:NoticiasComponent, pathMatch: "full"},
+  { path: "notas", component:NotasComponent, pathMatch: "full"},
+  { path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},
+  { path: "semestre", component:SemestreComponent, pathMatch: "full"},
+  { path: "inicio", component:InicioComponent, pathMatch:"full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

@@ -31,6 +31,7 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
 import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
 import { SemestreComponent } from './pages/semestre/semestre.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { SemestreComponent } from './pages/semestre/semestre.component';
     NoticiasComponent,
     NotasComponent,
     GesCursosComponent,
-    SemestreComponent
+    SemestreComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
