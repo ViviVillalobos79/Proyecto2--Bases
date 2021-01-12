@@ -71,7 +71,6 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     MatTableModule,
     MatChipsModule,
     MatCheckboxModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

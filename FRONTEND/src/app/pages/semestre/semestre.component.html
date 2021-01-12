@@ -7,15 +7,22 @@
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
+<div [formGroup]="myForm" class="year">
+    <label for="year">Fecha de inicio de semestre:</label>
+    <input class="form-control" formControlName="yearDate" type="date" placeholder="Fecha"
+    (change)='dobSet($event.target.value)'>
+</div>
+
 <div class="container">
     <select class="form-control" (change)="periodoSet($event.target.value)">
         <option value="">Seleccione el periodo</option>
-        <option value="estudiante">1</option>
-        <option value="profesor">2</option>
-        <option value="admin">V</option>
+        <option value="primero">1</option>
+        <option value="segundo">2</option>
+        <option value="verano">V</option>
     </select>
 </div>
-<div *ngFor="let curso of cursos" class="cont">
+
+<div *ngFor="let curso of cursos" class="cur">
     <mat-card>
         <mat-accordion>
             <mat-expansion-panel>
@@ -53,6 +60,8 @@
         </mat-accordion>
     </mat-card>
 </div>
-    
 
+<button class="btn">
+    Iniciar semestre con archivo
+</button>
     
