@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: "notas", component:NotasComponent, pathMatch: "full"},
   { path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},
   { path: "semestre", component:SemestreComponent, pathMatch: "full"},
-  { path: "inicio", component:InicioComponent, pathMatch:"full"},
+  { path: "inicio/:username/:rol", component:InicioComponent, pathMatch:"full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }
