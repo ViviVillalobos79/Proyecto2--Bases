@@ -10,8 +10,8 @@
   <div class="tramos">
     <div *ngFor="let curso of cursos">
       <mat-card class="productor">
-        <h3>{{ curso }} &nbsp;</h3>
-        <button class="searchbt" (click)="visitarCurso(curso)">
+        <h3>{{ curso.nombre }} &nbsp;</h3>
+        <button class="searchbt" (click)="visitarCurso(curso.id)">
           <h3>Ver</h3>
         </button>
       </mat-card>

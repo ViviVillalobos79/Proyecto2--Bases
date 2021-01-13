@@ -1,9 +1,9 @@
 <hr class="linea" />
 <label class="logo">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="perfil">Perfil</button>
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="cursos" (click)="cursosGo()">Cursos</button>
+<button class="perfil" (click)="perfilGo()">Perfil</button>
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
@@ -14,16 +14,16 @@
     <button class="documentos">Documentos</button>
     <button class="evaluaciones">Evaluaciones</button>
   </div>
-  
-  
+
+
   <div class="look">
-  
+
       <div class = "lookfil" style="overflow: auto">
         <div class="etiquetas">
           <div *ngFor="let carpeta of carpetas">
             <mat-card class="etiqueta">
-              <h3>{{ carpeta }} &nbsp;</h3>
-              <button (click)="abrir()">
+              <h3>{{ carpeta.nombre }} &nbsp;</h3>
+              <button (click)="abrir(carpeta.id)">
                   <h3>
                   Abrir
                   </h3>
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-  
-  
-  
+
+
+
   </div>

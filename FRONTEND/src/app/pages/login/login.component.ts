@@ -27,10 +27,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     //Verifica las credenciales
-    this.router.navigate(['inicio', this.username, this.rol]);
+    this.router.navigate(['inicio', this.username]);
   }
 
   rolSet(rol) {
+    console.log(rol);
     this.rol = rol;
   }
 
