@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 import { LoginComponent } from './pages/login/login.component';
 import { GesDocosProfeComponent } from './pages/ges-docos-profe/ges-docos-profe.component';
@@ -70,7 +72,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     MatExpansionModule,
     MatTableModule,
     MatChipsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -105,23 +105,16 @@
   }
   
   .container {
-    border: none;
-    color: black;
-    background-color: white;
     width: 10%;
-    display: block;
-    padding: 0.875rem 1rem;
-    border-radius: 1.5rem;
     cursor: pointer;
-    position: absolute;
     width: 200px;
     height: 40px;
-    left: 10px;
-    top: 130px;
+    top: 200px;
   }
 
   .year{
-    padding-top: 190px;
+    
+    padding-bottom: 30px;
   }
 
   .cur{
@@ -133,6 +126,31 @@
     flex-direction: row;
   }
 
+  .arc{
+    margin-top: 80px;
+  }
+
+  .example-viewport {
+    height: 500px;
+    width: 700px;
+    border: 1px solid black;
+  }
+
+  .estu {
+    margin-top: 20px;
+    height: 100px;
+    width: 454px;
+    border: 1px solid black;
+  }
+  
+  .cent{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .btn{
-    margin-top: 200px;
+    margin-left: 850px;
+    margin-top: 40px;
   }

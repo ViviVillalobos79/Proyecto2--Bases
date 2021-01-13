@@ -7,61 +7,88 @@
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
-<div [formGroup]="myForm" class="year">
-    <label for="year">Fecha de inicio de semestre:</label>
-    <input class="form-control" formControlName="yearDate" type="date" placeholder="Fecha"
-    (change)='dobSet($event.target.value)'>
-</div>
 
-<div class="container">
-    <select class="form-control" (change)="periodoSet($event.target.value)">
-        <option value="">Seleccione el periodo</option>
-        <option value="primero">1</option>
-        <option value="segundo">2</option>
-        <option value="verano">V</option>
-    </select>
-</div>
+<div class="cent">
 
-<div *ngFor="let curso of cursos" class="cur">
-    <mat-card>
-        <mat-accordion>
-            <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <div class="cont">
-                        <select class="form-control" (change)="periodoSet($event.target.value)">
-                            <option value="">Seleccione el curso</option>
-                            <option value="a">Bases de datos</option>
-                            <option value="b">Datos 1</option>
-                            <option value="c">Datos 2</option>
-                        </select>
-                        <p>&nbsp;&nbsp;&nbsp; </p>
-                        <select class="form-control" (change)="periodoSet($event.target.value)">
-                            <option value="">Seleccione el grupo</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        <p>&nbsp;&nbsp;&nbsp; </p>
-                        <select class="form-control" (change)="periodoSet($event.target.value)">
-                            <option value="">Seleccione el profesor</option>
-                            <option value="a">Diego</option>
-                            <option value="b">Isaac</option>
-                        </select>
-                    </div>
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div *ngFor="let estudiante of estudiantes">
-                <section class="example-section">
-                    <mat-checkbox class="example-margin">{{estudiante}}</mat-checkbox>
-                </section>
-            </div>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </mat-card>
-</div>
+    <div class="arc">
+        <h1>
+            Iniciar el semestre por medio de un archivo
+        </h1>
+        <button>
+            Iniciar semestre con archivo
+        </button>
+        <h3>
+            Recuerde que el archivo debe estar en formato .csv
+        </h3>
+    </div>
+        
+    <h1>
+        Iniciar el semestre de forma manual
+    </h1>
+    <div [formGroup]="myForm" class="year">
+        <label for="year">Fecha de inicio de semestre:</label>
+        <input class="form-control" formControlName="yearDate" type="date" placeholder="Fecha"
+        (change)='dobSet($event.target.value)'>
+    </div>
 
-<button class="btn">
-    Iniciar semestre con archivo
-</button>
+    <div class="container">
+        <select class="form-control" (change)="periodoSet($event.target.value)">
+            <option value="">Seleccione el periodo</option>
+            <option value="primero">1</option>
+            <option value="segundo">2</option>
+            <option value="verano">V</option>
+        </select>
+    </div>
+
+    <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
+        <div *cdkVirtualFor="let curso of cursos">
+            <mat-card>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div class="cont">
+                                <select class="form-control" (change)="periodoSet($event.target.value)">
+                                    <option value="">Seleccione el curso</option>
+                                    <option value="a">Bases de datos</option>
+                                    <option value="b">Datos 1</option>
+                                    <option value="c">Datos 2</option>
+                                </select>
+                                <p>&nbsp;&nbsp;&nbsp; </p>
+                                <select class="form-control" (change)="periodoSet($event.target.value)">
+                                    <option value="">Seleccione el grupo</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                <p>&nbsp;&nbsp;&nbsp; </p>
+                                <select class="form-control" (change)="periodoSet($event.target.value)">
+                                    <option value="">Seleccione el profesor</option>
+                                    <option value="a">Diego</option>
+                                    <option value="b">Isaac</option>
+                                </select>
+                            </div>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    
+                    <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="estu">
+                        <div *cdkVirtualFor="let estudiante of estudiantes">
+                            <mat-checkbox class="example-margin">{{estudiante}}</mat-checkbox>
+                        </div>
+
+                    </cdk-virtual-scroll-viewport>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card>
+        </div>
+    </cdk-virtual-scroll-viewport>
+    <button class="btn">
+        <h2>
+            Finalizar
+        </h2>
+    </button>
     
+</div>
+
+  
