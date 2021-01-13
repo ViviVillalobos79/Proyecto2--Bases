@@ -43,5 +43,21 @@ namespace WebApiMongoDB.Data
         //Eliminar una persona por id
         public void Remove(int id) =>
             _personaCollection.DeleteOne(persona => persona.Identificador == id);
+        
+        //Retornar lista de todos los estudiantes en el sistema 
+        public List<Persona> SeleccionarEstudiante() {
+            return _personaCollection.Find(persona => persona.Tipo_Persona == "Estudiante").ToList();
+        }
+        //Retornar lista de todos los profesores en el sistema
+        public List<Persona> SeleccionarProfesores()
+        {
+            return _personaCollection.Find(persona => persona.Tipo_Persona == "Profesor").ToList();
+        }
+
+        public List<Persona> SeleccionarAdministradores()
+        {
+            return _personaCollection.Find(persona => persona.Tipo_Persona == "Administrador").ToList();
+        }
+
     }
 }

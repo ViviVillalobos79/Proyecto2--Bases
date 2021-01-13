@@ -12,7 +12,37 @@ export class PersonaService {
 
   url:string = '/api/persona';
 
+  // ----- CRUD DE PERSONA --------
   getAll():Observable<Persona[]>{
     return this.http.get<Persona[]>(this.url);
+  }
+
+  getById(identificador:number):Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url + '/' + identificador);
+  }
+
+  postPersona(persona:Persona):Observable<Persona[]>{
+    return this.http.post<Persona[]>(this.url, persona);
+  }
+
+  updatePersona(identificador:number, persona:Persona):Observable<Persona[]>{
+    return this.http.put<Persona[]>(this.url + '/' + identificador, persona);
+  }
+
+  deletePersona(identificador:number):Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url + '/' + identificador);
+  }
+
+  // Seleccionar 
+  selectEstudiantes():Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url + '/' + "seleccionarEstudiantes")
+  }
+
+  selectProfesores():Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url + '/' + "seleccionarProfesores")
+  }
+
+  selectAdministradores():Observable<Persona[]>{
+    return this.http.get<Persona[]>(this.url + '/' + "seleccionarAdministradores")
   }
 }
