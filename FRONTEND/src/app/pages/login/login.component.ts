@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkCredentials(){
-    console.log("hola");
+    
     this.personas.forEach(element => {
 
       if(this.rol == element.tipo_Persona && this.username == element.identificador.toString() && this.password == element.clave){
