@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiSQLServer.Modelos;
+using WebApiSQLServer.Modelos.Profesores;
 
 namespace WebApiSQLServer.Controllers
 {
@@ -17,6 +18,7 @@ namespace WebApiSQLServer.Controllers
         public DbSet<Estudiante> Estudiante { get; set; }
         public DbSet<Profesor> Profesor { get; set; }
         public DbSet<Administrador> Administrador { get; set;}
+        public DbSet<Carpeta> Carpeta { get; set; }
 
 
     }

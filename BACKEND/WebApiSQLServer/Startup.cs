@@ -6,12 +6,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiSQLServer.Controllers;
 using Microsoft.EntityFrameworkCore;
+//using WebApiSQLServer.Data;
+//using WebApiSQLServer.Data.Configuration;
 
 namespace WebApiSQLServer
 {
@@ -27,7 +30,17 @@ namespace WebApiSQLServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configuración de la base de datos en SQLServer
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            /*
+            //Configuración de la base de datos en mongodb 
+            services.Configure<XTecDigitalMongoDBSettings>(
+                Configuration.GetSection(nameof(XTecDigitalMongoDBSettings)));
+            
+            services.AddSingleton<IXTecDigitalMongoDBSettings>(sp =>
+                sp.GetRequiredService<IOptions<XTecDigitalMongoDBSettings>>().Value);
+            services.AddSingleton<PersonaDB>();
+            */
             services.AddControllers();
         }
 
