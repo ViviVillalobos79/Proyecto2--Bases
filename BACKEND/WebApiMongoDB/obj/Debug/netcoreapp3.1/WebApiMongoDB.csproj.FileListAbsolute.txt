@@ -58,3 +58,33 @@ V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\s
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.dll
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.pdb
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.genruntimeconfig.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.exe
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.deps.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.runtimeconfig.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.runtimeconfig.dev.json
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\WebApiMongoDB.pdb
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\DnsClient.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\SharpCompress.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csprojAssemblyReference.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.AssemblyInfoInputs.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.AssemblyInfo.cs
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csproj.CoreCompileInputs.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.MvcApplicationPartsAssemblyInfo.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.RazorTargetAssemblyInfo.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.csproj.CopyComplete
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\staticwebassets\WebApiMongoDB.StaticWebAssets.Manifest.cache
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\staticwebassets\WebApiMongoDB.StaticWebAssets.xml
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.dll
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.pdb
+D:\Escritorio\Bases Proyecto2\Proyecto2--Bases\BACKEND\WebApiMongoDB\obj\Debug\netcoreapp3.1\WebApiMongoDB.genruntimeconfig.cache

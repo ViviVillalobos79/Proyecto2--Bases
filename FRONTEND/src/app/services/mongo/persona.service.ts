@@ -17,7 +17,7 @@ export class PersonaService {
     return this.http.get<Persona[]>(this.url);
   }
 
-  getById(identificador:number):Observable<Persona[]>{
+  getById(identificador:string):Observable<Persona[]>{
     return this.http.get<Persona[]>(this.url + '/' + identificador);
   }
 

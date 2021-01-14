@@ -1,6 +1,8 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NumberAttributeValue } from 'aws-sdk/clients/dynamodbstreams';
+import { element } from 'protractor';
 import { Persona } from 'src/app/models/Persona';
 import { PersonaService } from '../../services/mongo/persona.service';
 
@@ -11,25 +13,26 @@ import { PersonaService } from '../../services/mongo/persona.service';
   providers: [PersonaService],
 })
 export class ProfileComponent implements OnInit {
-  carne: number;
+  carne: string;
   nombre: string;
   correo: string;
-  telefono: number;
   contraseña: string;
   personas:Persona[];
 
   @Output() onChange: EventEmitter<File> = new EventEmitter<File>();
-  constructor(private router: Router, private personaSvc: PersonaService) {}
+  constructor(private router: Router, private personaSvc: PersonaService, private _route: ActivatedRoute) {
+    this.carne = this._route.snapshot.paramMap.get('cedula');
+  }
 
   ngOnInit(): void {
-    this.carne = 2017147709;
-    this.nombre = 'Lucy';
-    this.correo = 'lmg@gmail.com';
-    this.telefono = 89317701;
-    this.contraseña = 'Lucy';
 
-    this.personaSvc.getAll().subscribe((res) => {
+    this.personaSvc.getById(this.carne).subscribe((res) => {
       this.personas = res;
+      this.personas.forEach(element=>{
+        this.nombre = element.primer_Nombre +' '+ element.apellido1;
+        this.correo = element.correo;
+      })    
+      
       console.log(this.personas);
     });
   }
