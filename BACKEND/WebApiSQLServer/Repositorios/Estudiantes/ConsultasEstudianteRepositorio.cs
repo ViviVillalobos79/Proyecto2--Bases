@@ -9,11 +9,8 @@ using WebApiSQLServer.Modelos.Estudiantes;
 
 namespace WebApiSQLServer.Repositorios.Estudiantes
 {
-    //Repositorio para las vistas a las que puede acceder un estudiante
     public class ConsultasEstudianteRepositorio
     {
-
-        
         public static List<CursosEstudiante> cursosEstudiantes(int carnet)
         {
 
@@ -25,7 +22,7 @@ namespace WebApiSQLServer.Repositorios.Estudiantes
             sqlCmd.CommandType = CommandType.Text;
 
             var query = "SELECT Nombre_Curso, Numero_Grupo, 'Semestre' + Periodo AS Periodo, Ano " +
-                        "FROM View_Cursos_de_Estudiante " + 
+                        "FROM View_Cursos_de_Estudiante "+"" +
                         "WHERE Carnet = @Carnet";
 
             query = query.Replace("@Carnet", carnet.ToString());

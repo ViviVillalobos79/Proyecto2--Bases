@@ -34,34 +34,3 @@ export class Semestre{
     ano:number;
     administrador:number;
 }
-
-export class SemestresAdministrador{
-    ano:number;
-    periodo:string;
-}
-
-export class CursoSemestre{
-    codigo_curso:string;
-    nombre_curso:string;
-    creditos:number;
-    carrera:string;
-}
-
-export class GruposCurso{
-    codigo_curso:string;
-    id_grupo:number;
-    numero_grupo:number;
-    profesor:number;
-}
-
-export class ProfesorSemestre{
-    ano:number;
-    periodo:string;
-    cedula:number;
-}
-
-export class ProfesorCurso{
-    codigo_curso:string;
-    nombre_curso:string;
-    cedula:number;
-}

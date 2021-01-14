@@ -45,7 +45,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
             return lista;
         }
 
-        public static List<CursoSemestre> cursoSemestres() {
+        public static List<CursoSemestre> cursoSemestres(int id_semestre) {
 
             Conexion conexion = new Conexion();
             SqlDataReader reader = null;
@@ -54,9 +54,11 @@ namespace WebApiSQLServer.Repositorios.Administradores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT * FROM View_Cursos_Impartidos";
+            var query = "SELECT C.Codigo_Curso, C.Nombre_Curso, C.Creditos, C.Carrera " +
+                        "FROM xtec.CURSO_SEMESTRE AS S JOIN xtec.CURSO AS C ON S.Codigo_Curso = C.Codigo_Curso " +
+                        "WHERE S.ID_Semestre = @ID_Semestre;";
 
-            //query = query.Replace("@ID_Semestre", id_semestre.ToString());
+            query = query.Replace("@ID_Semestre", id_semestre.ToString());
 
             sqlCmd.CommandText = query;
             sqlCmd.Connection = connection;

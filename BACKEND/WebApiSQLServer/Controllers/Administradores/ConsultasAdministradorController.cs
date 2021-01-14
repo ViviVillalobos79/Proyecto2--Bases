@@ -20,10 +20,10 @@ namespace WebApiSQLServer.Controllers.Administradores
         }
 
         [HttpGet]
-        [Route("apis/administrador/curso/semestre")]
-        public IEnumerable<CursoSemestre> cursoSemestres()
+        [Route("apis/administrador/curso/semestre/{id_semestre}")]
+        public IEnumerable<CursoSemestre> cursoSemestres(int id_semestre)
         {
-            return ConsultasAdministradorRepositorio.cursoSemestres();
+            return ConsultasAdministradorRepositorio.cursoSemestres(id_semestre);
         }
 
         [HttpGet]

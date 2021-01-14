@@ -33,7 +33,7 @@ export class PersonaService {
     return this.http.get<Persona[]>(this.url + '/' + identificador);
   }
 
-  // Seleccionar diferentes tipos de personas de la base de datos en MongoDB
+  // Seleccionar 
   selectEstudiantes():Observable<Persona[]>{
     return this.http.get<Persona[]>(this.url + '/' + "seleccionarEstudiantes")
   }
