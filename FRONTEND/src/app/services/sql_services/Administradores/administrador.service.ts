@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Administrador } from 'src/app/models/SQL_Models/Administrador';
+import { Administrador, CursoSemestre } from 'src/app/models/SQL_Models/Administrador';
+import { SemestresAdministrador } from 'src/app/models/SQL_Models/Administrador';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,4 +40,18 @@ export class AdministradorService {
   deleteAdministrador(cedula:number):Observable<Administrador>{
     return this.http.delete<Administrador>(this.url + '/' + cedula);
   }
+
+  // Servicios de consultas que puede realizar el administrador 
+
+  // Retorna todos los semestres creados por un administrador
+  getSemestresAdministrador(cedula:number):Observable<SemestresAdministrador>{
+    return this.http.get<SemestresAdministrador>(this.url + '/' + 'admiSemestre' + '/' + cedula);
+  }
+
+  //Retorna todos los cursos impartidos 
+  getCursoSemestre():Observable<CursoSemestre>{
+    return this.http.get<CursoSemestre>(this.url + '/' + 'curso/semestre');
+  }
+
+  
 }

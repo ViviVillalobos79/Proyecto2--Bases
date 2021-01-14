@@ -53,11 +53,11 @@ namespace WebApiMongoDB.Data
         {
             return _personaCollection.Find(persona => persona.Tipo_Persona == "Profesor").ToList();
         }
-
+        //Retorna lista de todos los administradores en el sistema
         public List<Persona> SeleccionarAdministradores()
         {
             return _personaCollection.Find(persona => persona.Tipo_Persona == "Administrador").ToList();
         }
-
+        
     }
 }
