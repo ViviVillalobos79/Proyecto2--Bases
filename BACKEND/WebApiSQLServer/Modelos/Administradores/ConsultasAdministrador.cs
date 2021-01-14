@@ -11,7 +11,7 @@ namespace WebApiSQLServer.Modelos.Administradores
         public string periodo { get; set; }
     }
 
-    public class CursoSemestre {
+    public class CursoSemestre {    
         public string codigo_curso { get; set; }
         public string nombre_curso { get; set; }
         public int creditos { get; set; }
@@ -35,5 +35,10 @@ namespace WebApiSQLServer.Modelos.Administradores
         public string codigo_curso { get; set; }
         public string nombre_curso { get; set; }
         public int cedula { get; set; }
+    }
+
+    public class CursosImpartidos {
+        public string codigo_curso { get; set; }
+        public int MyProperty { get; set; }
     }
 }
