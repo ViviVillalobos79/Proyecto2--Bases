@@ -191,5 +191,30 @@ namespace WebApiSQLServer.Repositorios.Administradores
             connection.Close();
             return lista;
         }
+        public static bool inicioSemestre(List<InicizalizarSemestre> json)
+        {
+
+            Conexion conexion = new Conexion();
+
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            var query = "EXEC SP_INICIAR_SEMESTRE N@jsonDATOS";
+
+            query = query.Replace("@jsonDATOS",json. ToString());
+
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
