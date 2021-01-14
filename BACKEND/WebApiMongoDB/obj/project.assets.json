@@ -4789,25 +4789,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\viviv\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Paulo Azofeifa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "V:\\Users\\GitHub\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\WebApiMongoDB.csproj",
+      "projectUniqueName": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\WebApiMongoDB.csproj",
       "projectName": "WebApiMongoDB",
-      "projectPath": "V:\\Users\\GitHub\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\WebApiMongoDB.csproj",
-      "packagesPath": "C:\\Users\\viviv\\.nuget\\packages\\",
-      "outputPath": "V:\\Users\\GitHub\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\obj\\",
+      "projectPath": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\WebApiMongoDB.csproj",
+      "packagesPath": "C:\\Users\\Paulo Azofeifa\\.nuget\\packages\\",
+      "outputPath": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\viviv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Paulo Azofeifa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -4853,8 +4848,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiMongoDB\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
