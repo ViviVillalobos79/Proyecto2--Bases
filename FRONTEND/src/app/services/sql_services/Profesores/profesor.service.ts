@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Profesor } from 'src/app/models/SQL_Models/Profesor';
+import { EstudiantesMatriculados } from 'src/app/models/SQL_Models/Profesor';
+import { CursosProfesor } from 'src/app/models/SQL_Models/Profesor';
+import { DocumentosCarpeta } from 'src/app/models/SQL_Models/Profesor';
+import { CarpetasGrupo } from 'src/app/models/SQL_Models/Profesor';
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +35,25 @@ export class ProfesorService {
   deleteProfesor(cedula:number):Observable<Profesor>{
     return this.http.delete<Profesor>(this.url + '/' + cedula);
   }
+
+  // Retorna lista de estudiantes matriculados en un curso, por medio del id del grupo
+  getEstudiantesMatriculados(id_grupo:number):Observable<EstudiantesMatriculados>{
+    return this.http.get<EstudiantesMatriculados>(this.url + '/estudiantes/matriculados/' + id_grupo);
+  }
+
+  // Retorna lista de cursos que imparte un profesor
+  getCursosProfesor(cedula:number):Observable<CursosProfesor>{
+    return this.http.get<CursosProfesor>(this.url + '/cursos/' + cedula);
+  }
+
+  // Retorna los documentos que se encuentran en una carpeta de un grupo, por nombre de carpeta y id del grupo
+  getDocumentosCarpeta(id_grupo:number, carpeta:string):Observable<DocumentosCarpeta>{
+    return this.http.get<DocumentosCarpeta>(this.url + '/documentos/carpeta/' + id_grupo + '/' + carpeta);
+  }
+
+  // Retorna lista de carpetas en un grupo por medio del id del grupo
+  getCarpetasGrupo(id_grupo:number):Observable<CarpetasGrupo>{
+    return this.http.get<CarpetasGrupo>(this.url + '/carpeta/grupo/' + id_grupo)
+  }
+
 }

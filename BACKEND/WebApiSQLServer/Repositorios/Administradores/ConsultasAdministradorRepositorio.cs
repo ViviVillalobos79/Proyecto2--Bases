@@ -200,7 +200,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
 
             var query = "EXEC SP_INICIAR_SEMESTRE N@jsonDATOS";
 
-            query = query.Replace("@jsonDATOS",json. ToString());
+            query = query.Replace("@jsonDATOS", json.ToString());
 
             try
             {

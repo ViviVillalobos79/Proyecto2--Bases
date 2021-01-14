@@ -36,4 +36,21 @@ namespace WebApiSQLServer.Modelos.Administradores
         public string nombre_curso { get; set; }
         public int cedula { get; set; }
     }
+
+    public class InicizalizarSemestre {
+        public int Carnet { get; set; }
+        public string CodCurso { get; set; }
+        public string NomCurso { get; set; }
+        public int Creditos { get; set; }
+        public int Habilitado { get; set; }
+        public int Ano { get; set; }
+        public string Periodo { get; set; }
+        public int NumGrupo { get; set; }
+        public int CedProfe { get; set; }
+        public int CedAdmin { get; set; }
+    }
+
+    public class listaIniciarSemestre {
+        public List<InicizalizarSemestre> iniciar { get; set; }
+    }
 }

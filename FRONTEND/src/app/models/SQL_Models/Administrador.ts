@@ -34,3 +34,17 @@ export class Semestre{
     ano:number;
     administrador:number;
 }
+
+export class InicializarSemestre{
+    Carnet:number;
+    CodCurso:string;
+    NomCurso:string;
+    Creditos:number;
+    Carrera:string;
+    Habilitado:number;
+    Ano:number;
+    Periodo:string;
+    NumGrupo:number;
+    CedProfe:number;
+    CedAdmin:number;
+}
