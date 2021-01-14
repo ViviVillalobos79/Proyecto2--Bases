@@ -9,7 +9,7 @@ using WebApiMongoDB.Entidades;
 
 namespace WebApiMongoDB.Controllers
 {
-    
+    [Route("api/persona")]
     [ApiController]
     public class PersonaController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace WebApiMongoDB.Controllers
         //Para traerse todos los datos de la base en mongo se utiliza el siguiente link
         // https://localhost:44371/api/persona
         [HttpGet]
-        [Route("api/persona")]
+       // [Route("api/persona")]
         public ActionResult<List<Persona>> Get()
         {
             return Ok(_personaDB.Get());
@@ -31,7 +31,7 @@ namespace WebApiMongoDB.Controllers
         //Para traerse datos de una persona por medio del identificador
         // https://localhost:44371/api/persona/702360598
         [HttpGet("{id}")]
-        [Route("api/persona")]
+        //[Route("api/persona")]
         public ActionResult<Persona> GetbyId(int id)
         {
             var persona = _personaDB.GetbyId(id);
@@ -47,7 +47,7 @@ namespace WebApiMongoDB.Controllers
         //Para traerse datos de una persona por medio del identificador
         // https://localhost:44371/api/persona
         [HttpPost]
-        [Route("api/persona")]
+        //[Route("api/persona")]
         public ActionResult<Persona> Create(Persona persona)
         {
             _personaDB.Create(persona);
@@ -57,7 +57,7 @@ namespace WebApiMongoDB.Controllers
         //Para actualizar datos de una persona por medio del identificador
         // https://localhost:44371/api/persona/702360598
         [HttpPut("{id}")]
-        [Route("api/persona")]
+        //[Route("api/persona")]
         public IActionResult Update(int id, Persona persona)
         {
             var persona1 = _personaDB.GetbyId(id);
@@ -75,7 +75,7 @@ namespace WebApiMongoDB.Controllers
         //Para eliminar una persona por medio del identificador
         // https://localhost:44371/api/persona/702360598
         [HttpDelete("{id}")]
-        [Route("api/persona")]
+        //[Route("api/persona")]
         public IActionResult Delete(int id)
         {
             var persona = _personaDB.GetbyId(id);
@@ -91,20 +91,20 @@ namespace WebApiMongoDB.Controllers
         }
 
         [HttpGet]
-        [Route("api/persona/seleccionarEstudiantes")]
+        [Route("seleccionarEstudiantes")]
         public ActionResult<Persona> seleccionarEstudiantes() {
             return Ok(_personaDB.SeleccionarEstudiante());
         }
 
         [HttpGet]
-        [Route("api/persona/seleccionarProfesores")]
+        [Route("seleccionarProfesores")]
         public ActionResult<Persona> seleccionarProfesores()
         {
             return Ok(_personaDB.SeleccionarProfesores());
         }
 
         [HttpGet]
-        [Route("api/persona/seleccionarAdministradores")]
+        [Route("seleccionarAdministradores")]
         public ActionResult<Persona> seleccionarAdministradores()
         {
             return Ok(_personaDB.SeleccionarAdministradores());
