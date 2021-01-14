@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -9,7 +10,8 @@ import {
 @Component({
   selector: 'app-semestre',
   templateUrl: './semestre.component.html',
-  styleUrls: ['./semestre.component.css']
+  styleUrls: ['./semestre.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SemestreComponent implements OnInit {
   periodo:string;
