@@ -136,3 +136,6 @@ V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiSQLServer\obj\Debug\netcoreapp3.1
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiSQLServer\obj\Debug\netcoreapp3.1\WebApiSQLServer.dll
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiSQLServer\obj\Debug\netcoreapp3.1\WebApiSQLServer.pdb
 V:\Users\GitHub\Proyecto2--Bases\BACKEND\WebApiSQLServer\obj\Debug\netcoreapp3.1\WebApiSQLServer.genruntimeconfig.cache
+C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiSQLServer\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiSQLServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\OneDrive\Escritorio\Proyecto II Bases\Proyecto2--Bases\BACKEND\WebApiSQLServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
