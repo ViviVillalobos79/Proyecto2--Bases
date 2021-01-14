@@ -29,8 +29,8 @@
       <div class="tramos">
         <div *ngFor="let carpeta of carpetas">
           <mat-card class="productor">
-            <h3>{{ carpeta }} &nbsp;</h3>
-            <button class="searchbt" (click)="visitarCarpeta(carpeta)">
+            <h3>{{ carpeta.nombre }} &nbsp;</h3>
+            <button class="searchbt" (click)="visitarCarpeta(carpeta.id_carpeta)">
                 <h3>
                 Ver
                 </h3>

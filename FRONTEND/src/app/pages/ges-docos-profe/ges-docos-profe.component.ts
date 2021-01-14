@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Carpeta } from 'src/app/models/SQL_Models/Profesor';
+import { Curso } from 'src/app/models/SQL_Models/Administrador';
+
+import { CursoService } from '../../services/sql_services/Administradores/curso.service';
 
 @Component({
   selector: 'app-ges-docos-profe',
   templateUrl: './ges-docos-profe.component.html',
-  styleUrls: ['./ges-docos-profe.component.css']
+  styleUrls: ['./ges-docos-profe.component.css'],
+  providers: [CursoService]
 })
 export class GesDocosProfeComponent implements OnInit {
 
@@ -12,19 +17,29 @@ export class GesDocosProfeComponent implements OnInit {
   nombrecurso:string;
   grupo:string;
   nombreCarpeta:string;
+  idCurso:string;
+  curso:Curso;
 
-  carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"];
+  //carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"];
+  carpetas:Carpeta[];
 
   constructor(
     private router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private cursoSvc: CursoService
   ) {
-    this.username = this._route.snapshot.paramMap.get('username');
+    this.username = this._route.snapshot.paramMap.get('cedula');
+    this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
 
   ngOnInit(): void {
     this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
     this.grupo = "4";
+
+    this.cursoSvc.getCurso(this.idCurso).subscribe((res) => {
+      console.log('Res ', res);
+      
+    });
   }
 
 
