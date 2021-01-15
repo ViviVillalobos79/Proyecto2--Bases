@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Profesor } from 'src/app/models/SQL_Models/Profesor';
+import { Datos_Curso, Profesor } from 'src/app/models/SQL_Models/Profesor';
 import { EstudiantesMatriculados } from 'src/app/models/SQL_Models/Profesor';
 import { CursosProfesor } from 'src/app/models/SQL_Models/Profesor';
 import { DocumentosCarpeta } from 'src/app/models/SQL_Models/Profesor';
@@ -59,5 +59,9 @@ export class ProfesorService {
 
   getReporteNotas(id_grupo:number):Observable<ReporteNotas>{
     return this.http.get<ReporteNotas>(this.url + '/reporte/notas/' + id_grupo);
+  }
+
+  getDatos_Curso(id_grupo:number):Observable<Datos_Curso>{
+    return this.http.get<Datos_Curso>(this.url + '/datos/grupo/' + id_grupo);
   }
 }

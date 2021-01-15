@@ -26,7 +26,8 @@ namespace WebApiSQLServer.Modelos.Administradores
         public string periodo { get; set; }
         public int cedula { get; set; }
     }
-
+    
+    //Lista de estudiantes por semestre
     public class EstudiantesSemestre
     {
         public int ano { get; set; }

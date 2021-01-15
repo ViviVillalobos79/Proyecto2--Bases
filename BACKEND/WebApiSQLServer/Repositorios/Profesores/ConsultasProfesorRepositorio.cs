@@ -190,5 +190,76 @@ namespace WebApiSQLServer.Repositorios.Profesores
             connection.Close();
             return lista;
         }
+
+        public static List<Datos_Grupo> datos_Grupos(int id_grupo)
+        {
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT C.Nombre_Curso, C.Codigo_Curso, G.Numero_Grupo " +
+                        "FROM xtec.GRUPO AS G JOIN xtec.CURSO_GRUPO AS P ON G.ID_Grupo = P.ID_Grupo " +
+                        "JOIN xtec.CURSO AS C ON C.Codigo_Curso = P.Codigo_Curso " +
+                        "WHERE G.ID_Grupo = @ID_Grupo";
+
+            query = query.Replace("@ID_Grupo", id_grupo.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<Datos_Grupo> lista = new List<Datos_Grupo>();
+            Datos_Grupo cursos = null;
+
+            while (reader.Read())
+            {
+                cursos = new Datos_Grupo();
+                cursos.nombre_curso = reader.GetValue(0).ToString();
+                cursos.codigo_curso = reader.GetValue(1).ToString();
+                cursos.numero_grupo = Convert.ToInt32(reader.GetValue(2));
+                lista.Add(cursos);
+            }
+            connection.Close();
+            return lista;
+        }
+
+        public static List<RubrosGrupo> rubrosGrupo(int id_grupo)
+        {
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT R.ID_Rubro, R.Nombre_Rubro, R.Porcentaje " +
+                        "FROM xtec.RUBRO AS R JOIN xtec.GRUPO AS G ON G.ID_Grupo = R.Grupo " +
+                        "WHERE G.ID_Grupo = @ID_Grupo;";
+
+            query = query.Replace("@ID_Grupo", id_grupo.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<RubrosGrupo> lista = new List<RubrosGrupo>();
+            RubrosGrupo cursos = null;
+
+            while (reader.Read())
+            {
+                cursos = new RubrosGrupo();
+                cursos.id_rubro = Convert.ToInt32(reader.GetValue(0));
+                cursos.nombre_rubro = reader.GetValue(1).ToString();
+                cursos.porcentaje = Convert.ToInt32(reader.GetValue(2));
+                lista.Add(cursos);
+            }
+            connection.Close();
+            return lista;
+        }
     }
 }
