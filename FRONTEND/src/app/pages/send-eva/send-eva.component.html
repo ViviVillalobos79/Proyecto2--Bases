@@ -36,8 +36,18 @@
                     <h2>
                         {{rubro}}
                     </h2>
-                    <button>Entregar</button>
+                    <div class="newFile">
+                        <button [disabled]="!selectedFiles" (click)="upload()">Entregar</button>
+                        <label>Seleccione el archivo a subir</label>
+                        <input type="file" (change)="selectFile($event)" />
+                    </div>
                 </div>
+                <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
+                    <div *ngFor="let file of allFiles | async" >                    
+                        <a href="{{ file.url }}">{{ file.name}}</a>
+                    </div>
+                </cdk-virtual-scroll-viewport>
+                
                 
                 </mat-expansion-panel>
             </mat-accordion>

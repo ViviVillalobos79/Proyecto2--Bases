@@ -91,3 +91,9 @@ export class ReporteNotas{
     nombre_rubro:string;
     porcentaje:number;
 }
+
+export class Datos_Curso {
+    nombre_curso:string;
+    codigo_curso:string;
+    numero_grupo:number;
+}

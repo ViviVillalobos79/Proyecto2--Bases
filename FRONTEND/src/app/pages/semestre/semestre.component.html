@@ -14,12 +14,9 @@
         <h1>
             Iniciar el semestre por medio de un archivo
         </h1>
-        <button>
-            Iniciar semestre con archivo
-        </button>
-        <h3>
-            Recuerde que el archivo debe estar en formato .csv
-        </h3>
+        <div class="col-md-8 form-group">
+            <input type="file" class="form-control" (change)="addfile($event)" placeholder="Upload file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        </div>     
     </div>
         
     <h1>
