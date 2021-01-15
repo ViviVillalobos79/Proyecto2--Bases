@@ -1,9 +1,4 @@
 {
-  "/api/*":{
-    "target":"https://localhost:44371",
-    "secure": false,
-    "logLevel" : "debug"
-  },
   "/apis/*":{
     "target":"https://localhost:44339",
     "secure": false,

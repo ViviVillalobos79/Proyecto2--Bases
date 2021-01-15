@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkCredentials(){
-    
+
     this.personas.forEach(element => {
 
       if(this.rol == element.tipo_Persona && this.username == element.identificador.toString() && this.password == element.clave){
@@ -61,3 +61,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['inicio', this.username]);}
   }
 }
+//"/api/*":{
+//  "target":"https://localhost:44371",
+//  "secure": false,
+//  "logLevel" : "debug"
+//},
