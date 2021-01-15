@@ -19,6 +19,7 @@ import { SemestreComponent } from './pages/semestre/semestre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
   { path: "gesDocProfe/:cedula/:idCurso", component: GesDocosProfeComponent, pathMatch:"full"},

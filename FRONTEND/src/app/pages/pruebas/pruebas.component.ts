@@ -4,47 +4,44 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { matriz } from 'src/app/models/matriz';
 import { UploadFileService } from '../../services/upload-file.service';
 
+import * as XLSX from 'xlsx';
+
 @Component({
   selector: 'app-pruebas',
   templateUrl: './pruebas.component.html',
   styleUrls: ['./pruebas.component.css'],
 })
 export class PruebasComponent {
+  constructor() {}
+  ngOnInit() {}
 
-  selectedFiles: FileList;
-  currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
-  selectedFile = null;
-  changeImage = false;
-  file:string;
-  constructor(private uploadService: UploadFileService, private https:HttpClient){}
-  viewFile(){
-window.open('https://bucketName.s3.cloudLocation.amazonaws.com/'+this.file);
-  }
-  deleteFile()
+  file:File;
+  arrayBuffer:any;
+  filelist:any;
+
+
+  addfile(event)
   {
-    this.https.post<string>('http://localhost:8080/deleteFile',this.file).subscribe(
-      res => {
-        this.file = res;
-      }
-    );
-  }
-  change(event) {
-    this.changeImage = true;
-  }
-  changedImage(event) {
-    this.selectedFile = event.target.files[0];
-  }
-  upload() {
-    this.progress.percentage = 0;
-    this.currentFileUpload = this.selectedFiles.item(0);
-this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-      this.selectedFiles = undefined;
-    });
-  }
-  selectFile(event) {
-    this.selectedFiles = event.target.files;
+  this.file= event.target.files[0];
+  let fileReader = new FileReader();
+  fileReader.readAsArrayBuffer(this.file);
+  fileReader.onload = (e) => {
+      this.arrayBuffer = fileReader.result;
+      var data = new Uint8Array(this.arrayBuffer);
+      var arr = new Array();
+      for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+      var bstr = arr.join("");
+      var workbook = XLSX.read(bstr, {type:"binary"});
+      var first_sheet_name = workbook.SheetNames[0];
+      var worksheet = workbook.Sheets[first_sheet_name];
+      console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+        var arraylist = XLSX.utils.sheet_to_json(worksheet,{raw:true});
+            this.filelist = [];
+            console.log(this.filelist)
+
   }
 }
 
 
+
+}

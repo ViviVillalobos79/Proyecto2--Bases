@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Carpeta } from 'src/app/models/SQL_Models/Profesor';
+import { Carpeta, CarpetasGrupo } from 'src/app/models/SQL_Models/Profesor';
 import { Curso } from 'src/app/models/SQL_Models/Administrador';
 
 import { CursoService } from '../../services/sql_services/Administradores/curso.service';
+import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 
 @Component({
   selector: 'app-ges-docos-profe',
   templateUrl: './ges-docos-profe.component.html',
   styleUrls: ['./ges-docos-profe.component.css'],
-  providers: [CursoService]
+  providers: [CursoService,ProfesorService]
 })
 export class GesDocosProfeComponent implements OnInit {
 
@@ -21,12 +22,13 @@ export class GesDocosProfeComponent implements OnInit {
   curso:Curso;
 
   //carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"];
-  carpetas:Carpeta[];
+  carpetas:CarpetasGrupo[];
 
   constructor(
     private router: Router,
     private _route: ActivatedRoute,
-    private cursoSvc: CursoService
+    private cursoSvc: CursoService,
+    private profesorSvc: ProfesorService
   ) {
     this.username = this._route.snapshot.paramMap.get('cedula');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
@@ -35,9 +37,18 @@ export class GesDocosProfeComponent implements OnInit {
   ngOnInit(): void {
     this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
     this.grupo = "4";
+    this.getCarpetas();
 
-    this.cursoSvc.getAllCursos().subscribe((res) => {
-      console.log('Res ', res);
+
+   // this.cursoSvc.getCurso().subscribe((res) => {
+   //   console.log('Res ', res);
+   // });
+  }
+
+  getCarpetas(){
+    this.profesorSvc.getCarpetasGrupo(this.idCurso).subscribe((res) => {
+      this.carpetas = res;
+      console.log('Res ', this.carpetas);
     });
   }
 

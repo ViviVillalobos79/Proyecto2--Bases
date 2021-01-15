@@ -53,8 +53,8 @@ export class ProfesorService {
   }
 
   // Retorna lista de carpetas en un grupo por medio del id del grupo
-  getCarpetasGrupo(id_grupo:number):Observable<CarpetasGrupo>{
-    return this.http.get<CarpetasGrupo>(this.url + '/carpeta/grupo/' + id_grupo)
+  getCarpetasGrupo(id_grupo:string):Observable<CarpetasGrupo[]>{
+    return this.http.get<CarpetasGrupo[]>(this.url + '/carpeta/grupo/' + id_grupo)
   }
 
   getReporteNotas(id_grupo:number):Observable<ReporteNotas>{
