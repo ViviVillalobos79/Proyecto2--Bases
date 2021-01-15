@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Carpeta, CarpetasGrupo } from 'src/app/models/SQL_Models/Profesor';
+import { CarpetasGrupo } from 'src/app/models/SQL_Models/Profesor';
 import { Curso } from 'src/app/models/SQL_Models/Administrador';
 
 import { CursoService } from '../../services/sql_services/Administradores/curso.service';
@@ -22,7 +22,7 @@ export class GesDocosProfeComponent implements OnInit {
   curso:Curso;
 
   //carpetas = ["Presentaciones","Quices","Exámenes","Proyectos"];
-  carpetas:CarpetasGrupo[];
+  carpetas:CarpetasGrupo[] = [{id_carpeta:0,nombre:"0"}];
 
   constructor(
     private router: Router,
@@ -46,6 +46,7 @@ export class GesDocosProfeComponent implements OnInit {
   }
 
   getCarpetas(){
+    this.carpetas = [];
     this.profesorSvc.getCarpetasGrupo(this.idCurso).subscribe((res) => {
       this.carpetas = res;
       console.log('Res ', this.carpetas);
