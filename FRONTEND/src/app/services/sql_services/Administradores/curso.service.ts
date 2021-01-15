@@ -9,7 +9,7 @@ export class CursoService {
   /**
    * Este servicio es utilizado para el CRUD de la entidad Curso
    * Se maneja por medio de codigo_curso el cual es de tipo string
-   * 
+   *
    * {
         "codigo_curso": "CE3101",
         "nombre_curso": "Bases de Datos",
@@ -22,8 +22,8 @@ export class CursoService {
   url:string = '/apis/administrador/curso';
   constructor(private http:HttpClient) { }
 
-  getAllCursos():Observable<Curso>{
-    return this.http.get<Curso>(this.url);
+  getAllCursos():Observable<Curso[]>{
+    return this.http.get<Curso[]>(this.url);
   }
 
   getCurso(codigo_curso:string):Observable<Curso[]>{
