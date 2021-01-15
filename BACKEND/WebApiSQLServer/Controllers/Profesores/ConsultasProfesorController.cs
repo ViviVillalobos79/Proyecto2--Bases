@@ -38,5 +38,12 @@ namespace WebApiSQLServer.Controllers.Profesores
         {
             return ConsultasProfesorRepositorio.carpetasGrupos(id_grupo);
         }
+
+        [HttpGet]
+        [Route("apis/profesor/reporte/notas/{id_grupo}")]
+        public IEnumerable<ReporteNotas> reporteNotas(int id_grupo)
+        {
+            return ConsultasProfesorRepositorio.reporteNotas(id_grupo);
+        }
     }
 }

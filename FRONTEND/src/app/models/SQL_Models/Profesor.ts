@@ -82,3 +82,12 @@ export class CarpetasGrupo {
     id_carpeta:number;
     nombre:string;
 }
+
+export class ReporteNotas{
+    carnet:number;
+    especificacion:string;
+    nota:number;
+    id_rubro:number; 
+    nombre_rubro:string;
+    porcentaje:number;
+}

@@ -6,6 +6,7 @@ import { EstudiantesMatriculados } from 'src/app/models/SQL_Models/Profesor';
 import { CursosProfesor } from 'src/app/models/SQL_Models/Profesor';
 import { DocumentosCarpeta } from 'src/app/models/SQL_Models/Profesor';
 import { CarpetasGrupo } from 'src/app/models/SQL_Models/Profesor';
+import { ReporteNotas } from 'src/app/models/SQL_Models/Profesor';
 
 @Injectable({
   providedIn: 'root'
@@ -56,4 +57,7 @@ export class ProfesorService {
     return this.http.get<CarpetasGrupo>(this.url + '/carpeta/grupo/' + id_grupo)
   }
 
+  getReporteNotas(id_grupo:number):Observable<ReporteNotas>{
+    return this.http.get<ReporteNotas>(this.url + '/reporte/notas/' + id_grupo);
+  }
 }

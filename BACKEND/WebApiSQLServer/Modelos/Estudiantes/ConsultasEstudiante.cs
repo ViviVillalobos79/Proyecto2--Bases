@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApiSQLServer.Modelos.Estudiantes
 {
+    // Retorna la lista de cursos que lleva un estudiante
     public class CursosEstudiante {
         public string nombre_curso { get; set; }
         public int numero_grupo { get; set; }
@@ -12,17 +13,19 @@ namespace WebApiSQLServer.Modelos.Estudiantes
         public int ano { get; set; }
     }
 
+    //Retorna lista de noticias de todos los cursos 
     public class NoticiasGenerales {
         public string titulo { get; set; }
         public string fecha { get; set; }
         public string mensaje { get; set; }
     }
 
-    public class DocumentosCarpeta {
-        public int id_documento { get; set; }
-        public int tamano { get; set; }
-        public string fecha { get; set; }
+    //Notas de un estudiante en un curso
+    public class NotaGrupoEstudiante {
+        public string especificacion { get; set; }
+        public int nota { get; set; }
+        public int id_rubro { get; set; }
+        public int porcentaje { get; set; }
     }
-
 
 }

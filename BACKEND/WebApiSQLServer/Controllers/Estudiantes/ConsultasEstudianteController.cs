@@ -25,10 +25,17 @@ namespace WebApiSQLServer.Controllers.Estudiantes
         }
 
         [HttpGet]
-        [Route("apis/estudiante/documentos/{id_grupo}/{carpeta}")]
-        public IEnumerable<DocumentosCarpeta> documentosCarpetas(int id_grupo, string carpeta)
+        [Route("apis/estudiante/nota/grupo/{carnet}/{id_grupo}")]
+        public IEnumerable<NotaGrupoEstudiante> notaGrupoEstudiantes(int carnet, int id_grupo)
         {
-            return ConsultasEstudianteRepositorio.documentosCarpetas(id_grupo,carpeta);
+            return ConsultasEstudianteRepositorio.notaGrupoEstudiantes(carnet,id_grupo);
+        }
+
+        [HttpGet]
+        [Route("apis/estudiante/noticias/grupo/{id_grupo}")]
+        public IEnumerable<NoticiasGenerales> noticiasGrupo(int id_grupo)
+        {
+            return ConsultasEstudianteRepositorio.noticiasGrupo(id_grupo);
         }
 
     }

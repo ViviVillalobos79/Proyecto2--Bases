@@ -20,7 +20,9 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT Numero_Grupo, Codigo_Curso, Carnet FROM View_Estudiantes_Matriculados WHERE ID_Grupo = @ID_Grupo";
+            var query = "SELECT Numero_Grupo, Codigo_Curso, Carnet " + 
+                        "FROM View_Estudiantes_Matriculados " + 
+                        "WHERE ID_Grupo = @ID_Grupo ORDER BY Carnet";
 
             query = query.Replace("@ID_Grupo", id_grupo.ToString());
 
@@ -147,6 +149,44 @@ namespace WebApiSQLServer.Repositorios.Profesores
                 carpeta.id_carpeta = Convert.ToInt32(reader.GetValue(0));
                 carpeta.nombre = reader.GetValue(1).ToString();
                 lista.Add(carpeta);
+            }
+            connection.Close();
+            return lista;
+        }
+
+        public static List<ReporteNotas> reporteNotas(int id_grupo)
+        {
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT C.ID_Carpeta, C.Nombre " +
+                        "FROM xtec.GRUPO_CARPETA AS G JOIN xtec.CARPETA AS C ON G.ID_Carpeta = C.ID_Carpeta " +
+                        "WHERE G.ID_Grupo = @ID_Grupo";
+
+            query = query.Replace("@ID_Grupo", id_grupo.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<ReporteNotas> lista = new List<ReporteNotas>();
+            ReporteNotas nota = null;
+
+            while (reader.Read())
+            {
+                nota = new ReporteNotas();
+                nota.carnet = Convert.ToInt32(reader.GetValue(0));
+                nota.especificacion = reader.GetValue(1).ToString();
+                nota.nota = Convert.ToInt32(reader.GetValue(2));
+                nota.id_rubro = Convert.ToInt32(reader.GetValue(3));
+                nota.nombre_rubro = reader.GetValue(4).ToString();
+                nota.porcentaje = Convert.ToInt32(reader.GetValue(5));
+                lista.Add(nota);
             }
             connection.Close();
             return lista;

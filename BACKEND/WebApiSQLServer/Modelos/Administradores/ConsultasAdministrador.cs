@@ -5,19 +5,14 @@ using System.Threading.Tasks;
 
 namespace WebApiSQLServer.Modelos.Administradores
 {
-    public class SemestresAdministrador
-    {
-        public int ano { get; set; }
-        public string periodo { get; set; }
-    }
-
-    public class CursoSemestre {
+    //Cursos impartidos que se encuentran habilitados
+    public class CursosHabilitados {
         public string codigo_curso { get; set; }
         public string nombre_curso { get; set; }
         public int creditos { get; set; }
-        public string carrera { get; set; }
     }
 
+    //Grupos que existen de un curso 
     public class GruposCurso {
         public string codigo_curso { get; set; }
         public int id_grupo { get; set; }
@@ -25,18 +20,28 @@ namespace WebApiSQLServer.Modelos.Administradores
         public int profesor { get; set; }
     }
 
+    //Profesores que imparten en un semestre especifico
     public class ProfesorSemestre {
         public int ano { get; set; }
         public string periodo { get; set; }
         public int cedula { get; set; }
     }
 
+    public class EstudiantesSemestre
+    {
+        public int ano { get; set; }
+        public string periodo { get; set; }
+        public int carnet { get; set; }
+    }
+
+    //Profesores que imparten un curso
     public class ProfesorCurso {
         public string codigo_curso { get; set; }
         public string nombre_curso { get; set; }
         public int cedula { get; set; }
     }
 
+    // Store Procedure para iniciar un semestre
     public class InicizalizarSemestre {
         public int Carnet { get; set; }
         public string CodCurso { get; set; }

@@ -33,4 +33,14 @@ namespace WebApiSQLServer.Modelos.Profesores
         public int id_carpeta { get; set; }
         public string nombre { get; set; }
     }
+
+    // Reporte de notas de todos los estudiantes de un grupo
+    public class ReporteNotas {
+        public int carnet { get; set; }
+        public string especificacion { get; set; }
+        public int nota { get; set; }
+        public int id_rubro { get; set; }
+        public string nombre_rubro { get; set; }
+        public int porcentaje { get; set; }
+    }
 }
