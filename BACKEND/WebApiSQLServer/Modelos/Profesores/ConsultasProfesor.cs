@@ -43,4 +43,10 @@ namespace WebApiSQLServer.Modelos.Profesores
         public string nombre_rubro { get; set; }
         public int porcentaje { get; set; }
     }
+
+    public class Datos_Grupo {
+        public string nombre_curso { get; set; }
+        public string codigo_curso { get; set; }
+        public int numero_grupo { get; set; }
+    }
 }
