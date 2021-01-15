@@ -226,5 +226,40 @@ namespace WebApiSQLServer.Repositorios.Profesores
             connection.Close();
             return lista;
         }
+
+        public static List<RubrosGrupo> rubrosGrupo(int id_grupo)
+        {
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT R.ID_Rubro, R.Nombre_Rubro, R.Porcentaje " +
+                        "FROM xtec.RUBRO AS R JOIN xtec.GRUPO AS G ON G.ID_Grupo = R.Grupo " +
+                        "WHERE G.ID_Grupo = @ID_Grupo;";
+
+            query = query.Replace("@ID_Grupo", id_grupo.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<RubrosGrupo> lista = new List<RubrosGrupo>();
+            RubrosGrupo cursos = null;
+
+            while (reader.Read())
+            {
+                cursos = new RubrosGrupo();
+                cursos.id_rubro = Convert.ToInt32(reader.GetValue(0));
+                cursos.nombre_rubro = reader.GetValue(1).ToString();
+                cursos.porcentaje = Convert.ToInt32(reader.GetValue(2));
+                lista.Add(cursos);
+            }
+            connection.Close();
+            return lista;
+        }
     }
 }
