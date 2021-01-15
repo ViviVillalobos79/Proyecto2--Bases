@@ -9,8 +9,8 @@ using WebApiSQLServer.Repositorios.Administradores;
 
 namespace WebApiSQLServer.Controllers.Administradores
 {
-    
-    public class ConsultasAdministradorController 
+
+    public class ConsultasAdministradorController
     {
         [HttpGet]
         [Route("apis/administrador/admiSemestre/{cedula}")]
@@ -45,6 +45,13 @@ namespace WebApiSQLServer.Controllers.Administradores
         public IEnumerable<ProfesorCurso> profesorCursos(string codigo_curso)
         {
             return ConsultasAdministradorRepositorio.profesorCurso(codigo_curso);
+        }
+
+
+        [HttpPost]
+        [Route("apis/administrador/iniciar/semestre")]
+        public bool iniciarSemestre(List<InicizalizarSemestre> json) {
+            return ConsultasAdministradorRepositorio.inicioSemestre(json);
         }
     }
 }
