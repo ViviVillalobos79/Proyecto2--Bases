@@ -163,9 +163,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT C.ID_Carpeta, C.Nombre " +
-                        "FROM xtec.GRUPO_CARPETA AS G JOIN xtec.CARPETA AS C ON G.ID_Carpeta = C.ID_Carpeta " +
-                        "WHERE G.ID_Grupo = @ID_Grupo";
+            var query = "SELECT Carnet, Especificacion, Nota, ID_Rubro, Nombre_Rubro, Porcentaje " +
+                        "FROM View_Reporte_Notas WHERE Grupo = @ID_Grupo ORDER BY Carnet ";
 
             query = query.Replace("@ID_Grupo", id_grupo.ToString());
 
