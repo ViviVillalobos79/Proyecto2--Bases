@@ -36,7 +36,7 @@ export class GesDocosProfeComponent implements OnInit {
     this.nombrecurso = "LABORATORIO DE CIRCUITOS ELECTRICOS";
     this.grupo = "4";
 
-    this.cursoSvc.getCurso("EL1234").subscribe((res) => {
+    this.cursoSvc.getAllCursos().subscribe((res) => {
       console.log('Res ', res);
     });
   }
