@@ -87,7 +87,7 @@ export class ReporteNotas{
     carnet:number;
     especificacion:string;
     nota:number;
-    id_rubro:number; 
+    id_rubro:number;
     nombre_rubro:string;
     porcentaje:number;
 }
@@ -97,3 +97,4 @@ export class Datos_Curso {
     codigo_curso:string;
     numero_grupo:number;
 }
+
