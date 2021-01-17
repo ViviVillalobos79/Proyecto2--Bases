@@ -9,7 +9,6 @@ import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-
 import { MAR } from '@angular/material/core';
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
-import { CarpetasComponent } from './pages/carpetas/carpetas.component';
 import { from } from 'rxjs';
 import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
@@ -19,17 +18,17 @@ import { SemestreComponent } from './pages/semestre/semestre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent, pathMatch: "full" },
   { path: "gesDocProfe/:cedula/:idCurso", component: GesDocosProfeComponent, pathMatch:"full"},
   { path: "profile/:cedula", component: ProfileComponent, pathMatch: "full" },
   { path: "gesEvaluaciones/:cedula/:idCurso", component: GesEvaluacionesComponent, pathMatch: "full"},
-  { path: "gesDocEst/:carnet/:idCurso", component: GesDocsEstComponent, pathMatch: "full" },
+  { path: "gesDocEst/:carnet/:idCurso/:idCarpeta", component: GesDocsEstComponent, pathMatch: "full" },
   { path: "matrizEvaluaciones/:cedula/:idCurso", component: MatrizEvaluacionesComponent, pathMatch: "full"},
   { path: "sendEva", component: SendEvaComponent, pathMatch: "full" },
   { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
-  { path: "carpetas/:cedula/:idCurso/:idCarpeta", component: CarpetasComponent, pathMatch: "full"},
-  { path: "carpeta/:cedula/:idCurso/:idCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
+  { path: "carpeta/:cedula/:idCurso/:idCarpeta/:nombreCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
   { path: "noticias/:carnet/:idCurso", component:NoticiasComponent, pathMatch: "full"},
   { path: "notas", component:NotasComponent, pathMatch: "full"},
   { path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},

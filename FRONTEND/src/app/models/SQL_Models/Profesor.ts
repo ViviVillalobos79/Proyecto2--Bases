@@ -56,3 +56,45 @@ export class Rubro{
     porcentaje:number;
     grupo:number;
 }
+
+export class EstudiantesMatriculados
+{
+    numero_grupo:number;
+    codigo_curso:string;
+    carnet:number;
+}
+
+export class CursosProfesor {
+    codigo_curso:string;
+    nombre_curso:string;
+    id_grupo:number;
+}
+
+export class DocumentosCarpeta {
+    id_documento:number;
+    nombre_documento:string;
+    tamano:number;
+    fecha:string;
+}
+
+//Lista de carpetas en un grupo
+export class CarpetasGrupo {
+    id_carpeta:number;
+    nombre:string;
+}
+
+export class ReporteNotas{
+    carnet:number;
+    especificacion:string;
+    nota:number;
+    id_rubro:number;
+    nombre_rubro:string;
+    porcentaje:number;
+}
+
+export class Datos_Curso {
+    nombre_curso:string;
+    codigo_curso:string;
+    numero_grupo:number;
+}
+

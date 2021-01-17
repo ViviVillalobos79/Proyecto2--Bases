@@ -22,7 +22,5 @@ namespace WebApiSQLServer.Modelos.Consultas
         public int carnet { get; set; }
 
     }
-
-    public class NoticiasCursos { 
-    }
+  
 }

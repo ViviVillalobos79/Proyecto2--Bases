@@ -1,21 +1,21 @@
 <hr class="linea" />
 <label class="logo3">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="micuenta">Mi Cuenta</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 <div class="barracurso">
   <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
-  <button class="docs">DOCUMENTOS</button>
-  <button class="evaluaciones">EVALUACIONES</button>
-  <button class="admin">ADMIN</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
 </div>
 
 <div class="files" style="overflow: auto">
   <div class="panel panel-primary">
-    <div class="tit" >Documentos de X Carpeta</div>
+    <div class="tit" >Documentos de Carpeta</div>
     <div *ngFor="let file of allFiles | async" >
       <div class="doc">
         <a href="{{ file.url }}">{{ file.name }}</a>

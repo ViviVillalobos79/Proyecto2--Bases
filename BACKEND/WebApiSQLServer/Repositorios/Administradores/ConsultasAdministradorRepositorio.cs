@@ -11,41 +11,7 @@ namespace WebApiSQLServer.Repositorios.Administradores
 {
     public class ConsultasAdministradorRepositorio
     {
-        public static List<SemestresAdministrador> semestresAdministrador(int cedula) {
-            Conexion conexion = new Conexion();
-            SqlDataReader reader = null;
-            SqlConnection connection = new SqlConnection(conexion.StringConexion);
-
-            SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
-
-            var query = "SELECT Ano, Periodo " +
-                        "FROM xtec.SEMESTRE AS S " +
-                        "WHERE S.Administrador = @Cedula";
-
-            query = query.Replace("@Cedula", cedula.ToString());
-
-            sqlCmd.CommandText = query;
-            sqlCmd.Connection = connection;
-            connection.Open();
-
-            reader = sqlCmd.ExecuteReader();
-            List<SemestresAdministrador> lista = new List<SemestresAdministrador>();
-            SemestresAdministrador semestre = null;
-
-            while (reader.Read())
-            {
-                semestre = new SemestresAdministrador();
-                semestre.ano = Convert.ToInt32(reader.GetValue(0));
-                semestre.periodo = reader.GetValue(1).ToString();
-                lista.Add(semestre);
-            }
-
-            connection.Close();
-            return lista;
-        }
-
-        public static List<CursoSemestre> cursoSemestres(int id_semestre) {
+        public static List<CursosHabilitados> cursoSemestres() {
 
             Conexion conexion = new Conexion();
             SqlDataReader reader = null;
@@ -54,27 +20,26 @@ namespace WebApiSQLServer.Repositorios.Administradores
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT C.Codigo_Curso, C.Nombre_Curso, C.Creditos, C.Carrera " +
-                        "FROM xtec.CURSO_SEMESTRE AS S JOIN xtec.CURSO AS C ON S.Codigo_Curso = C.Codigo_Curso " +
-                        "WHERE S.ID_Semestre = @ID_Semestre;";
+            var query = "SELECT Codigo_Curso, Nombre_Curso, Creditos " +
+                        "FROM xtec.CURSO AS C " +
+                        "WHERE C.Habilitado = 1;";
 
-            query = query.Replace("@ID_Semestre", id_semestre.ToString());
+            //query = query.Replace("@ID_Semestre", id_semestre.ToString());
 
             sqlCmd.CommandText = query;
             sqlCmd.Connection = connection;
             connection.Open();
 
             reader = sqlCmd.ExecuteReader();
-            List<CursoSemestre> lista = new List<CursoSemestre>();
-            CursoSemestre semestre = null;
+            List<CursosHabilitados> lista = new List<CursosHabilitados>();
+            CursosHabilitados semestre = null;
 
             while (reader.Read())
             {
-                semestre = new CursoSemestre();
+                semestre = new CursosHabilitados();
                 semestre.codigo_curso = reader.GetValue(0).ToString();
                 semestre.nombre_curso = reader.GetValue(1).ToString();
                 semestre.creditos = Convert.ToInt32(reader.GetValue(2));
-                semestre.carrera = reader.GetValue(3).ToString();
                 lista.Add(semestre);
             }
              connection.Close();
@@ -154,6 +119,43 @@ namespace WebApiSQLServer.Repositorios.Administradores
             connection.Close();
             return lista;
         }
+
+        public static List<EstudiantesSemestre> estudiantesSemestres(int id_semestre)
+        {
+
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT S.Ano, S.Periodo, E.Carnet " +
+                        "FROM xtec.SEMESTRE AS S JOIN xtec.GRUPO AS G ON S.ID_Semestre = G.Semestre " +
+                        "JOIN xtec.GRUPO_ESTUDIANTE AS E ON G.ID_Grupo = E.ID_Grupo " +
+                        "WHERE S.ID_Semestre = @ID_Semestre;";
+
+            query = query.Replace("@ID_Semestre", id_semestre.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<EstudiantesSemestre> lista = new List<EstudiantesSemestre>();
+            EstudiantesSemestre profe = null;
+
+            while (reader.Read())
+            {
+                profe = new EstudiantesSemestre();
+                profe.ano = Convert.ToInt32(reader.GetValue(0));
+                profe.periodo = reader.GetValue(1).ToString();
+                profe.carnet = Convert.ToInt32(reader.GetValue(2));
+                lista.Add(profe);
+            }
+            connection.Close();
+            return lista;
+        }
         public static List<ProfesorCurso> profesorCurso(string codigo_curso)
         {
 
@@ -190,6 +192,50 @@ namespace WebApiSQLServer.Repositorios.Administradores
             }
             connection.Close();
             return lista;
+        }
+        public static bool inicioSemestre(List<InicizalizarSemestre> json)
+        {
+            Console.WriteLine(json);
+            Conexion conexion = new Conexion();
+
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+            /*
+            List<InicizalizarSemestre> cadena = json;//new List<InicizalizarSemestre>();
+            InicizalizarSemestre semestre = new InicizalizarSemestre();
+
+            foreach (InicizalizarSemestre iniciar in json) {
+                System.Diagnostics.Debug.WriteLine(json);
+                semestre.Carnet = json[iniciar].Carnet;
+                semestre.CodCurso = json[0].CodCurso;
+                semestre.NomCurso
+                semestre.Creditos
+                semestre.Habilitado
+                semestre.Ano
+                semestre.Periodo
+                semestre.NumGrupo
+                semestre.CedProfe
+                semestre.CedAdmin
+            }
+            */
+
+            var query = "EXEC SP_INICIAR_SEMESTRE '@jsonDATOS'";
+
+            query = query.Replace("@jsonDATOS", json.ToString());
+            
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

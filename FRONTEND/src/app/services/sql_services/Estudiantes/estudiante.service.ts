@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Estudiante } from 'src/app/models/SQL_Models/Estudiante';
+import { CursosEstudiante } from 'src/app/models/SQL_Models/Estudiante';
+import { NoticiasGenerales } from 'src/app/models/SQL_Models/Estudiante';
+import { NotaGrupoEstudiante } from 'src/app/models/SQL_Models/Estudiante';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +39,25 @@ export class EstudianteService {
   deleteEstudiante(carnet:number):Observable<Estudiante>{
     return this.http.delete<Estudiante>(this.url + '/' + carnet);
   }
+
+  // Retorna lista de los cursos de un estudiante
+  getCursosEstudiante(carnet:number):Observable<CursosEstudiante>{
+    return this.http.delete<CursosEstudiante>(this.url + '/cursos/' + carnet);
+  }
+
+  //Lista de noticias generales
+  getNoticiasGenerales(carnet:number):Observable<NoticiasGenerales>{
+    return this.http.delete<NoticiasGenerales>(this.url + '/noticias/' + carnet);
+  }
+
+  //Retorna notas de un estudiante en un curso
+  getNotaGrupoEstudiante(carnet:number, id_grupo:number):Observable<NotaGrupoEstudiante>{
+    return this.http.delete<NotaGrupoEstudiante>(this.url + '/nota/grupo/' + carnet + '/' + id_grupo);
+  }
+
+  //Retorna lista de noticias en un curso para un grupo
+  getNoticiasGrupo(id_grupo:number):Observable<NoticiasGenerales>{
+    return this.http.delete<NoticiasGenerales>(this.url + '/noticias/grupo' + id_grupo);
+  }
+
 }

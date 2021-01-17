@@ -171,6 +171,11 @@
   left: 150px;
   background-color: #FFFFFF;
 }
-
+.example-viewport {
+  margin-top: 10px;
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+}
 
 
