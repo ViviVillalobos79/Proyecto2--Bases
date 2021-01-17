@@ -261,5 +261,32 @@ namespace WebApiSQLServer.Repositorios.Profesores
             connection.Close();
             return lista;
         }
+        /*
+        public static bool PostCarpetasGrupo(sp_grupo_carpetas carpeta)
+        {
+
+            Conexion conexion = new Conexion();
+
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+            var query = "EXEC SP_Grupo_Carpeta @ID_Grupo, @Nombre";
+            query = query.Replace("@ID_Grupo", carpeta.id_grupo.ToString())
+                         .Replace("@Nombre", carpeta.nombre.ToString());
+
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        */
     }
 }

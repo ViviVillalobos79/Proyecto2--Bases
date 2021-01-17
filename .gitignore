@@ -1,0 +1,12 @@
+
+*.cache
+*.cache
+*.props
+*.json
+*.config
+*.v2
+BACKEND/WebApiSQLServer/.vs/WebApiSQLServer/DesignTimeBuild/.dtbcache.v2
+*.dll
+*.cache
+*.cache
+*.txt

@@ -90,11 +90,11 @@ namespace WebApiSQLServer.Repositorios.Profesores
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
             var query = "INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) " +
-                        "VALUES(@Tamano, '@Fecha', '@Nombre_Documento', @Carpeta)";
+                        "VALUES(@Tamano, '@Fecha', '@Nombre_Documento', @Carpeta);";
 
             query = query.Replace("@Tamano", documento.tamano.ToString())
-                         .Replace("@Fecha", documento.fecha.ToString())
-                         .Replace("@Nombre_Documento", documento.nombre_documento.ToString())
+                         .Replace("@Fecha", documento.fecha)
+                         .Replace("@Nombre_Documento", documento.nombre_documento)
                          .Replace("@Carpeta", documento.carpeta.ToString());
             try
             {
@@ -120,10 +120,10 @@ namespace WebApiSQLServer.Repositorios.Profesores
                         "WHERE ID_Documento = @ID_Documento";
 
             query = query.Replace("@Tamano", documento.tamano.ToString())
-                         .Replace("@Fecha", documento.fecha.ToString())
-                         .Replace("@Nombre_Documento", documento.nombre_documento.ToString())
+                         .Replace("@Fecha", documento.fecha)
+                         .Replace("@Nombre_Documento", documento.nombre_documento)
                          .Replace("@Carpeta", documento.carpeta.ToString())
-                         .Replace("@ID_Documento", documento.id_documento.ToString());
+                         .Replace("@ID_Documento", id_Documento.ToString());
             try
             {
                 connection.Open();
