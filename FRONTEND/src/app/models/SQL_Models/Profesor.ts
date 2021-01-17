@@ -98,3 +98,7 @@ export class Datos_Curso {
     numero_grupo:number;
 }
 
+export class SP_grupo_carpetas {
+  id_grupo:number;
+  nombre:string;
+}

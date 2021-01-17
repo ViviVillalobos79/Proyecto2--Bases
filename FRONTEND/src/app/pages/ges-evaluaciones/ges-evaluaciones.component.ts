@@ -10,26 +10,7 @@ import { ProfesorService } from '../../services/sql_services/Profesores/profesor
   providers: [ProfesorService],
 })
 export class GesEvaluacionesComponent implements OnInit {
-  evaluaciones = [
-    {
-      Nombre: 'Examenes',
-      valor: '30',
-      rubros: ['Examen 1', 'Examen 2'],
-      porcentajes: ['15', '15'],
-    },
-    {
-      Nombre: 'Quices',
-      valor: '30',
-      rubros: ['Quiz 1', 'quiz 2'],
-      porcentajes: ['15', '15'],
-    },
-    {
-      Nombre: 'Proyectos',
-      valor: '40',
-      rubros: ['Proyecto 1', 'Proyecto 2'],
-      porcentajes: ['20', '20'],
-    },
-  ];
+
   username: string;
   nombrecurso: string;
   grupo: string;
@@ -51,7 +32,7 @@ export class GesEvaluacionesComponent implements OnInit {
       this.nombrecurso = this.curso.nombre_curso;
       this.grupo = this.curso.numero_grupo.toString();
       console.log('Res ', this.curso);
-      
+
     });
   }
 
@@ -81,5 +62,16 @@ export class GesEvaluacionesComponent implements OnInit {
 
   goMatriz() {
     this.router.navigate(['matrizEvaluaciones', this.username, this.idCurso]);
+  }
+
+  goRubros(){
+
+  }
+  goDetalles(){
+
+  }
+
+  goEstudiantes(){
+    
   }
 }
