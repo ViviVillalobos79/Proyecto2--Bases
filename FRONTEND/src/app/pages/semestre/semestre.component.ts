@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { matriz } from 'src/app/models/matriz';
 import { UploadFileService } from '../../services/upload-file.service';
+import { InicializarSemestre } from '../../models/SQL_Models/Administrador';
 import * as XLSX from 'xlsx';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-semestre',
@@ -27,6 +29,7 @@ export class SemestreComponent implements OnInit {
   day: number;
   yearDate = new FormControl('');
   myForm: FormGroup;
+  iniciar:InicializarSemestre[]=[];
 
   file:File;
   arrayBuffer:any;
@@ -36,11 +39,13 @@ export class SemestreComponent implements OnInit {
     this.myForm = this.fb.group({
       yearDate: ['', [Validators.required]]
     })
+    
   }
 
   ngOnInit(): void {
     this.estudiantes=['Estudiante1','Estudiante2','Estudiante3','Estudiante4'];
     this.cursos=['Curso1','Curso2','Curso3','Curso4'];
+    
   }
 
   periodoSet(periodo) {
@@ -55,8 +60,7 @@ export class SemestreComponent implements OnInit {
     this.day = (dob[8] + dob[9]) * 1;
     console.log(this.year);
   }
-  addfile(event)
-  {
+  addfile(event){
   this.file= event.target.files[0];
   let fileReader = new FileReader();
   fileReader.readAsArrayBuffer(this.file);
@@ -69,10 +73,25 @@ export class SemestreComponent implements OnInit {
       var workbook = XLSX.read(bstr, {type:"binary"});
       var first_sheet_name = workbook.SheetNames[0];
       var worksheet = workbook.Sheets[first_sheet_name];
-      console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
-        var arraylist = XLSX.utils.sheet_to_json(worksheet,{raw:true});
-            this.filelist = [];
-            console.log(this.filelist)
+      var arraylist = XLSX.utils.sheet_to_json(worksheet,{raw:true});
+     
+      var inicio =new InicializarSemestre();
+      
+      arraylist.forEach(element=>{
+        inicio.Carnet=element['Carnet'];
+        inicio.CodCurso=element['CodCurso'];
+        inicio.NomCurso=element['NomCurso'];
+        inicio.Creditos=element['Creditos'];
+        inicio.Carrera=element['Carrera'];
+        inicio.Habilitado=element['Habilitado'];
+        inicio.Ano=element['Ano'];
+        inicio.Periodo=element['Periodo'];
+        inicio.NumGrupo=element['NumGrupo'];
+        inicio.CedProfe=element['CedProfe'];
+        inicio.CedAdmin=element['CedAdmin'];
+        this.iniciar.push(inicio);
+      });
+      console.log(this.iniciar)
     }
   }
 
