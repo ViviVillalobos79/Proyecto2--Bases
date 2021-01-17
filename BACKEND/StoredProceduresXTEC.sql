@@ -256,12 +256,19 @@ BEGIN
 	EXEC SP_CREACION_SEMESTRE;
 	EXEC SP_CREACION_GRUPO;
 END
+
 --SP 1: Obtener todos los Archivos que pertenecen a una Carpeta en un Grupo
-CREATE PROCEDURE ArchivosPorCarpeta @ID_Grupo INT, @Nombre VARCHAR(30) 
+CREATE PROCEDURE SP_ArchivosPorCarpeta @ID_Grupo INT, @Nombre VARCHAR(30) 
 AS 
 SELECT * FROM xtec.CARPETA AS C JOIN xtec.DOCUMENTO AS D ON C.ID_Carpeta = D.Carpeta 
 			  JOIN xtec.GRUPO_CARPETA AS G ON G.ID_Carpeta = C.ID_Carpeta WHERE G.ID_Grupo = @ID_Grupo AND C.Nombre = @Nombre; 
---Pruebas
---EXEC ArchivosPorCarpeta @ID_Grupo = 1, @Nombre = 'Presentaciones';
---EXEC ArchivosPorCarpeta @ID_Grupo = 1, @Nombre = 'Quices';
+
 --SP 2
+CREATE PROCEDURE SP_Grupo_Carpeta @ID_Grupo INT, @Nombre VARCHAR(30)
+AS
+	INSERT INTO xtec.CARPETA(Nombre,Fecha) VALUES (@Nombre, getdate());
+	DECLARE @ID_Carpeta INT
+	SET @ID_Carpeta = (SELECT TOP 1 ID_Carpeta FROM xtec.CARPETA AS D ORDER BY D.ID_Carpeta DESC)
+	INSERT INTO xtec.GRUPO_CARPETA VALUES (@ID_Carpeta, @ID_Grupo)
+
+

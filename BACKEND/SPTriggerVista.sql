@@ -227,8 +227,9 @@ BEGIN
 	INSERT INTO #PRUEBA 
 	SELECT Carnet,CodCurso,NomCurso,Creditos,Carrera,Habilitado,Ano,Periodo,NumGrupo,CedProfe,CedAdmin
 	FROM OPENJSON(@DATOS)
-		WITH (Carnet INT,CodCurso VARCHAR(8),NomCurso VARCHAR(300),Creditos INT,Carrera VARCHAR(30),Habilitado BIT,
-		Ano INT,Periodo VARCHAR(30),NumGrupo INT,CedProfe INT,CedAdmin INT)
+		WITH (Carnet INT '$.Carnet',CodCurso VARCHAR(8) '$.CodCurso',NomCurso VARCHAR(300) '$.NomCurso',Creditos INT '$.Creditos',
+		Carrera VARCHAR(30) '$.Carrera',Habilitado BIT '$.Habilitado',
+		Ano INT '$.Ano',Periodo VARCHAR(30) '$.Periodo',NumGrupo INT '$.NumGrupo',CedProfe INT '$.CedProfe',CedAdmin INT '$.CedAdmin')
 	--Tabla Temporal para la Creacion del Semestre
 	CREATE TABLE #SemAux (	
 		Periodo VARCHAR(10) NOT NULL,
@@ -274,73 +275,73 @@ SELECT * FROM xtec.CARPETA AS C JOIN xtec.DOCUMENTO AS D ON C.ID_Carpeta = D.Car
 CREATE TRIGGER TR_NoticiaNota
 ON xtec.EVALUACION FOR INSERT
 AS
-DECLARE @Profesor INT
-DECLARE @Grupo INT
-DECLARE @Titulo VARCHAR(255)
-SELECT @Grupo = Grupo FROM inserted
-SELECT @Titulo = Especificacion FROM inserted
-SELECT @Profesor = Profesor FROM inserted JOIN xtec.GRUPO ON inserted.Grupo = xtec.GRUPO.ID_Grupo
-INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) VALUES(@Titulo, @Profesor, getdate(), 'Ya se encuentra en XTECDigital la especificación sobre'+ @Titulo, @Grupo)
+	DECLARE @Profesor INT
+	DECLARE @Grupo INT
+	DECLARE @Titulo VARCHAR(255)
+	SELECT @Grupo = Grupo FROM inserted
+	SELECT @Titulo = Especificacion FROM inserted
+	SELECT @Profesor = Profesor FROM inserted JOIN xtec.GRUPO ON inserted.Grupo = xtec.GRUPO.ID_Grupo
+	INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) VALUES(@Titulo, @Profesor, getdate(), 'Ya se encuentra en XTECDigital la especificación sobre'+ @Titulo, @Grupo)
 GO
 
 --Trigger Elegido 1: Cuando se crea el Curso se le generan las Evaluaciones
 CREATE TRIGGER TR_GrupoEvaluaciones
 ON xtec.GRUPO FOR INSERT
 AS
-DECLARE @ID_Grupo INT
-SELECT @ID_Grupo = ID_Grupo FROM inserted
-INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Quices', 30, @ID_Grupo)
-INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Examenes', 30, @ID_Grupo)
-INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Proyectos', 40, @ID_Grupo)
+	DECLARE @ID_Grupo INT
+	SELECT @ID_Grupo = ID_Grupo FROM inserted
+	INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Quices', 30, @ID_Grupo)
+	INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Examenes', 30, @ID_Grupo)
+	INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) VALUES ('Proyectos', 40, @ID_Grupo)
 GO
 --Trigger Elegido 2: Cuando se genera un Grupo se le generan las Carpetas 
 CREATE TRIGGER TR_GrupoCarpetas
 ON xtec.GRUPO FOR INSERT
 AS
-DECLARE @ID_Grupo INT
-DECLARE @ID_Carpeta INT
-SELECT @ID_Grupo = ID_Grupo FROM inserted
-INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Presentaciones', getdate())
-SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
-INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
-INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Quices', getdate())
-SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
-INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
-INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Exámenes', getdate())
-SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
-INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
-INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Proyectos', getdate())
-SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
-INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
+	DECLARE @ID_Grupo INT
+	DECLARE @ID_Carpeta INT
+	SELECT @ID_Grupo = ID_Grupo FROM inserted
+	INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Presentaciones', getdate())
+	SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
+	INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
+	INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Quices', getdate())
+	SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
+	INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
+	INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Exámenes', getdate())
+	SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
+	INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
+	INSERT INTO xtec.CARPETA(Nombre, Fecha) VALUES ('Proyectos', getdate())
+	SELECT @ID_Carpeta = ID_Carpeta FROM xtec.CARPETA
+	INSERT INTO xtec.GRUPO_CARPETA(ID_Carpeta, ID_Grupo) VALUES (@ID_Carpeta, @ID_Grupo)
 GO
 --Trigger Elegido: No se pueden eliminar los Rubros por Defecto
 CREATE TRIGGER TR_EliminarRubro
 ON xtec.RUBRO FOR DELETE
 AS
-DECLARE @Rubro VARCHAR(30)
-DECLARE @ID_Grupo INT
-SELECT @Rubro = Nombre_Rubro FROM deleted
-SELECT @ID_Grupo = Grupo FROM deleted
-IF @Rubro = 'Quices' 
-BEGIN 
-	RAISERROR ('No se puede eliminar este Rubro',16,1)
-	ROLLBACK TRANSACTION
-END
-ELSE IF @Rubro = 'Examenes' 
-BEGIN 
-	RAISERROR ('No se puede eliminar este Rubro',16,1)
-	ROLLBACK TRANSACTION
-END
-ELSE IF @Rubro = 'Proyectos'
-BEGIN 
-	RAISERROR ('No se puede eliminar este Rubro',16,1)
-	ROLLBACK TRANSACTION
-END
-ELSE
-	BEGIN 
-	--Buscar eliminar todo lo del Rubro en otro lado
-	DELETE FROM xtec.RUBRO WHERE Nombre_Rubro = @Rubro AND Grupo = @ID_Grupo
-	END
+	DECLARE @Rubro VARCHAR(30)
+	DECLARE @ID_Grupo INT
+	SELECT @Rubro = Nombre_Rubro FROM deleted
+	SELECT @ID_Grupo = Grupo FROM deleted
+	IF @Rubro = 'Quices' 
+		BEGIN 
+			RAISERROR ('No se puede eliminar este Rubro',16,1)
+			ROLLBACK TRANSACTION
+		END
+	ELSE IF @Rubro = 'Examenes' 
+		BEGIN 
+			RAISERROR ('No se puede eliminar este Rubro',16,1)
+			ROLLBACK TRANSACTION
+		END
+	ELSE IF @Rubro = 'Proyectos'
+		BEGIN 
+			RAISERROR ('No se puede eliminar este Rubro',16,1)
+			ROLLBACK TRANSACTION
+		END
+	ELSE
+		BEGIN 
+		--Buscar eliminar todo lo del Rubro en otro lado
+			DELETE FROM xtec.RUBRO WHERE Nombre_Rubro = @Rubro AND Grupo = @ID_Grupo
+		END
 GO
 
 --##################################################################################################
@@ -349,24 +350,25 @@ GO
 --Vista Reporte de Notas
 --CREATE VIEW Reporte_Notas
 
+									  
 --Vista Estudiantes Matriculados 
-CREATE VIEW Estudiantes_Matriculados 
-AS SELECT G.Numero_Grupo, C.Codigo_Curso, E.Carnet
+CREATE VIEW View_Estudiantes_Matriculados 
+AS SELECT G.Numero_Grupo, C.Codigo_Curso, E.Carnet, G.ID_Grupo
 FROM ((xtec.GRUPO_ESTUDIANTE AS E JOIN xtec.CURSO_GRUPO AS C ON E.ID_Grupo = C.ID_Grupo) 
 	   JOIN xtec.GRUPO AS G ON G.ID_Grupo = E.ID_Grupo)
-WHERE G.ID_Grupo = 1 
 
---SELECT * FROM Estudiantes_Matriculados;
 
--- Vista de cursos de un estudiante
+SELECT * FROM View_Estudiantes_Matriculados WHERE ID_Grupo = 1;
+
+-- Vista de cursos de un Estudiante
 CREATE VIEW View_Cursos_de_Estudiante 
-AS SELECT U.Nombre_Curso, G.Numero_Grupo, 'Semestre' + S.Periodo AS Periodo, S.Ano, E.Carnet 
+AS SELECT U.Nombre_Curso, U.Codigo_Curso, G.Numero_Grupo, 'Semestre' + S.Periodo AS Periodo, S.Ano, E.Carnet 
    FROM xtec.GRUPO_ESTUDIANTE AS E JOIN xtec.GRUPO AS G ON E.ID_Grupo = G.ID_Grupo
 								JOIN xtec.CURSO_GRUPO AS C ON C.ID_Grupo = G.ID_Grupo
 								JOIN xtec.CURSO AS U ON U.Codigo_Curso = C.Codigo_Curso
 								JOIN xtec.SEMESTRE AS S ON S.ID_Semestre = G.Semestre;
 
-SELECT Nombre_Curso, Numero_Grupo, 'Semestre' + Periodo AS Periodo, Ano FROM View_Cursos_de_Estudiante WHERE Carnet = 2013053251;	
+SELECT Nombre_Curso, Codigo_Curso, Numero_Grupo, Periodo, Ano FROM View_Cursos_de_Estudiante WHERE Carnet = 2013053251;	
 
 -- Vista de las noticias de todos los cursos de un estudiante
 CREATE VIEW View_Noticias_Cursos
@@ -385,7 +387,7 @@ AS SELECT D.ID_Documento, D.Tamano, D.Fecha, G.ID_Grupo, C.Nombre
 
 SELECT ID_Documento, Tamano, Fecha FROM View_Documentos_en_Carpeta WHERE ID_Grupo = 1 AND Nombre = 'Presentaciones';
 
---Ver todos los Cursos 
+--Ver todos los Cursos del Sistema - Administrador
 CREATE VIEW View_CursosImpartidos
 AS SELECT C.Codigo_Curso, C.Nombre_Curso, C.Creditos, C.Carrera
    FROM xtec.CURSO_SEMESTRE AS S JOIN xtec.CURSO AS C ON S.Codigo_Curso = C.Codigo_Curso;

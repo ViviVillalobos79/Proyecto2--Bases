@@ -74,3 +74,28 @@ AS
 			DELETE FROM xtec.RUBRO WHERE Nombre_Rubro = @Rubro AND Grupo = @ID_Grupo
 		END
 GO
+
+--Crear Noticias si se Actualiza 
+CREATE TRIGGER TR_AsignacionNota
+ON xtec.ENTREGABLE FOR UPDATE
+AS 
+	DECLARE @Profesor INT
+	DECLARE @Grupo INT
+	DECLARE @Titulo VARCHAR(255)
+	SELECT @Profesor = Profesor FROM inserted AS I JOIN xtec.EVALUACION AS E ON I.ID_Evaluacion = E.ID_Evaluacion
+								JOIN xtec.GRUPO AS G ON G.ID_Grupo = E.Grupo
+	SELECT @Grupo = Grupo FROM inserted AS I JOIN xtec.EVALUACION AS E ON I.ID_Evaluacion = E.ID_Evaluacion
+	SELECT @Titulo = Especificacion FROM inserted AS I JOIN xtec.EVALUACION AS E ON I.ID_Evaluacion = E.ID_Evaluacion
+	IF UPDATE(Nota)
+		BEGIN
+			INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) VALUES(@Titulo, @Profesor, getdate(), 'Ya se encuentra la Nota de'+ @Titulo, @Grupo)
+		END
+
+CREATE TRIGGER TR_EliminarCarpeta
+ON xtec.CARPETA FOR DELETE
+AS
+	DECLARE @ID_Carpeta INT
+	SELECT @ID_Carpeta = ID_Carpeta FROM deleted
+	DELETE FROM xtec.GRUPO_CARPETA WHERE xtec.GRUPO_CARPETA.ID_Carpeta = @ID_Carpeta
+	DELETE FROM xtec.DOCUMENTO WHERE xtec.DOCUMENTO.Carpeta = @ID_Carpeta
+GO

@@ -95,6 +95,7 @@ CREATE TABLE xtec.DOCUMENTO(
 	Carpeta INT NOT NULL,
 	PRIMARY KEY (ID_Documento)
 );
+
 --Tabla Carpeta
 CREATE TABLE xtec.CARPETA(
 	ID_Carpeta INT IDENTITY(1,1) NOT NULL,

@@ -406,25 +406,31 @@ INSERT INTO xtec.ENTREGABLE(ID_Evaluacion, Observaciones, Nota,Fecha_Entrega, Do
 --Prueba de Trigger Noticia
 INSERT INTO xtec.ENTREGABLE(ID_Evaluacion, Carnet, Observaciones, Nota,Fecha_Entrega, Docu_Estudiante, Docu_Profesor, Grupo) VALUES(10, 2014999888, 'Falto Problema 1', 80, '2020-12-08', 'URL 4', '', 10)
 SELECT * FROM xtec.ENTREGABLE;
-
+SELECT * FROM xtec.NOTICIA;
+--Prueba de Trigger Noticia de Update
+UPDATE xtec.ENTREGABLE SET xtec.ENTREGABLE.Nota = 70 WHERE xtec.ENTREGABLE.ID_Entregable = 147;
 --##################################################################################################
 --##################						DOCUMENTO		            ############################
 --##################################################################################################
 
 --Insercion de Datos en la Tabla Documento
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 1', 1)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 2', 5)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 3', 9)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 4', 13)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 5', 17)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 6', 21)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 7', 25)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 8', 29)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 9', 33)
-INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'Nombre 10', 37)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 1)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 5)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 9)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 13)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 17)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 21)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 25)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 29)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 33)
+INSERT INTO xtec.DOCUMENTO(Tamano, Fecha, Nombre_Documento, Carpeta) VALUES(45, '2020-12-08', 'README.md', 37)
+
+UPDATE xtec.DOCUMENTO SET Tamano = 40 WHERE ID_Documento = 15;
 
 SELECT * FROM xtec.DOCUMENTO;
+SELECT TOP 1 ID_Documento FROM xtec.DOCUMENTO AS D ORDER BY D.ID_Documento DESC;
 SELECT * FROM xtec.CARPETA;
+EXEC SP_Grupo_Carpeta 1, Videos;
 --INSERT INTO xtec.CARPETA(Nombre,Fecha) VALUES ('Videos', getdate());
 --SELECT * FROM xtec.CARPETA;
 SELECT * FROM xtec.GRUPO_CARPETA;
