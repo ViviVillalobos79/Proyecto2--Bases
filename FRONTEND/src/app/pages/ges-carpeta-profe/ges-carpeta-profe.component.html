@@ -8,9 +8,9 @@
 
 <div class="barracurso">
   <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
-  <button class="docs">DOCUMENTOS</button>
-  <button class="evaluaciones">EVALUACIONES</button>
-  <button class="admin">Noticias</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
 </div>
 
 <div class="files" style="overflow: auto">

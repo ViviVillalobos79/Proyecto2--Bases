@@ -1,16 +1,16 @@
 <hr class="linea" />
 <label class="logo3">XTECDigital</label>
 
-<button class="inicio" (click)="iniciogo()">Inicio</button>
-<button class="cursos" (click)="buscargo()">Cursos</button>
-<button class="micuenta" (click)="competenciasGo()">Mi Cuenta</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 <div class="barracurso">
-  <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
-  <button class="docs">DOCUMENTOS</button>
-  <button class="evaluaciones">EVALUACIONES</button>
-  <button class="admin">ADMIN</button>
+  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
 </div>
 
 
@@ -30,7 +30,7 @@
         <div *ngFor="let carpeta of carpetas">
           <mat-card class="productor">
             <h3>{{ carpeta.nombre }} &nbsp;</h3>
-            <button class="searchbt" (click)="visitarCarpeta(carpeta.id_carpeta)">
+            <button class="searchbt" (click)="visitarCarpeta(carpeta.id_carpeta,carpeta.nombre)">
                 <h3>
                 Ver
                 </h3>

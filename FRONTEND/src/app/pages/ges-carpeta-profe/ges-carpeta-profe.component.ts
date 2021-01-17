@@ -130,7 +130,5 @@ export class GesCarpetaProfeComponent implements OnInit {
 
   goNoticias() {
     //goNoticias
-
-
   }
 }
