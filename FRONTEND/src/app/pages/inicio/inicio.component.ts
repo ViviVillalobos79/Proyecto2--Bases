@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CursosProfesor } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
+import { EstudianteService } from '../../services/sql_services/Estudiantes/estudiante.service';
+import { CursosEstudiante } from 'src/app/models/SQL_Models/Estudiante';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  providers: [ProfesorService],
+  providers: [ProfesorService,EstudianteService],
 })
 export class InicioComponent implements OnInit {
   username: string;
   rol: string;
 
-  cursos = [
-    { nombre: 'Laboratorio de Circuitos GR3', id: 1 },
-    { nombre: 'Laboratorio de Circuitos GR4', id: 2 },
-    { nombre: 'Laboratorio de Circuitos GR5', id: 3 },
-    { nombre: 'Laboratorio de Circuitos GR6', id: 4 },
-  ];
+  cursos = [];
 
   constructor(
     private router: Router,
     private _route: ActivatedRoute,
-    private profesorSvc: ProfesorService
+    private profesorSvc: ProfesorService,
+    private estudianteSvc:EstudianteService
   ) {
     this.username = this._route.snapshot.paramMap.get('username');
   }
@@ -39,6 +38,7 @@ export class InicioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cursos = [];
     //Solicitar cursos
     if (this.username.length == 9) {
       this.rol = 'profesor';
@@ -48,17 +48,45 @@ export class InicioComponent implements OnInit {
     }
   }
 
-  getCursosProfe() {}
+  getCursosProfe() {
+    this.profesorSvc.getCursosProfesor(this.username).subscribe((res) => {
+      console.log('Res ', res);
+      this.setCursosProfe(res);
+    });
+  }
 
-  getCursosEstudiante() {}
+  setCursosProfe(cursosP: CursosProfesor[]) {
+    this.cursos = [];
+    cursosP.forEach((element) => {
+      let elemento = { nombre: element.nombre_curso, id: element.id_grupo };
+      this.cursos.push(elemento);
+    });
+  }
 
-  iniciogo() {
+  getCursosEstudiante() {
+    this.estudianteSvc.getCursosEstudiante(this.username).subscribe((res) => {
+      console.log('Res ', res);
+      this.setCursosEst(res);
+    });
+  }
+
+  setCursosEst(cursosP: CursosEstudiante[]) {
+    this.cursos = [];
+    cursosP.forEach((element) => {
+      let elemento = { nombre: element.nombre_curso, id: element. };
+      this.cursos.push(elemento);
+    });
+  }
+
+  goInicio() {
     this.router.navigate(['inicio', this.username]);
   }
-  buscargo() {
+
+  goCursos() {
     this.router.navigate(['inicio', this.username]);
   }
-  competenciasGo() {
+
+  goPerfil() {
     this.router.navigate(['profile', this.username]);
   }
 }

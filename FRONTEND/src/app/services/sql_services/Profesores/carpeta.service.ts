@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Carpeta } from 'src/app/models/SQL_Models/Profesor';
+import { Carpeta, SP_grupo_carpetas } from 'src/app/models/SQL_Models/Profesor';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,8 @@ export class CarpetaService {
     return this.http.get<Carpeta[]>(this.url + '/' + id_carpeta);
   }
 
-  addCarpeta(carpeta:Carpeta):Observable<Carpeta>{
-    return this.http.post<Carpeta>(this.url, carpeta);
+  addCarpeta(carpeta:SP_grupo_carpetas):Observable<SP_grupo_carpetas>{
+    return this.http.post<SP_grupo_carpetas>(this.url, carpeta);
   }
 
   updateCarpeta(id_carpeta:number, carpeta:Carpeta):Observable<Carpeta>{

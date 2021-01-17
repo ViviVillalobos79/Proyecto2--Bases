@@ -41,8 +41,8 @@ export class EstudianteService {
   }
 
   // Retorna lista de los cursos de un estudiante
-  getCursosEstudiante(carnet:number):Observable<CursosEstudiante>{
-    return this.http.delete<CursosEstudiante>(this.url + '/cursos/' + carnet);
+  getCursosEstudiante(carnet:string):Observable<CursosEstudiante[]>{
+    return this.http.delete<CursosEstudiante[]>(this.url + '/cursos/' + carnet);
   }
 
   //Lista de noticias generales

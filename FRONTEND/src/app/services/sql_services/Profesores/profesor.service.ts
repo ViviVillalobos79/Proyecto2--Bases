@@ -43,8 +43,8 @@ export class ProfesorService {
   }
 
   // Retorna lista de cursos que imparte un profesor
-  getCursosProfesor(cedula:number):Observable<CursosProfesor>{
-    return this.http.get<CursosProfesor>(this.url + '/cursos/' + cedula);
+  getCursosProfesor(cedula:string):Observable<CursosProfesor[]>{
+    return this.http.get<CursosProfesor[]>(this.url + '/cursos/' + cedula);
   }
 
   // Retorna los documentos que se encuentran en una carpeta de un grupo, por nombre de carpeta y id del grupo
