@@ -57,6 +57,14 @@ export class LoginComponent implements OnInit {
   login() {
     //Verifica las credenciales
     this.checkCredentials();
+
+    if(this.rol == "Administrador"){
+      //ruta para página inicial del administrador
+    }
+  
+
+
+
     if(this.loged){
       this.router.navigate(['inicio', this.username]);}
   }

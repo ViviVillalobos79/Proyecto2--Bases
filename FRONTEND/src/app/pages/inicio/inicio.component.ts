@@ -42,9 +42,11 @@ export class InicioComponent implements OnInit {
     //Solicitar cursos
     if (this.username.length == 9) {
       this.rol = 'profesor';
+      this.getCursosProfe();
     }
     if (this.username.length == 10) {
       this.rol = 'estudiante';
+      this.getCursosEstudiante();
     }
   }
 
@@ -73,7 +75,7 @@ export class InicioComponent implements OnInit {
   setCursosEst(cursosP: CursosEstudiante[]) {
     this.cursos = [];
     cursosP.forEach((element) => {
-      let elemento = { nombre: element.nombre_curso, id: element. };
+      let elemento = { nombre: element.nombre_curso, id: element.id_grupo };
       this.cursos.push(elemento);
     });
   }
