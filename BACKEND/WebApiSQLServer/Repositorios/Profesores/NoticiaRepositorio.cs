@@ -96,10 +96,10 @@ namespace WebApiSQLServer.Repositorios.Profesores
             var query = "INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) " +
                         "VALUES('@Titulo', '@Autor', '@Fecha', '@Mensaje', Grupo)";
 
-            query = query.Replace("@Titulo", noticia.titulo.ToString())
-                         .Replace("@Autor", noticia.autor.ToString())
-                         .Replace("@Fecha", noticia.fecha.ToString())
-                         .Replace("@Mensaje", noticia.mensaje.ToString())
+            query = query.Replace("@Titulo", noticia.titulo)
+                         .Replace("@Autor", noticia.autor)
+                         .Replace("@Fecha", noticia.fecha)
+                         .Replace("@Mensaje", noticia.mensaje)
                          .Replace("@Grupo", noticia.grupo.ToString());
             try
             {
@@ -125,7 +125,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
                         "Mensaje = '@Mensaje' " +
                         "WHERE ID_Noticia = @ID_Noticia";
 
-            query = query.Replace("@ID_Noticia", noticia.id_noticia.ToString())
+            query = query.Replace("@ID_Noticia", id_Noticia.ToString())
                          .Replace("@Titulo", noticia.titulo.ToString())
                          .Replace("@Autor", noticia.autor.ToString())
                          .Replace("@Fecha", noticia.fecha.ToString())

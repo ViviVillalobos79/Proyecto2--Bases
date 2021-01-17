@@ -32,15 +32,7 @@ namespace WebApiSQLServer
         {
             // Configuración de la base de datos en SQLServer
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
-            /*
-            //Configuración de la base de datos en mongodb 
-            services.Configure<XTecDigitalMongoDBSettings>(
-                Configuration.GetSection(nameof(XTecDigitalMongoDBSettings)));
-            
-            services.AddSingleton<IXTecDigitalMongoDBSettings>(sp =>
-                sp.GetRequiredService<IOptions<XTecDigitalMongoDBSettings>>().Value);
-            services.AddSingleton<PersonaDB>();
-            */
+           
             services.AddControllers();
         }
 

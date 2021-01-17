@@ -10,7 +10,7 @@ using WebApiSQLServer.Repositorios.Profesores;
 namespace WebApiSQLServer.Controllers.Profesores
 {
     [Route("apis/profesor/noticia")]
-    [ApiController]
+    //[ApiController]
     public class NoticiaController : ControllerBase
     {
         private readonly AppDbContext _context;

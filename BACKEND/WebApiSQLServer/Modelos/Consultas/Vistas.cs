@@ -22,5 +22,9 @@ namespace WebApiSQLServer.Modelos.Consultas
         public int carnet { get; set; }
 
     }
-  
+    public class SP_grupo_carpetas
+    {
+        public int id_grupo { get; set; }
+        public string nombre { get; set; }
+    }
 }
