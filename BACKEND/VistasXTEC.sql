@@ -14,13 +14,13 @@ SELECT * FROM View_Estudiantes_Matriculados WHERE ID_Grupo = 1 ORDER BY Carnet;
 
 -- Vista de cursos de un estudiante
 CREATE VIEW View_Cursos_de_Estudiante 
-AS SELECT U.Nombre_Curso, G.Numero_Grupo, 'Semestre' + S.Periodo AS Periodo, S.Ano, E.Carnet 
+AS SELECT U.Nombre_Curso,G.ID_Grupo, G.Numero_Grupo, 'Semestre' + S.Periodo AS Periodo, S.Ano, E.Carnet 
    FROM xtec.GRUPO_ESTUDIANTE AS E JOIN xtec.GRUPO AS G ON E.ID_Grupo = G.ID_Grupo
 								JOIN xtec.CURSO_GRUPO AS C ON C.ID_Grupo = G.ID_Grupo
 								JOIN xtec.CURSO AS U ON U.Codigo_Curso = C.Codigo_Curso
 								JOIN xtec.SEMESTRE AS S ON S.ID_Semestre = G.Semestre;
 
---SELECT Nombre_Curso, Numero_Grupo, 'Semestre' + Periodo AS Periodo, Ano FROM View_Cursos_de_Estudiante WHERE Carnet = 2013053251;	
+-- SELECT Nombre_Curso, ID_Grupo, Numero_Grupo, Periodo, Ano FROM View_Cursos_de_Estudiante WHERE Carnet = 2013053251;	
 
 -- Vista de las noticias de todos los cursos de un estudiante
 CREATE VIEW View_Noticias_Cursos

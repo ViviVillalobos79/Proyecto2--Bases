@@ -21,8 +21,8 @@ namespace WebApiSQLServer.Repositorios.Estudiantes
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT Nombre_Curso, Numero_Grupo, Periodo, Ano " +
-                        "FROM View_Cursos_de_Estudiante "+"" +
+            var query = "SELECT Nombre_Curso, ID_Grupo, Numero_Grupo, Periodo, Ano " +
+                        "FROM View_Cursos_de_Estudiante " +
                         "WHERE Carnet = @Carnet";
 
             query = query.Replace("@Carnet", carnet.ToString());
@@ -39,9 +39,10 @@ namespace WebApiSQLServer.Repositorios.Estudiantes
             {
                 curso = new CursosEstudiante();
                 curso.nombre_curso = reader.GetValue(0).ToString();
-                curso.numero_grupo = Convert.ToInt32(reader.GetValue(1));
-                curso.periodo = reader.GetValue(2).ToString();
-                curso.ano = Convert.ToInt32(reader.GetValue(3));
+                curso.id_grupo = Convert.ToInt32(reader.GetValue(1).ToString());
+                curso.numero_grupo = Convert.ToInt32(reader.GetValue(2));
+                curso.periodo = reader.GetValue(3).ToString();
+                curso.ano = Convert.ToInt32(reader.GetValue(4));
                 lista.Add(curso);
             }
             connection.Close();

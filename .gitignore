@@ -10,3 +10,7 @@ BACKEND/WebApiSQLServer/.vs/WebApiSQLServer/DesignTimeBuild/.dtbcache.v2
 *.cache
 *.cache
 *.txt
+*.exe
+*.exe
+*.pdb
+*.json

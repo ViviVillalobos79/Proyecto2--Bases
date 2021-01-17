@@ -270,5 +270,3 @@ AS
 	DECLARE @ID_Carpeta INT
 	SET @ID_Carpeta = (SELECT TOP 1 ID_Carpeta FROM xtec.CARPETA AS D ORDER BY D.ID_Carpeta DESC)
 	INSERT INTO xtec.GRUPO_CARPETA VALUES (@ID_Carpeta, @ID_Grupo)
-
-
