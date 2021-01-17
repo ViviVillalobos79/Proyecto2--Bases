@@ -30,19 +30,19 @@ namespace WebApiSQLServer.Controllers.Profesores
         {
             return CarpetaRepositorio.GetCarpeta(id_Carpeta);
         }
-        /*
+        
         [HttpPost]
         public bool PostCarpeta(Carpeta Carpeta)
         {
             return CarpetaRepositorio.PostCarpeta(Carpeta);
         }
-        */
         
+        /*
         [HttpPost]
         public static bool postCarpetasGrupo(SP_grupo_carpetas carpeta)
         {
             return CarpetaRepositorio.PostCarpeta(carpeta);
-        }
+        }*/
 
         [HttpPut("{id_Carpeta}")]
         public bool UpdateCarpeta(Carpeta Carpeta, int id_Carpeta)
