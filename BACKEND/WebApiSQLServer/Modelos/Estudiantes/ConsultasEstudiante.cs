@@ -8,6 +8,7 @@ namespace WebApiSQLServer.Modelos.Estudiantes
     // Retorna la lista de cursos que lleva un estudiante
     public class CursosEstudiante {
         public string nombre_curso { get; set; }
+        public int id_grupo { get; set; }
         public int numero_grupo { get; set; }
         public string periodo { get; set; }
         public int ano { get; set; }

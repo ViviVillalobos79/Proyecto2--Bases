@@ -91,3 +91,11 @@ WHERE G.ID_Grupo = 1;
 SELECT SUM(Porcentaje) AS 'Suma' FROM xtec.RUBRO WHERE Grupo = 1;
 
 SELECT * FROM xtec.ESTUDIANTE
+
+SELECT * FROM xtec.CARPETA 
+
+INSERT INTO xtec.CARPETA VALUES('prueba carpeta', getdate())
+
+DELETE FROM xtec.CARPETA WHERE ID_Carpeta = 52
+
+EXEC SP_Grupo_Carpeta 1,'prueba carpeta'

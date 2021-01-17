@@ -79,7 +79,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
             connection.Close();
             return listaCarpeta;
         }
-        /*
+        
+        
         public static bool PostCarpeta(Carpeta carpeta)
         {
 
@@ -89,8 +90,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
             var query = "INSERT INTO xtec.CARPETA(Nombre, Fecha) " +
                         "VALUES('@Nombre', '@Fecha')";
 
-            query = query.Replace("@Nombre", carpeta.nombre.ToString())
-                         .Replace("@Fecha", carpeta.fecha.ToString());
+            query = query.Replace("@Nombre", carpeta.nombre)
+                         .Replace("@Fecha", carpeta.fecha);
             try
             {
                 connection.Open();
@@ -106,7 +107,8 @@ namespace WebApiSQLServer.Repositorios.Profesores
                 return false;
             }
         }
-        */
+        
+        /*
         public static bool PostCarpeta(SP_grupo_carpetas carpeta)
         {
 
@@ -130,7 +132,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
                 return false;
             }
         }
-
+        */
 
         public static bool UpdateCarpeta(Carpeta carpeta, int id_Carpeta)
         {
@@ -138,7 +140,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
             var query = "UPDATE xtec.CARPETA SET Nombre = '@Nombre', Fecha = '@Fecha' " +
-                        "WHERE ID_Carpeta = '@ID_Carpeta'";
+                        "WHERE ID_Carpeta = @ID_Carpeta";
 
             query = query.Replace("@Nombre", carpeta.nombre.ToString())
                          .Replace("@Fecha", carpeta.fecha.ToString())

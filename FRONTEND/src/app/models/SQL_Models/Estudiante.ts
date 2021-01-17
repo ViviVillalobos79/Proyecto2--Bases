@@ -4,6 +4,7 @@ export class Estudiante{
 
 export class CursosEstudiante {
     nombre_curso:string;
+    id_grupo:number;
     numero_grupo:number;
     periodo:string;
     ano:number;
