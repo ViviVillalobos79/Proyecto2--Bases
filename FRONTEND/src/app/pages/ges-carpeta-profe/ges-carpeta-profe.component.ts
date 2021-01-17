@@ -48,12 +48,11 @@ export class GesCarpetaProfeComponent implements OnInit {
     this.username = this._route.snapshot.paramMap.get('cedula');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
     this.idCarpeta = this._route.snapshot.paramMap.get('idCarpeta');
+    this.nombreCarpeta = this._route.snapshot.paramMap.get('nombreCarpeta');
   }
 
   ngOnInit(): void {
     //Obtener la información del curso
-    this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    this.grupo = '4';
 
     this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
       this.curso = res[0];
@@ -64,9 +63,10 @@ export class GesCarpetaProfeComponent implements OnInit {
     });
   }
 
+
   getFiles() {
     this.profesorSvc
-      .getDocumentosCarpeta(this.idCurso, this.idCarpeta)
+      .getDocumentosCarpeta(this.idCurso, this.nombreCarpeta)
       .subscribe((res) => {
         this.documentos = res;
         console.log('Documentos ', this.documentos);
@@ -97,8 +97,8 @@ export class GesCarpetaProfeComponent implements OnInit {
     let nombre = this.selectedFiles[0].name;
     let tam = this.selectedFiles[0].size;
     let date: Date = new Date();
-   // let fecha = date.getDay() +'/' + date.getMonth() + '/' + date.getFullYear() + ' 12:00:00 a. m.';
-    let fecha = "8/12/2020 12:00:00 a. m.";
+    //let fecha = date.getDay() +'/' + date.getMonth() + '/' + date.getFullYear();
+    let fecha = "8/12/2020";
     //this.newDoc.id_documento = 0;
     this.newDoc.tamano = tam;
     this.newDoc.fecha = fecha;
@@ -130,11 +130,7 @@ export class GesCarpetaProfeComponent implements OnInit {
 
   goNoticias() {
     //goNoticias
-    let docu = new Documento();
-    docu.carpeta = 1;
-    docu.fecha = "jdif";
-    
 
-    this.documentos.push(docu);
+
   }
 }

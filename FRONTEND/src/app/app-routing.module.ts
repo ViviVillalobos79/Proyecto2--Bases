@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "matrizEvaluaciones/:cedula/:idCurso", component: MatrizEvaluacionesComponent, pathMatch: "full"},
   { path: "sendEva", component: SendEvaComponent, pathMatch: "full" },
   { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
-  { path: "carpeta/:cedula/:idCurso/:idCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
+  { path: "carpeta/:cedula/:idCurso/:idCarpeta/:nombreCarpeta", component:GesCarpetaProfeComponent, pathMatch: "full"},
   { path: "noticias/:carnet/:idCurso", component:NoticiasComponent, pathMatch: "full"},
   { path: "notas", component:NotasComponent, pathMatch: "full"},
   { path: "gesCursos", component:GesCursosComponent, pathMatch: "full"},
