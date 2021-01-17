@@ -79,6 +79,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
             connection.Close();
             return listaCarpeta;
         }
+        /*
         public static bool PostCarpeta(Carpeta carpeta)
         {
 
@@ -94,6 +95,7 @@ namespace WebApiSQLServer.Repositorios.Profesores
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
+                
                 command.ExecuteNonQuery();
                 command.Dispose();
                 connection.Close();
@@ -104,6 +106,32 @@ namespace WebApiSQLServer.Repositorios.Profesores
                 return false;
             }
         }
+        */
+        public static bool PostCarpeta(SP_grupo_carpetas carpeta)
+        {
+
+            Conexion conexion = new Conexion();
+
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+      
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand("SP_Grupo_Carpeta", connection);
+                command.Parameters.Add("@ID_Grupo",SqlDbType.Int).Value = carpeta.id_grupo;
+                command.Parameters.Add("@Nombre", SqlDbType.VarChar).Value = carpeta.nombre;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
         public static bool UpdateCarpeta(Carpeta carpeta, int id_Carpeta)
         {
             Conexion conexion = new Conexion();
