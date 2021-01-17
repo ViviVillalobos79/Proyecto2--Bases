@@ -61,8 +61,4 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['inicio', this.username]);}
   }
 }
-//"/api/*":{
-//  "target":"https://localhost:44371",
-//  "secure": false,
-//  "logLevel" : "debug"
-//},
+

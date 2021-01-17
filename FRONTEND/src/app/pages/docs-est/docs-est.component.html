@@ -1,18 +1,18 @@
 <hr class="linea" />
 <label class="logo">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="perfil">Perfil</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="perfil" (click)="goPerfil()">Perfil</button>
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 
 <div class="barracurso">
     <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
-    <button class="noticias">Noticias</button>
-    <button class="documentos" >Documentos</button>
-    <button class="evaluaciones">Evaluaciones</button>
+    <button class="noticias" (click)="goNoticias()">Noticias</button>
+    <button class="documentos" (click)="goDocumentos()">Documentos</button>
+    <button class="evaluaciones" (click)="goEvaluaciones()">Evaluaciones</button>
 </div>
 
 <div class="look">
@@ -23,7 +23,7 @@
             <h3>{{ doc }}&nbsp;</h3>
             <button>
                 <h3>
-                Descargar 
+                Descargar
                 </h3>
             </button>
             </mat-card>
@@ -31,4 +31,3 @@
         </div>
     </div>
 </div>
-  

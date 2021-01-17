@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Documento } from 'src/app/models/SQL_Models/Profesor';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DocumentoService {
   /**
@@ -16,27 +16,30 @@ export class DocumentoService {
         "carpeta": 1
     }
    */
-  url:string = '/apis/profesor/documento';
+  url: string = '/apis/profesor/documento';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getAllDocumentos():Observable<Documento>{
+  getAllDocumentos(): Observable<Documento> {
     return this.http.get<Documento>(this.url);
   }
 
-  getDocumento(id_Documento:number):Observable<Documento[]>{
+  getDocumento(id_Documento: number): Observable<Documento[]> {
     return this.http.get<Documento[]>(this.url + '/' + id_Documento);
   }
 
-  addDocumento(documento:Documento):Observable<Documento>{
+  addDocumento(documento: Documento): Observable<Documento> {
     return this.http.post<Documento>(this.url, documento);
   }
 
-  updateDocumento(id_Documento:number, documento:Documento):Observable<Documento>{
+  updateDocumento(
+    id_Documento: number,
+    documento: Documento
+  ): Observable<Documento> {
     return this.http.put<Documento>(this.url + '/' + id_Documento, documento);
   }
 
-  deleteDocumento(id_Documento:number):Observable<Documento>{
+  deleteDocumento(id_Documento: number): Observable<Documento> {
     return this.http.delete<Documento>(this.url + '/' + id_Documento);
   }
 }

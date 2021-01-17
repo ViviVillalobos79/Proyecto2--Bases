@@ -26,8 +26,6 @@ import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 import { MatrizEvaluacionesComponent } from './pages/matriz-evaluaciones/matriz-evaluaciones.component';
 import { SendEvaComponent } from './pages/send-eva/send-eva.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
-import { CarpetasComponent } from './pages/carpetas/carpetas.component';
-import { DetailsUploadComponent } from './pages/details/details-upload/details-upload.component';
 import { GesCarpetaProfeComponent } from './pages/ges-carpeta-profe/ges-carpeta-profe.component';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NotasComponent } from './pages/notas/notas.component';
@@ -48,8 +46,6 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     MatrizEvaluacionesComponent,
     SendEvaComponent,
     PruebasComponent,
-    CarpetasComponent,
-    DetailsUploadComponent,
     GesCarpetaProfeComponent,
     NoticiasComponent,
     NotasComponent,

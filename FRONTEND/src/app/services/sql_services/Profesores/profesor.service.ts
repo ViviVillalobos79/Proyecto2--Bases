@@ -48,8 +48,8 @@ export class ProfesorService {
   }
 
   // Retorna los documentos que se encuentran en una carpeta de un grupo, por nombre de carpeta y id del grupo
-  getDocumentosCarpeta(id_grupo:number, carpeta:string):Observable<DocumentosCarpeta>{
-    return this.http.get<DocumentosCarpeta>(this.url + '/documentos/carpeta/' + id_grupo + '/' + carpeta);
+  getDocumentosCarpeta(id_grupo:string, carpeta:string):Observable<DocumentosCarpeta[]>{
+    return this.http.get<DocumentosCarpeta[]>(this.url + '/documentos/carpeta/' + id_grupo + '/' + carpeta);
   }
 
   // Retorna lista de carpetas en un grupo por medio del id del grupo
@@ -61,7 +61,7 @@ export class ProfesorService {
     return this.http.get<ReporteNotas>(this.url + '/reporte/notas/' + id_grupo);
   }
 
-  getDatos_Curso(id_grupo:number):Observable<Datos_Curso>{
-    return this.http.get<Datos_Curso>(this.url + '/datos/grupo/' + id_grupo);
+  getDatos_Curso(id_grupo:string):Observable<Datos_Curso[]>{
+    return this.http.get<Datos_Curso[]>(this.url + '/datos/grupo/' + id_grupo);
   }
 }
