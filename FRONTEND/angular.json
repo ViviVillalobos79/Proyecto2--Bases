@@ -63,7 +63,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "FRONTEND:build",
-            "proxyConfig": "V:/Users/GitHub/Proyecto2--Bases/FRONTEND/proxy.conf.js"
+            "proxyConfig": "src/proxy.conf.js"
           },
           "configurations": {
             "production": {

@@ -97,9 +97,9 @@ export class GesCarpetaProfeComponent implements OnInit {
     let nombre = this.selectedFiles[0].name;
     let tam = this.selectedFiles[0].size;
     let date: Date = new Date();
-    let fecha = date.getDay() +'/' + date.getMonth() + '/' + date.getFullYear() + ' 12:00:00 a. m.';
-
-    this.newDoc.id_documento = 0;
+   // let fecha = date.getDay() +'/' + date.getMonth() + '/' + date.getFullYear() + ' 12:00:00 a. m.';
+    let fecha = "8/12/2020 12:00:00 a. m.";
+    //this.newDoc.id_documento = 0;
     this.newDoc.tamano = tam;
     this.newDoc.fecha = fecha;
     this.newDoc.nombre_documento = nombre;
@@ -130,5 +130,11 @@ export class GesCarpetaProfeComponent implements OnInit {
 
   goNoticias() {
     //goNoticias
+    let docu = new Documento();
+    docu.carpeta = 1;
+    docu.fecha = "jdif";
+    
+
+    this.documentos.push(docu);
   }
 }
