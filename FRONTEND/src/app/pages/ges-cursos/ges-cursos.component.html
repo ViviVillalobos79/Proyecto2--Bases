@@ -15,6 +15,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Creditos</th>
         <th scope="col">Carrera</th>
+        <th scope="col">Habilitado</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -25,9 +26,14 @@
             <td>{{curso.nombre_curso}}&nbsp;&nbsp;</td>
             <td>{{curso.creditos}}&nbsp;&nbsp;</td>
             <td>{{curso.carrera}}&nbsp;&nbsp;</td>
+            <td>{{curso.habilitado}}</td>
             <td>
-                <button mat-flat-button (click)="deshabilitar()">
+                <button mat-flat-button (click)="deshabilitar(curso.codigo_curso,curso)">
                     Deshabilitar
+                </button>
+                
+                <button mat-flat-button (click)="habilitar(curso.codigo_curso,curso)">
+                    Habilitar
                 </button>
             </td>
         </tr>

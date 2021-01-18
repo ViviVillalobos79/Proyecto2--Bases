@@ -67,10 +67,12 @@ export class DocsEstComponent implements OnInit {
   }
 
   goDocumentos(){
+    this.router.navigate(['gesDocEst', this.username, this.idCurso,this.idCarpeta]);
     //Ruta para ir a las carpetas del curso
   }
 
   goEvaluaciones(){
+    this.router.navigate(['sendEva', this.username, this.idCurso]);
     //Ruta para ir a la evaluacion del curso
   }
 

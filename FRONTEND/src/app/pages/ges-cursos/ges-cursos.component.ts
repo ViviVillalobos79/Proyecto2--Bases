@@ -13,6 +13,7 @@ export class GesCursosComponent implements OnInit {
   curso:Curso;
   cursos:Curso[]=[];
   username:string;
+  
 
   constructor(
     private router: Router,
@@ -34,12 +35,23 @@ export class GesCursosComponent implements OnInit {
   goSemestre() {
     this.router.navigate(['semestre', this.username]);
   }
+  getCurso(){
 
-  deshabilitar() {
-    console.log('deshabilitar curso')
-    
+  }
 
-    
+  deshabilitar(curso,info){
+    info['habilitado'] ='0';
+    console.log(info)
+    this.cursoSvc.updateCurso(curso,info).subscribe((res)=>{
+      console.log(res)
+    })
+  }
+
+  habilitar(curso,info){
+      info['habilitado'] ='1';
+      this.cursoSvc.updateCurso(curso,info).subscribe((res)=>{
+        console.log(res)
+      })
   }
 
 }
