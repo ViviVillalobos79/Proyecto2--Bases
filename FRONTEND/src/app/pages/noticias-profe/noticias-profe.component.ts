@@ -57,7 +57,7 @@ export class NoticiasProfeComponent implements OnInit {
   }
 
   getNoticias() {
-    this.estudianteSvc.getNoticiasGrupo('1').subscribe((res) => {
+    this.estudianteSvc.getNoticiasGrupo(this.idCurso).subscribe((res) => {
       this.noticiasAll = res;
       console.log('moti ', res);
       this.setNoticias();
