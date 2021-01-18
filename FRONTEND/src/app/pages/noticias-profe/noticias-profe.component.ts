@@ -3,12 +3,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Datos_Curso, Noticia } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 import { EstudianteService } from '../../services/sql_services/Estudiantes/estudiante.service';
+import { NoticiasGenerales } from 'src/app/models/SQL_Models/Estudiante';
 
 @Component({
   selector: 'app-noticias-profe',
   templateUrl: './noticias-profe.component.html',
   styleUrls: ['./noticias-profe.component.css'],
-  providers: [ProfesorService,EstudianteService],
+  providers: [ProfesorService, EstudianteService],
 })
 export class NoticiasProfeComponent implements OnInit {
   username: string;
@@ -17,7 +18,8 @@ export class NoticiasProfeComponent implements OnInit {
   grupo: string;
   curso: Datos_Curso;
   noticias = [{}];
-  noticiasAll:Noticia[];
+  noticiasAll: NoticiasGenerales[];
+  noticiasCompletas = [];
 
   constructor(
     private router: Router,
@@ -30,7 +32,6 @@ export class NoticiasProfeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.noticias = [
       {
         fecha: '12 de Diciembre',
@@ -51,17 +52,32 @@ export class NoticiasProfeComponent implements OnInit {
       this.nombrecurso = this.curso.nombre_curso;
       this.grupo = this.curso.numero_grupo.toString();
       console.log('Res ', this.curso);
-
+      this.getNoticias();
     });
   }
 
-
-  getNoticias(){
-    this.estudianteSvc.getNoticiasGrupo(this.idCurso).subscribe((res) => {
-
-      console.log('Res ', res;
-
+  getNoticias() {
+    this.estudianteSvc.getNoticiasGrupo('1').subscribe((res) => {
+      this.noticiasAll = res;
+      console.log('moti ', res);
+      this.setNoticias();
     });
+  }
+
+  setNoticias() {
+    this.noticiasAll.forEach((element) => {
+      let not = {
+        fecha: element.fecha,
+        titulo: element.titulo,
+        cuerpo: element.mensaje,
+      };
+      this.noticiasCompletas.push(not);
+    });
+
+  }
+
+  crearNoticia(noticia){
+
   }
 
   goInicio() {

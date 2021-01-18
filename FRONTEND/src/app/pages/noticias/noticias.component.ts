@@ -37,6 +37,7 @@ export class NoticiasComponent implements OnInit {
     ];
   }
 
+  
   perfilGo() {
     this.router.navigate(['profile', this.carnet]);
   }

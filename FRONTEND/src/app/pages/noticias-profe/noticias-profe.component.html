@@ -13,32 +13,26 @@
   <button class="admin" (click)="goNoticias()">Noticias</button>
 </div>
 
-<div class="look" >
-    <div *ngFor="let not of noticias">
-        <mat-card>
-            <mat-accordion>
-                <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        <h1>
-                            {{not["fecha"]}}
-                        </h1>
-                    </mat-panel-title>
-                <mat-panel-description>
-                    <h1>
-                        {{not["titulo"]}}
-                    </h1>
-                </mat-panel-description>
-                </mat-expansion-panel-header>
-                    <h3>
-                        {{not["cuerpo"]}}
-                    </h3>
-                    <p>
-                        Autor: {{not["autor"]}}
-                    </p>
-                </mat-expansion-panel>
-            </mat-accordion>
-        </mat-card>
-    </div>
+<div class="look">
+  <button class="agreCarpeta">Agregar noticia</button>
+  <label class="nombre">Nombre de la noticia</label>
+  <input
+    class="nombreInput"
+    type="text"
+    name="password"
+    placeholder="Nombre de la noticia"
+    (change)="crearNoticia($event.target.value)"
+  />
 
+  <div class="lookfil" style="overflow: auto">
+    <div class="tramos">
+      <div *ngFor="let noticia of noticiasCompletas">
+        <mat-card class="productor">
+          <h3>{{ noticia.titulo }} &nbsp;</h3>
+          <h3>&nbsp; {{ noticia.mensaje }} &nbsp;</h3>
+          <h3>&nbsp; {{ noticia.fecha }} &nbsp;</h3>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
