@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
     if (this.loged) {
       if (this.rol == 'Administrador') {
         //ruta para página inicial del administrador
+        this.router.navigate(['gesCursos', this.username]);
       } else {
         this.router.navigate(['inicio', this.username]);
       }

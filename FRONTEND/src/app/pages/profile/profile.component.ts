@@ -31,10 +31,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.personaSvc.getById(this.carne).subscribe((res) => {
       this.personas = res;
-      this.personas.forEach((element) => {
-        this.nombre = element.primer_Nombre + ' ' + element.apellido1;
-        this.correo = element.correo;
-      });
+      this.nombre = res['primer_Nombre'] + ' ' + res['apellido1']
+      this.correo = res['correo']
 
       console.log(this.personas);
     });
