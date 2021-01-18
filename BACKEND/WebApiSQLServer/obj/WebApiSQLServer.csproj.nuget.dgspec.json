@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {}
+    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {}
   },
   "projects": {
-    "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
         "projectName": "WebApiSQLServer",
-        "projectPath": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
-        "packagesPath": "C:\\Users\\Paulo Azofeifa\\.nuget\\packages\\",
-        "outputPath": "D:\\Escritorio\\Bases Proyecto2\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Paulo Azofeifa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,18 +38,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.10, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.10, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.11.3, )"
+              "version": "[5.0.2, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -73,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

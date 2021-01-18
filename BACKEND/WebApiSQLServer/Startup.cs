@@ -13,8 +13,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApiSQLServer.Controllers;
 using Microsoft.EntityFrameworkCore;
-//using WebApiSQLServer.Data;
-//using WebApiSQLServer.Data.Configuration;
 
 namespace WebApiSQLServer
 {
@@ -30,9 +28,8 @@ namespace WebApiSQLServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Configuración de la base de datos en SQLServer
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
-           
+
             services.AddControllers();
         }
 
