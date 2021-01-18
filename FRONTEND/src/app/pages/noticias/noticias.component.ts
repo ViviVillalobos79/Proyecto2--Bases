@@ -7,14 +7,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./noticias.component.css'],
 })
 export class NoticiasComponent implements OnInit {
-  username: string;
+  carnet: string;
   nombrecurso: string;
   grupo: string;
   noticias = [{}];
   idCurso:string;
 
   constructor(private router: Router, private _route: ActivatedRoute) {
-    this.username = this._route.snapshot.paramMap.get('carnet');
+    this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
 
@@ -35,5 +35,26 @@ export class NoticiasComponent implements OnInit {
         autor: 'Isaac',
       },
     ];
+  }
+
+  perfilGo() {
+    this.router.navigate(['profile', this.carnet]);
+  }
+
+  iniciogo() {
+    this.router.navigate(['inicio', this.carnet]);
+  }
+  cursosGo() {
+    this.router.navigate(['inicio', this.carnet]);
+  }
+
+  noticiasGo() {
+    this.router.navigate(['noticias', this.carnet, this.idCurso]);
+  }
+  documentosGo(){
+    this.router.navigate(['gesDocEst', this.carnet, this.idCurso]);
+  }
+  evaluacionesGo(){
+
   }
 }

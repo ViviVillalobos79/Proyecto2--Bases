@@ -1,23 +1,23 @@
 <hr class="linea" />
 <label class="logo3">XTECDigital</label>
 
-<button class="inicio" (click)="iniciogo()">Inicio</button>
-<button class="cursos" (click)="cursosgo()">Cursos</button>
-<button class="micuenta" (click)="perfilGo()">Mi Cuenta</button>
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 <div class="barracurso">
   <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
-  <button class="docs" (click)="docsCurso()" >DOCUMENTOS</button>
-  <button class="evaluaciones" (click)="evaluacionCurso()" >EVALUACIONES</button>
-  <button class="admin">ADMIN</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
 </div>
 
 <div class="look">
-  <button class="matriz">Matriz</button>
-  <button class="rubros">Rubros</button>
-  <button class="detalles">Detalles de notas y entregas</button>
-  <button class="notificaciones">Notificaciones</button>
+  <button class="matriz" (click)="goMatriz()">Matriz</button>
+  <button class="rubros" (click)="goRubros()">Rubros</button>
+  <button class="detalles" (click)="goDetalles()">Detalles de notas y entregas</button>
+  <button class="notificaciones" (click)="goNoticias()">Estudiantes</button>
 </div>
 
 <mat-chip-list>

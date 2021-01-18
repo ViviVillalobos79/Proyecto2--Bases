@@ -1,20 +1,20 @@
 <hr class="linea" />
 <label class="logo">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="perfil">Perfil</button>
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="cursos" (click)="cursosGo()">Cursos</button>
+<button class="perfil" (click)="perfilGo()">Perfil</button>
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 
 <div class="barracurso">
     <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
-    <button class="noticias">Noticias</button>
-    <button class="documentos">Documentos</button>
-    <button class="evaluaciones">Evaluaciones</button>
-</div>
-  
+    <button class="noticias" (click)="noticiasGo()">Noticias</button>
+    <button class="documentos" (click)="documentosGo()">Documentos</button>
+    <button class="evaluaciones" (click)="evaluacionesGo()">Evaluaciones</button>
+  </div>
+
 <div class="look" >
     <div *ngFor="let asig of asignaciones">
         <mat-card>
@@ -43,15 +43,15 @@
                     </div>
                 </div>
                 <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
-                    <div *ngFor="let file of allFiles | async" >                    
+                    <div *ngFor="let file of allFiles | async" >
                         <a href="{{ file.url }}">{{ file.name}}</a>
                     </div>
                 </cdk-virtual-scroll-viewport>
-                
-                
+
+
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-card>
     </div>
-    
+
 </div>

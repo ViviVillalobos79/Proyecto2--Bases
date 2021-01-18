@@ -1,19 +1,19 @@
 <hr class="linea" />
 <label class="logo">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="perfil">Perfil</button>
+<button class="inicio" (click)="iniciogo()">Inicio</button>
+<button class="cursos" (click)="cursosGo()">Cursos</button>
+<button class="perfil" (click)="perfilGo()">Perfil</button>
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
 
 <div class="barracurso">
     <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
-    <button class="noticias">Noticias</button>
-    <button class="documentos">Documentos</button>
-    <button class="evaluaciones">Evaluaciones</button>
-</div>
+    <button class="noticias" (click)="noticiasGo()">Noticias</button>
+    <button class="documentos" (click)="documentosGo()">Documentos</button>
+    <button class="evaluaciones" (click)="evaluacionesGo()">Evaluaciones</button>
+  </div>
 
 <div class="look" >
     <div *ngFor="let h of headers">
@@ -24,7 +24,7 @@
 
         </mat-card>
     </div>
-    
+
 </div>
 <button class="btn">
     <h2>
