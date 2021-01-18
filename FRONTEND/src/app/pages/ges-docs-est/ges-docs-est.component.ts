@@ -1,6 +1,8 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
 @Component({
   selector: 'app-ges-docs-est',
   templateUrl: './ges-docs-est.component.html',
@@ -11,6 +13,7 @@ export class GesDocsEstComponent implements OnInit {
   nombrecurso: string;
   grupo: string;
   idCurso: string;
+  curso: Datos_Curso;
 
   carpetas = [
     { nombre: 'Presentaciones', id: 0 },
@@ -21,14 +24,23 @@ export class GesDocsEstComponent implements OnInit {
 
   //carpetas = ["Presentaciones","Quices","Quices","Quices"]
 
-  constructor(private router: Router, private _route: ActivatedRoute) {
+  constructor(
+    private router: Router, 
+    private _route: ActivatedRoute,
+    private profesorSvc: ProfesorService) {
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
 
   ngOnInit(): void {
-    this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    this.grupo = '4';
+    this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
+      this.curso = res[0];
+      this.nombrecurso = this.curso.nombre_curso;
+      this.grupo = this.curso.numero_grupo.toString();
+      console.log('Res ', this.curso);
+    });
+    // this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
+    // this.grupo = '4';
     //Verificar las carpetas del curso preguntandole al server
     //Solicitar el nombre del curso y el grupo para rellenar la informacion
   }
@@ -51,10 +63,10 @@ export class GesDocsEstComponent implements OnInit {
     this.router.navigate(['gesDocEst', this.carnet, this.idCurso]);
   }
   evaluacionesGo(){
-
+    this.router.navigate(['sendEva', this.carnet, this.idCurso]);
   }
 
   abrir(id) {
-    this.router.navigate(['docEst']);
+    this.router.navigate(['docEst',this.carnet,this.idCurso,id]);
   }
 }

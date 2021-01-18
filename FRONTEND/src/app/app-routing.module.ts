@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "gesDocProfe/:cedula/:idCurso", component: GesDocosProfeComponent, pathMatch:"full"},
   { path: "profile/:cedula", component: ProfileComponent, pathMatch: "full" },
   { path: "gesEvaluaciones/:cedula/:idCurso", component: GesEvaluacionesComponent, pathMatch: "full"},
-  { path: "gesDocEst/:carnet/:idCurso/:idCarpeta", component: GesDocsEstComponent, pathMatch: "full" },
+  { path: "gesDocEst/:carnet/:idCurso", component: GesDocsEstComponent, pathMatch: "full" },
   { path: "matrizEvaluaciones/:cedula/:idCurso", component: MatrizEvaluacionesComponent, pathMatch: "full"},
   { path: "sendEva/:carnet/:idCurso", component: SendEvaComponent, pathMatch: "full" },
   { path: "pruebas", component: PruebasComponent, pathMatch: "full"},
