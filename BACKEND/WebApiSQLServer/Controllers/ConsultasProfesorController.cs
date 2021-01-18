@@ -59,5 +59,12 @@ namespace WebApiSQLServer.Controllers
         {
             return ConsultasProfesorRepositorio.rubrosGrupo(id_grupo);
         }
+
+        [HttpPost]
+        [Route("apis/profesor/carpeta/grupo")]
+        public static bool postCarpetaGrupo(SP_grupo_carpetas carpeta)
+        {
+            return ConsultasProfesorRepositorio.PostCarpetaGrupo(carpeta);
+        }
     }
 }

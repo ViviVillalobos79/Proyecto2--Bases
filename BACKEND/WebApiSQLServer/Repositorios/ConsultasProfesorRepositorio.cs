@@ -261,5 +261,38 @@ namespace WebApiSQLServer.Repositorios
             return lista;
 
         }
+
+        
+        public static bool PostCarpetaGrupo(SP_grupo_carpetas carpeta)
+        {
+
+            Conexion conexion = new Conexion();
+
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+            var query = "EXEC SP_Grupo_Carpeta @ID_Grupo, '@Nombre'";
+
+            query = query.Replace("@ID_Grupo", carpeta.id_grupo.ToString())
+                         .Replace("@Nombre", carpeta.nombre);
+            try
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Connection = connection;
+                /*
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "SP_Grupo_Carpeta";
+                command.Parameters.AddWithValue("@ID_Grupo",carpeta.id_grupo);
+                command.Parameters.AddWithValue("@Nombre", carpeta.nombre);
+                */
+                command.ExecuteNonQuery();
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

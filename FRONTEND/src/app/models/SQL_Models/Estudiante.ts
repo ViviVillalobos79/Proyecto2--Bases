@@ -13,6 +13,7 @@ export class CursosEstudiante {
 //Retorna lista de noticias de todos los cursos 
 export class NoticiasGenerales {
     titulo:string;
+    autor:number;
     fecha:string;
     mensaje:string;
 }

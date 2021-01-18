@@ -24,11 +24,11 @@ AS SELECT U.Nombre_Curso,G.ID_Grupo, G.Numero_Grupo, 'Semestre' + S.Periodo AS P
 
 -- Vista de las noticias de todos los cursos de un estudiante
 CREATE VIEW View_Noticias_Cursos
-AS SELECT N.Titulo, N.Fecha, N.Mensaje, E.Carnet
+AS SELECT N.Titulo, N.Autor, N.Fecha, N.Mensaje, E.Carnet
    FROM xtec.NOTICIA AS N JOIN xtec.GRUPO AS G ON N.Grupo = G.ID_Grupo
 									JOIN xtec.GRUPO_ESTUDIANTE AS E ON E.ID_Grupo = G.ID_Grupo;
 
---SELECT Titulo, Fecha, Mensaje FROM View_Noticias_Cursos WHERE Carnet = 2013053251 ORDER BY Fecha DESC;
+--SELECT Titulo, Autor, Fecha, Mensaje FROM View_Noticias_Cursos WHERE Carnet = 2013053251 ORDER BY Fecha DESC;
 
 -- Vista de los documentos en una carpeta 
 CREATE VIEW View_Documentos_en_Carpeta

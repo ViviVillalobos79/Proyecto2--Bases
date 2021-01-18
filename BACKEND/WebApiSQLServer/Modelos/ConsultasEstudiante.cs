@@ -18,8 +18,10 @@ namespace WebApiSQLServer.Modelos
     public class NoticiasGenerales
     {
         public string titulo { get; set; }
+        public int autor { get; set; }
         public string fecha { get; set; }
         public string mensaje { get; set; }
+        
     }
 
     //Notas de un estudiante en un curso

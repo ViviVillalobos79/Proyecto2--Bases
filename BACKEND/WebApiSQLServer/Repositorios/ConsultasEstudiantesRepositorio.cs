@@ -58,7 +58,7 @@ namespace WebApiSQLServer.Repositorios
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT Titulo, Fecha, Mensaje " + "" +
+            var query = "SELECT Titulo, Autor, Fecha, Mensaje " + "" +
                         "FROM View_Noticias_Cursos " +
                         "WHERE Carnet = @Carnet ORDER BY Fecha DESC;";
 
@@ -76,8 +76,9 @@ namespace WebApiSQLServer.Repositorios
             {
                 noticia = new NoticiasGenerales();
                 noticia.titulo = reader.GetValue(0).ToString();
-                noticia.fecha = reader.GetValue(1).ToString();
-                noticia.mensaje = reader.GetValue(2).ToString();
+                noticia.autor = Convert.ToInt32(reader.GetValue(1));
+                noticia.fecha = reader.GetValue(2).ToString();
+                noticia.mensaje = reader.GetValue(3).ToString();
                 lista.Add(noticia);
             }
             connection.Close();
@@ -132,7 +133,7 @@ namespace WebApiSQLServer.Repositorios
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
 
-            var query = "SELECT Titulo, Fecha, Mensaje " +
+            var query = "SELECT Titulo, Autor, Fecha, Mensaje " +
                         "FROM xtec.NOTICIA " +
                         "WHERE xtec.NOTICIA.Grupo = @ID_Grupo" +
                         "ORDER BY Fecha DESC; ";
@@ -151,8 +152,9 @@ namespace WebApiSQLServer.Repositorios
             {
                 noticia = new NoticiasGenerales();
                 noticia.titulo = reader.GetValue(0).ToString();
-                noticia.fecha = reader.GetValue(1).ToString();
-                noticia.mensaje = reader.GetValue(2).ToString();
+                noticia.autor = Convert.ToInt32(reader.GetValue(1));
+                noticia.fecha = reader.GetValue(2).ToString();
+                noticia.mensaje = reader.GetValue(3).ToString();
                 lista.Add(noticia);
             }
             connection.Close();

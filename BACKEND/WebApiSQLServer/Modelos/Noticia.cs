@@ -9,7 +9,7 @@ namespace WebApiSQLServer.Modelos
     {
         public int id_noticia { get; set; }
         public string titulo { get; set; }
-        public string autor { get; set; }
+        public int autor { get; set; }
         public string fecha { get; set; }
         public string mensaje { get; set; }
         public int grupo { get; set; }

@@ -37,7 +37,7 @@ namespace WebApiSQLServer.Repositorios
                 noticia = new Noticia();
                 noticia.id_noticia = Convert.ToInt32(reader.GetValue(0));
                 noticia.titulo = reader.GetValue(1).ToString();
-                noticia.autor = reader.GetValue(2).ToString();
+                noticia.autor = Convert.ToInt32(reader.GetValue(2));
                 noticia.fecha = reader.GetValue(3).ToString();
                 noticia.mensaje = reader.GetValue(4).ToString();
                 noticia.grupo = Convert.ToInt32(reader.GetValue(5));
@@ -75,7 +75,7 @@ namespace WebApiSQLServer.Repositorios
                 noticia = new Noticia();
                 noticia.id_noticia = Convert.ToInt32(reader.GetValue(0));
                 noticia.titulo = reader.GetValue(1).ToString();
-                noticia.autor = reader.GetValue(2).ToString();
+                noticia.autor = Convert.ToInt32(reader.GetValue(2));
                 noticia.fecha = reader.GetValue(3).ToString();
                 noticia.mensaje = reader.GetValue(4).ToString();
                 noticia.grupo = Convert.ToInt32(reader.GetValue(5));
@@ -93,7 +93,7 @@ namespace WebApiSQLServer.Repositorios
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
             var query = "INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) " +
-                        "VALUES('@Titulo', '@Autor', '@Fecha', '@Mensaje', Grupo)";
+                        "VALUES('@Titulo', @Autor, '@Fecha', '@Mensaje', Grupo)";
 
             query = query.Replace("@Titulo", noticia.titulo.ToString())
                          .Replace("@Autor", noticia.autor.ToString())
@@ -120,15 +120,15 @@ namespace WebApiSQLServer.Repositorios
             Conexion conexion = new Conexion();
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
-            var query = "UPDATE xtec.NOTICIA SET Titulo = '@Titulo', Autor = '@Autor', Fecha = '@Fecha', " +
+            var query = "UPDATE xtec.NOTICIA SET Titulo = '@Titulo', Autor = @Autor, Fecha = '@Fecha', " +
                         "Mensaje = '@Mensaje' " +
                         "WHERE ID_Noticia = @ID_Noticia";
 
             query = query.Replace("@ID_Noticia", id_Noticia.ToString())
-                         .Replace("@Titulo", noticia.titulo.ToString())
+                         .Replace("@Titulo", noticia.titulo)
                          .Replace("@Autor", noticia.autor.ToString())
-                         .Replace("@Fecha", noticia.fecha.ToString())
-                         .Replace("@Mensaje", noticia.mensaje.ToString())
+                         .Replace("@Fecha", noticia.fecha)
+                         .Replace("@Mensaje", noticia.mensaje)
                          .Replace("@Grupo", noticia.grupo.ToString());
 
             try

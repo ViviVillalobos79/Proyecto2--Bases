@@ -88,7 +88,7 @@ namespace WebApiSQLServer.Repositorios
 
             SqlConnection connection = new SqlConnection(conexion.StringConexion);
             var query = "INSERT INTO xtec.RUBRO(Nombre_Rubro, Porcentaje, Grupo) " +
-                        "VALUES(@Nombre_Rubro, @Porcentaje, @Grupo)";
+                        "VALUES('@Nombre_Rubro', @Porcentaje, @Grupo)";
 
             query = query.Replace("@Nombre_Rubro", rubro.nombre_rubro.ToString())
                          .Replace("@Porcentaje", rubro.porcentaje.ToString())

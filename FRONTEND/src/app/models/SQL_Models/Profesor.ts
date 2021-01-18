@@ -44,7 +44,7 @@ export class Miembros_Grupo{
 export class Noticia{
     id_noticia:number;
     titulo:string;
-    autor:string;
+    autor:number;
     fecha:string;
     mensaje:string;
     grupo:number;
