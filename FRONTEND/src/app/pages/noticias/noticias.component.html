@@ -9,7 +9,7 @@
 
 
 <div class="barracurso">
-    <button class="nombreCurso">{{nombrecurso}} GR {{grupo}}</button>
+    <button class="nombreCurso">{{nombrecurso}} GR {{idCurso}}</button>
     <button class="noticias" (click)="noticiasGo()">Noticias</button>
     <button class="documentos" (click)="documentosGo()">Documentos</button>
     <button class="evaluaciones" (click)="evaluacionesGo()">Evaluaciones</button>
@@ -33,11 +33,11 @@
                 </mat-panel-description>
                 </mat-expansion-panel-header>
                     <h3>
-                        {{not["cuerpo"]}}
+                        {{not["mensaje"]}}
                     </h3>
-                    <p>
+                    <!--p>
                         Autor: {{not["autor"]}}
-                    </p>
+                    </p-->
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-card>

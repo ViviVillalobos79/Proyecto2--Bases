@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: "noticias/:carnet/:idCurso", component:NoticiasComponent, pathMatch: "full"},
   { path: "notas/:carnet/:idCurso", component:NotasComponent, pathMatch: "full"},
   { path: "gesCursos/:username", component:GesCursosComponent, pathMatch: "full"},
-  { path: "semestre", component:SemestreComponent, pathMatch: "full"},
+  { path: "semestre/:username", component:SemestreComponent, pathMatch: "full"},
   { path: "inicio/:username", component:InicioComponent, pathMatch:"full"},
   { path: "docEst/:carnet/:idCurso/:idCarpeta", component:DocsEstComponent, pathMatch:"full"},
   { path: "noticiaProfe/:cedula/:idCurso", component:NoticiasProfeComponent, pathMatch:"full"},

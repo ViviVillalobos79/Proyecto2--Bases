@@ -21,6 +21,7 @@ import { element } from 'protractor';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SemestreComponent implements OnInit {
+  username:string;
   periodo:string;
   estudiantes=[];
   cursos=[];
@@ -35,10 +36,14 @@ export class SemestreComponent implements OnInit {
   arrayBuffer:any;
   filelist:any;
   
-  constructor(public fb: FormBuilder){
+  constructor(
+    public fb: FormBuilder,
+    private _route: ActivatedRoute,
+    private router: Router){
     this.myForm = this.fb.group({
       yearDate: ['', [Validators.required]]
-    })
+    }),
+    this.username = this._route.snapshot.paramMap.get('username')
     
   }
 
@@ -93,6 +98,13 @@ export class SemestreComponent implements OnInit {
       });
       console.log(this.iniciar)
     }
+  }
+  goCursos() {
+    this.router.navigate(['gesCursos', this.username]);
+  }
+
+  goSemestre() {
+    this.router.navigate(['semestre', this.username]);
   }
 
 

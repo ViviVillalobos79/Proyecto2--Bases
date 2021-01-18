@@ -1,9 +1,9 @@
 <hr class="linea" />
 <label class="logo">XTECDigital</label>
 
-<button class="inicio">Inicio</button>
-<button class="cursos">Cursos</button>
-<button class="semestre">Iniciar semestre</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="semestre" (click)="goSemestre()">Iniciar semestre</button>
+
 
 <button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
 
