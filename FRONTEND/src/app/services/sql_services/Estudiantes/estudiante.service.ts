@@ -42,22 +42,22 @@ export class EstudianteService {
 
   // Retorna lista de los cursos de un estudiante
   getCursosEstudiante(carnet:string):Observable<CursosEstudiante[]>{
-    return this.http.delete<CursosEstudiante[]>(this.url + '/cursos/' + carnet);
+    return this.http.get<CursosEstudiante[]>(this.url + '/cursos/' + carnet);
   }
 
   //Lista de noticias generales
   getNoticiasGenerales(carnet:number):Observable<NoticiasGenerales>{
-    return this.http.delete<NoticiasGenerales>(this.url + '/noticias/' + carnet);
+    return this.http.get<NoticiasGenerales>(this.url + '/noticias/' + carnet);
   }
 
   //Retorna notas de un estudiante en un curso
   getNotaGrupoEstudiante(carnet:number, id_grupo:number):Observable<NotaGrupoEstudiante>{
-    return this.http.delete<NotaGrupoEstudiante>(this.url + '/nota/grupo/' + carnet + '/' + id_grupo);
+    return this.http.get<NotaGrupoEstudiante>(this.url + '/nota/grupo/' + carnet + '/' + id_grupo);
   }
 
   //Retorna lista de noticias en un curso para un grupo
-  getNoticiasGrupo(id_grupo:number):Observable<NoticiasGenerales>{
-    return this.http.delete<NoticiasGenerales>(this.url + '/noticias/grupo' + id_grupo);
+  getNoticiasGrupo(id_grupo:string):Observable<NoticiasGenerales[]>{
+    return this.http.get<NoticiasGenerales[]>(this.url + '/noticias/grupo/' + id_grupo);
   }
 
 }
