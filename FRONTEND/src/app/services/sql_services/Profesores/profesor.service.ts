@@ -38,8 +38,8 @@ export class ProfesorService {
   }
 
   // Retorna lista de estudiantes matriculados en un curso, por medio del id del grupo
-  getEstudiantesMatriculados(id_grupo:number):Observable<EstudiantesMatriculados>{
-    return this.http.get<EstudiantesMatriculados>(this.url + '/estudiantes/matriculados/' + id_grupo);
+  getEstudiantesMatriculados(id_grupo:string):Observable<EstudiantesMatriculados[]>{
+    return this.http.get<EstudiantesMatriculados[]>(this.url + '/estudiantes/matriculados/' + id_grupo);
   }
 
   // Retorna lista de cursos que imparte un profesor
@@ -57,8 +57,8 @@ export class ProfesorService {
     return this.http.get<CarpetasGrupo[]>(this.url + '/carpeta/grupo/' + id_grupo)
   }
 
-  getReporteNotas(id_grupo:number):Observable<ReporteNotas>{
-    return this.http.get<ReporteNotas>(this.url + '/reporte/notas/' + id_grupo);
+  getReporteNotas(id_grupo:string):Observable<ReporteNotas[]>{
+    return this.http.get<ReporteNotas[]>(this.url + '/reporte/notas/' + id_grupo);
   }
 
   getDatos_Curso(id_grupo:string):Observable<Datos_Curso[]>{

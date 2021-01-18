@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   rol: string;
-  loged:boolean;
-  personas:Persona[];
+  loged: boolean;
+  personas: Persona[];
 
   constructor(
     private personaSvc: PersonaService,
@@ -43,14 +43,15 @@ export class LoginComponent implements OnInit {
     this.password = password;
   }
 
-  checkCredentials(){
-
-    this.personas.forEach(element => {
-
-      if(this.rol == element.tipo_Persona && this.username == element.identificador.toString() && this.password == element.clave){
+  checkCredentials() {
+    this.personas.forEach((element) => {
+      if (
+        this.rol == element.tipo_Persona &&
+        this.username == element.identificador.toString() &&
+        this.password == element.clave
+      ) {
         this.loged = true;
       }
-
     });
   }
 
@@ -58,15 +59,12 @@ export class LoginComponent implements OnInit {
     //Verifica las credenciales
     this.checkCredentials();
 
-    if(this.rol == "Administrador"){
-      //ruta para página inicial del administrador
+    if (this.loged) {
+      if (this.rol == 'Administrador') {
+        //ruta para página inicial del administrador
+      } else {
+        this.router.navigate(['inicio', this.username]);
+      }
     }
-  
-
-
-
-    if(this.loged){
-      this.router.navigate(['inicio', this.username]);}
   }
 }
-
