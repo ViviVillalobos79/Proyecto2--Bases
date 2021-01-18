@@ -17,6 +17,7 @@ import { GesCursosComponent } from './pages/ges-cursos/ges-cursos.component';
 import { SemestreComponent } from './pages/semestre/semestre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
+import { NoticiasProfeComponent } from './pages/noticias-profe/noticias-profe.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: "semestre", component:SemestreComponent, pathMatch: "full"},
   { path: "inicio/:username", component:InicioComponent, pathMatch:"full"},
   { path: "docEst/:carnet/:idCurso/:idCarpeta", component:DocsEstComponent, pathMatch:"full"},
+  { path: "noticiaProfe/:cedula/:idCurso", component:NoticiasProfeComponent, pathMatch:"full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

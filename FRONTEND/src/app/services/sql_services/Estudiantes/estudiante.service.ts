@@ -56,8 +56,8 @@ export class EstudianteService {
   }
 
   //Retorna lista de noticias en un curso para un grupo
-  getNoticiasGrupo(id_grupo:number):Observable<NoticiasGenerales>{
-    return this.http.delete<NoticiasGenerales>(this.url + '/noticias/grupo' + id_grupo);
+  getNoticiasGrupo(id_grupo:string):Observable<NoticiasGenerales[]>{
+    return this.http.delete<NoticiasGenerales[]>(this.url + '/noticias/grupo' + id_grupo);
   }
 
 }
