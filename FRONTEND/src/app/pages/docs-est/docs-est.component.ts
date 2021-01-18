@@ -40,12 +40,12 @@ export class DocsEstComponent implements OnInit {
     
     //Obtener la información del curso
 
-    // this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
-    //   this.curso = res[0];
-    //   this.nombrecurso = this.curso.nombre_curso;
-    //   this.grupo = this.curso.numero_grupo.toString();
-    //   console.log('Res ', this.curso);
-    // });
+    this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
+      this.curso = res[0];
+      this.nombrecurso = this.curso.nombre_curso;
+      this.grupo = this.curso.numero_grupo.toString();
+      console.log('Res ', this.curso);
+    });
 
     this.documento = ['Laboratorio', 'Especificación de proyecto'];
   }
