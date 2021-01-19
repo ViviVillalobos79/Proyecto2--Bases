@@ -19,8 +19,8 @@ export class RubroService {
 
   constructor(private http:HttpClient) { }
 
-  getAllRubros():Observable<Rubro>{
-    return this.http.get<Rubro>(this.url);
+  getAllRubros():Observable<Rubro[]>{
+    return this.http.get<Rubro[]>(this.url);
   }
 
   getRubro(id_Rubro:number):Observable<Rubro[]>{
@@ -31,7 +31,7 @@ export class RubroService {
     return this.http.post<Rubro>(this.url, rubro);
   }
 
-  updateRubro(id_Rubro:number, rubro:Rubro):Observable<Rubro>{
+  updateRubro(id_Rubro:string, rubro:Rubro):Observable<Rubro>{
     return this.http.put<Rubro>(this.url + '/' + id_Rubro, rubro);
   }
 

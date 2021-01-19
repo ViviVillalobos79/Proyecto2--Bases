@@ -34,6 +34,8 @@ import { SemestreComponent } from './pages/semestre/semestre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { NoticiasProfeComponent } from './pages/noticias-profe/noticias-profe.component';
 import { EstudiantesMatriculadosComponent } from './pages/estudiantes-matriculados/estudiantes-matriculados.component';
+import { RubrosProfeComponent } from './pages/rubros-profe/rubros-profe.component';
+import { EvaluacionesProfeComponent } from './pages/evaluaciones-profe/evaluaciones-profe.component';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import { EstudiantesMatriculadosComponent } from './pages/estudiantes-matriculad
     SemestreComponent,
     InicioComponent,
     NoticiasProfeComponent,
-    EstudiantesMatriculadosComponent
+    EstudiantesMatriculadosComponent,
+    RubrosProfeComponent,
+    EvaluacionesProfeComponent
   ],
   imports: [
     BrowserModule,

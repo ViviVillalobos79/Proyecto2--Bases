@@ -1,12 +1,17 @@
 import { Output } from '@angular/core';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { CarpetasGrupo, Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { Carpeta } from 'src/app/models/SQL_Models/Profesor';
+
 import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
+import { CarpetaService } from '../../services/sql_services/Profesores/carpeta.service'
+
 @Component({
   selector: 'app-ges-docs-est',
   templateUrl: './ges-docs-est.component.html',
   styleUrls: ['./ges-docs-est.component.css'],
+  providers:[CarpetaService]
 })
 export class GesDocsEstComponent implements OnInit {
   carnet: string;
@@ -14,20 +19,14 @@ export class GesDocsEstComponent implements OnInit {
   grupo: string;
   idCurso: string;
   curso: Datos_Curso;
-
-  carpetas = [
-    { nombre: 'Presentaciones', id: 0 },
-    { nombre: 'Quices', id: 1 },
-    { nombre: 'Quices', id: 2 },
-    { nombre: 'Quices', id: 3 },
-  ];
-
-  //carpetas = ["Presentaciones","Quices","Quices","Quices"]
+  carpetas: CarpetasGrupo[]=[]
+  
 
   constructor(
     private router: Router, 
     private _route: ActivatedRoute,
-    private profesorSvc: ProfesorService) {
+    private profesorSvc: ProfesorService,
+    private carpetaSvc: CarpetaService){
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
@@ -37,12 +36,19 @@ export class GesDocsEstComponent implements OnInit {
       this.curso = res[0];
       this.nombrecurso = this.curso.nombre_curso;
       this.grupo = this.curso.numero_grupo.toString();
-      console.log('Res ', this.curso);
+     
     });
-    // this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    // this.grupo = '4';
+    this.getCarpetas()
+
     //Verificar las carpetas del curso preguntandole al server
     //Solicitar el nombre del curso y el grupo para rellenar la informacion
+  }
+  getCarpetas() {
+    this.carpetas = [];
+    this.profesorSvc.getCarpetasGrupo(this.idCurso).subscribe((res) => {
+      this.carpetas = res;
+      console.log('Res ', this.carpetas);
+    });
   }
 
   perfilGo() {

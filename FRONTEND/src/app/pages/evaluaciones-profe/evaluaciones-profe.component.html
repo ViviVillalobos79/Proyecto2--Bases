@@ -1,0 +1,61 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
+</div>
+
+<div class="look">
+  <button class="agreCarpeta" (click)="crearEvaluacion()">
+    Agregar evaluacion
+  </button>
+  <label class="nombre">Información de la evaluacion</label>
+  <input
+    class="nombreInput"
+    type="text"
+    name="password"
+    placeholder="Nombre del rubro"
+    (change)="nombreNewevaluacion($event.target.value)"
+  />
+  <input
+    class="valorInput"
+    type="text"
+    name="valor"
+    placeholder="Individual o Grupal"
+    (change)="tipoNewevaluacion($event.target.value)"
+  />
+  <input
+    class="valorInput"
+    type="text"
+    name="valor"
+    placeholder="22/12/2021"
+    (change)="FechaNewevaluacion($event.target.value)"
+  />
+  <input
+    class="valorInput"
+    type="text"
+    name="valor"
+    placeholder="23:55:00"
+    (change)="horaNewevaluacion($event.target.value)"
+  />
+
+  <div class="lookfil" style="overflow: auto">
+    <div class="tramos">
+      <div *ngFor="let eva of evaluaciones">
+        <mat-card class="productor">
+          <h3>{{ eva.nombre }} &nbsp;</h3>
+          <h3>{{ eva.tipo }} &nbsp;</h3>
+          <h3>{{ eva.fecha }} &nbsp; {{ eva.hora }}</h3>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
