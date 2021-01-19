@@ -88,15 +88,19 @@ export class SendEvaComponent implements OnInit {
     this.uploadSvc.uploadfile(file);
     this.getFile();
     let entrega = new Entregable();
-    entrega.id_entregable=this.rubros[this.idCurso]['id'];
     entrega.id_evaluacion=this.rubros[this.idCurso]['id'];
-    entrega.observaciones='';
-    entrega.nota=null;
-    entrega.fecha_entrega= Date.toString();
+    entrega.observaciones='0';
+    entrega.nota=0;
+    entrega.fecha_entrega= '9/12/2020';
     entrega.docu_estudiante=file.name;
     entrega.docu_profesor='';
-    console.log(entrega)
 
+    this.entregableSvc.addEntregable(entrega).subscribe((res)=>{
+      console.log(res)
+
+    })
+  
+    
   }
 
   selectFile(event) {
