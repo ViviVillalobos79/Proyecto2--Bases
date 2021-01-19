@@ -15,7 +15,7 @@ export class RubroService {
         "grupo": 1
     }
    */
-  url:string = '/apis/profesor/Rubro';
+  url:string = '/apis/profesor/rubro';
 
   constructor(private http:HttpClient) { }
 
