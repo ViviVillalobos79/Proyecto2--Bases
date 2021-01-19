@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {}
+    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\web api\\WebApiSQLServer\\WebApiSQLServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj": {
+    "C:\\Users\\Usuario\\OneDrive\\Escritorio\\web api\\WebApiSQLServer\\WebApiSQLServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\web api\\WebApiSQLServer\\WebApiSQLServer.csproj",
         "projectName": "WebApiSQLServer",
-        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\WebApiSQLServer.csproj",
+        "projectPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\web api\\WebApiSQLServer\\WebApiSQLServer.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\BASES\\Proyecto2--Bases\\BACKEND\\WebApiSQLServer\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\OneDrive\\Escritorio\\web api\\WebApiSQLServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,13 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[3.1.10, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
