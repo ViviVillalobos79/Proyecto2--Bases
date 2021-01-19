@@ -129,7 +129,9 @@ export class RubrosProfeComponent implements OnInit {
 
   }
 
-  visitarRubro(idRubro) {}
+  visitarRubro(idRubro) {
+    this.router.navigate(['evaluacionesProfe', this.username, this.idCurso, idRubro]);
+  }
 
   goInicio() {
     this.router.navigate(['inicio', this.username]);
@@ -154,4 +156,5 @@ export class RubrosProfeComponent implements OnInit {
   goNoticias() {
     this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
+
 }

@@ -23,8 +23,8 @@ export class EvaluacionService {
 
   constructor(private http:HttpClient) { }
 
-  getAllEvaluaciones():Observable<Evaluacion>{
-    return this.http.get<Evaluacion>(this.url);
+  getAllEvaluaciones():Observable<Evaluacion[]>{
+    return this.http.get<Evaluacion[]>(this.url);
   }
 
   getEvaluacion(id_Evaluacion:number):Observable<Evaluacion[]>{
