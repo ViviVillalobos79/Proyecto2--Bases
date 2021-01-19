@@ -64,4 +64,8 @@ export class ProfesorService {
   getDatos_Curso(id_grupo:string):Observable<Datos_Curso[]>{
     return this.http.get<Datos_Curso[]>(this.url + '/datos/grupo/' + id_grupo);
   }
+
+  getRubrosGrupo(id_grupo:string):Observable<Datos_Curso[]>{
+    return this.http.get<Datos_Curso[]>(this.url + '/datos/grupo/' + id_grupo);
+  }
 }

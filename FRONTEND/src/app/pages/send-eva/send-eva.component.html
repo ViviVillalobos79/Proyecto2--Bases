@@ -16,26 +16,23 @@
   </div>
 
 <div class="look" >
-    <div *ngFor="let asig of asignaciones">
+    <div *ngFor="let rubro of rubros">
         <mat-card>
             <mat-accordion>
                 <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <h1>
-                            {{asig}}
+                            {{rubro['nombre']}}
                         </h1>
                     </mat-panel-title>
                 <mat-panel-description>
                     <h2>
-                        Rubro
+                        Rubro {{rubro['valor']}}
                     </h2>
                 </mat-panel-description>
                 </mat-expansion-panel-header>
-                <div *ngFor="let rubro of rubros">
-                    <h2>
-                        {{rubro}}
-                    </h2>
+                <div>
                     <div class="newFile">
                         <button [disabled]="!selectedFiles" (click)="upload()">Entregar</button>
                         <label>Seleccione el archivo a subir</label>
