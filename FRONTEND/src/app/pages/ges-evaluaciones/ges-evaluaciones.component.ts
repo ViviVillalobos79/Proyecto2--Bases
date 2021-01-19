@@ -65,13 +65,13 @@ export class GesEvaluacionesComponent implements OnInit {
   }
 
   goRubros(){
-
+    this.router.navigate(['rubrosProfe', this.username, this.idCurso]);
   }
   goDetalles(){
 
   }
 
   goEstudiantes(){
-
+    this.router.navigate(['estudiantesMatriculados', this.username, this.idCurso]);
   }
 }
