@@ -2,22 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FileUpload } from 'src/app/models/file-upload';
-import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { Datos_Curso, Rubro } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
+import { RubroService } from 'src/app/services/sql_services/Profesores/rubro.service';
 import { UploadService } from '../../services/S3/upload.service';
+import { CarpetaService } from '../../services/sql_services/Profesores/carpeta.service'
 
 @Component({
   selector: 'app-send-eva',
   templateUrl: './send-eva.component.html',
   styleUrls: ['./send-eva.component.css'],
-  providers: [UploadService,ProfesorService],
+  providers: [UploadService,ProfesorService,RubroService,CarpetaService],
 })
 export class SendEvaComponent implements OnInit {
   carnet: string;
   nombrecurso: string;
   grupo: string;
   asignaciones = [];
-  rubros = [];
+  rubros=[];
+  rubrosAll: Rubro[];
   idCurso:string;
 
   filwe: Observable<FileUpload>;
@@ -34,8 +37,8 @@ export class SendEvaComponent implements OnInit {
     private uploadSvc: UploadService,
     private router: Router,
     private _route: ActivatedRoute,
-    private profesorSvc: ProfesorService
-  ) {
+    private profesorSvc: ProfesorService,
+    private rubroSvc:RubroService) {
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
@@ -45,13 +48,38 @@ export class SendEvaComponent implements OnInit {
       this.curso = res[0];
       this.nombrecurso = this.curso.nombre_curso;
       this.grupo = this.curso.numero_grupo.toString();
-      console.log('Res ', this.curso);
+      this.getRubros();
     });
-
-    this.asignaciones = ['Tarea corta', 'Examen', 'Proyecto'];
-    this.rubros = ['Primera entrega', 'Segunda entrega', 'Tercer entrega'];
+   
+    // this.rubros = ['Primera entrega', 'Segunda entrega', 'Tercer entrega'];
     this.getFile();
   }
+
+  getRubros() {
+    this.rubroSvc.getAllRubros().subscribe((res) => {
+      console.log('All ', res);
+      this.setRubros(res);
+    });
+  }
+
+  setRubros(rubrosH: Rubro[]) {
+    rubrosH.forEach((element) => {
+      if (element.grupo.toString() == this.grupo) {
+        let rub = {
+          nombre: element.nombre_rubro,
+          id: element.id_rubro,
+          valor: element.porcentaje.toString(),
+        };
+        this.rubros.push(rub);
+       
+      }
+    }); console.log('rub',this.rubros)
+  }
+  
+
+  
+
+
   getFile() {
     this.allFiles = this.uploadSvc.getAllFiles(this.docs);
   }
