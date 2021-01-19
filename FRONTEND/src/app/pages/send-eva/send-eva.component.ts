@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { FileUpload } from 'src/app/models/file-upload';
 import { Datos_Curso, Rubro } from 'src/app/models/SQL_Models/Profesor';
+import { EvaluacionService } from 'src/app/services/sql_services/Profesores/evaluacion.service';
 import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
 import { RubroService } from 'src/app/services/sql_services/Profesores/rubro.service';
 import { UploadService } from '../../services/S3/upload.service';
 import { CarpetaService } from '../../services/sql_services/Profesores/carpeta.service'
+import { EntregableService } from '../../services/sql_services/Profesores/entregable.service'
+import { Entregable } from 'src/app/models/SQL_Models/Profesor'
 
 @Component({
   selector: 'app-send-eva',
   templateUrl: './send-eva.component.html',
   styleUrls: ['./send-eva.component.css'],
-  providers: [UploadService,ProfesorService,RubroService,CarpetaService],
+  providers: [UploadService,EvaluacionService,ProfesorService,RubroService,CarpetaService],
 })
 export class SendEvaComponent implements OnInit {
   carnet: string;
@@ -38,7 +41,8 @@ export class SendEvaComponent implements OnInit {
     private router: Router,
     private _route: ActivatedRoute,
     private profesorSvc: ProfesorService,
-    private rubroSvc:RubroService) {
+    private rubroSvc:RubroService,
+    private entregableSvc: EntregableService) {
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
@@ -51,7 +55,6 @@ export class SendEvaComponent implements OnInit {
       this.getRubros();
     });
    
-    // this.rubros = ['Primera entrega', 'Segunda entrega', 'Tercer entrega'];
     this.getFile();
   }
 
@@ -76,10 +79,6 @@ export class SendEvaComponent implements OnInit {
     }); console.log('rub',this.rubros)
   }
   
-
-  
-
-
   getFile() {
     this.allFiles = this.uploadSvc.getAllFiles(this.docs);
   }
@@ -88,6 +87,16 @@ export class SendEvaComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.uploadSvc.uploadfile(file);
     this.getFile();
+    let entrega = new Entregable();
+    entrega.id_entregable=this.rubros[this.idCurso]['id'];
+    entrega.id_evaluacion=this.rubros[this.idCurso]['id'];
+    entrega.observaciones='';
+    entrega.nota=null;
+    entrega.fecha_entrega= Date.toString();
+    entrega.docu_estudiante=file.name;
+    entrega.docu_profesor='';
+    console.log(entrega)
+
   }
 
   selectFile(event) {
