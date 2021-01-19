@@ -122,7 +122,9 @@ export class EstudiantesMatriculadosComponent implements OnInit {
     this.router.navigate(['matrizEvaluaciones', this.username, this.idCurso]);
   }
 
-  goRubros() {}
+  goRubros() {
+    this.router.navigate(['rubrosProfe', this.username, this.idCurso]);
+  }
   goDetalles() {}
 
   goEstudiantes() {

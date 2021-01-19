@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Estudiante } from 'src/app/models/SQL_Models/Estudiante';
 import { CursosEstudiante } from 'src/app/models/SQL_Models/Estudiante';
 import { NoticiasGenerales } from 'src/app/models/SQL_Models/Estudiante';
-import { NotaGrupoEstudiante } from 'src/app/models/SQL_Models/Estudiante';
+import { NotaGrupoEstudiante,EvaluacionGrupo } from 'src/app/models/SQL_Models/Estudiante';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +58,10 @@ export class EstudianteService {
   //Retorna lista de noticias en un curso para un grupo
   getNoticiasGrupo(id_grupo:string):Observable<NoticiasGenerales[]>{
     return this.http.get<NoticiasGenerales[]>(this.url + '/noticias/grupo/' + id_grupo);
+  }
+
+  getEvaluacionesGrupo(id_grupo:number):Observable<EvaluacionGrupo[]>{
+    return this.http.get<EvaluacionGrupo[]>(this.url + '/evaluaciones/grupo/' + id_grupo);
   }
 
 }

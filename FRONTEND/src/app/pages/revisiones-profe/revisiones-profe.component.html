@@ -1,0 +1,29 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
+</div>
+
+<div class="lookfil" style="overflow: auto">
+  <div class="tramos">
+    <div *ngFor="let eva of evaluaciones">
+      <mat-card class="productor">
+        <h3>{{ eva.nombre }} &nbsp;</h3>
+        <h3>{{ eva.tipo }} &nbsp;</h3>
+        <h3>{{ eva.fecha }} &nbsp; {{ eva.hora }}</h3>
+        <button class="searchbt" (click)="evaluar(eva.id)">
+          <h3>Evaluar</h3>
+        </button>
+      </mat-card>
+    </div>
+  </div>
+</div>

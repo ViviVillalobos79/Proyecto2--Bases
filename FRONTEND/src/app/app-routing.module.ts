@@ -21,6 +21,8 @@ import { NoticiasProfeComponent } from './pages/noticias-profe/noticias-profe.co
 import { EstudiantesMatriculadosComponent } from './pages/estudiantes-matriculados/estudiantes-matriculados.component';
 import { RubrosProfeComponent } from './pages/rubros-profe/rubros-profe.component';
 import { EvaluacionesProfeComponent } from './pages/evaluaciones-profe/evaluaciones-profe.component';
+import { RevisionesProfeComponent } from './pages/revisiones-profe/revisiones-profe.component';
+import { VerRubrosRevisarComponent } from './pages/ver-rubros-revisar/ver-rubros-revisar.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
   { path: "estudiantesMatriculados/:cedula/:idCurso", component:EstudiantesMatriculadosComponent, pathMatch:"full"},
   { path: "rubrosProfe/:cedula/:idCurso", component:RubrosProfeComponent, pathMatch:"full"},
   { path: "evaluacionesProfe/:cedula/:idCurso/:idRubro", component:EvaluacionesProfeComponent, pathMatch:"full"},
+  { path: "revisionesProfe/:cedula/:idCurso", component:RevisionesProfeComponent, pathMatch:"full"},
+  { path: "verRubrosRevisar/:cedula/:idCurso/:idEvaluacion", component:VerRubrosRevisarComponent, pathMatch:"full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

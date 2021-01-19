@@ -36,6 +36,8 @@ import { NoticiasProfeComponent } from './pages/noticias-profe/noticias-profe.co
 import { EstudiantesMatriculadosComponent } from './pages/estudiantes-matriculados/estudiantes-matriculados.component';
 import { RubrosProfeComponent } from './pages/rubros-profe/rubros-profe.component';
 import { EvaluacionesProfeComponent } from './pages/evaluaciones-profe/evaluaciones-profe.component';
+import { RevisionesProfeComponent } from './pages/revisiones-profe/revisiones-profe.component';
+import { VerRubrosRevisarComponent } from './pages/ver-rubros-revisar/ver-rubros-revisar.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { EvaluacionesProfeComponent } from './pages/evaluaciones-profe/evaluacio
     NoticiasProfeComponent,
     EstudiantesMatriculadosComponent,
     RubrosProfeComponent,
-    EvaluacionesProfeComponent
+    EvaluacionesProfeComponent,
+    RevisionesProfeComponent,
+    VerRubrosRevisarComponent
   ],
   imports: [
     BrowserModule,

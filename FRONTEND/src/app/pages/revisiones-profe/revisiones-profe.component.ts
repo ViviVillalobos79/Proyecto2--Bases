@@ -1,28 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { Datos_Curso, Evaluacion } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 import { EvaluacionService } from '../../services/sql_services/Profesores/evaluacion.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-evaluaciones-profe',
-  templateUrl: './evaluaciones-profe.component.html',
-  styleUrls: ['./evaluaciones-profe.component.css'],
-  providers: [ProfesorService, EvaluacionService],
+  selector: 'app-revisiones-profe',
+  templateUrl: './revisiones-profe.component.html',
+  styleUrls: ['./revisiones-profe.component.css']
 })
-export class EvaluacionesProfeComponent implements OnInit {
+export class RevisionesProfeComponent implements OnInit {
+
   username: string;
   nombrecurso: string;
   grupo: string;
   nombreCarpeta: string;
   idCurso: string;
-  idRubro: string;
   curso: Datos_Curso;
-  total: string;
-  nombreNewEvaluacion: string;
-  tipoNewEvaluacion: string;
-  fechaNewEvaluacion: string;
-  horanewEvaluacion: string;
 
   evaluaciones = [];
 
@@ -34,7 +29,6 @@ export class EvaluacionesProfeComponent implements OnInit {
   ) {
     this.username = this._route.snapshot.paramMap.get('cedula');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
-    this.idRubro = this._route.snapshot.paramMap.get('idRubro');
   }
 
   ngOnInit(): void {
@@ -57,10 +51,10 @@ export class EvaluacionesProfeComponent implements OnInit {
   setEvaluaciones(rubrosH: Evaluacion[]) {
     rubrosH.forEach((element) => {
       if (
-        element.grupo.toString() == this.idCurso &&
-        element.rubro.toString() == this.idRubro
+        element.grupo.toString() == this.idCurso
       ) {
         let rub = {
+          id:element.id_evaluacion,
           nombre: element.especificacion,
           tipo: element.tipo_evaluacion,
           fecha:
@@ -81,34 +75,8 @@ export class EvaluacionesProfeComponent implements OnInit {
     });
   }
 
-  nombreNewevaluacion(nombre) {
-    this.nombreNewEvaluacion = nombre;
-  }
-
-  tipoNewevaluacion(valor) {
-    this.tipoNewEvaluacion = valor;
-  }
-
-  FechaNewevaluacion(valor) {
-    this.fechaNewEvaluacion = valor;
-  }
-
-  horaNewevaluacion(valor) {
-    this.horanewEvaluacion = valor;
-  }
-
-  crearEvaluacion() {
-    let rub = new Evaluacion();
-    rub.tipo_evaluacion = this.tipoNewEvaluacion;
-    rub.especificacion = this.nombreNewEvaluacion;
-    rub.grupo = Number(this.idCurso);
-    rub.fecha = '';
-    rub.hora = this.horanewEvaluacion;
-    rub.rubro = Number(this.idRubro);
-
-    this.evaluacionSvc.addEvaluacion(rub).subscribe((res) => {
-      console.log('evaluacion agregado ', res);
-    });
+  evaluar(idEvaluacion){
+    this.router.navigate(['verRubrosRevisar', this.username, this.idCurso, idEvaluacion]);
   }
 
   goInicio() {
@@ -134,4 +102,5 @@ export class EvaluacionesProfeComponent implements OnInit {
   goNoticias() {
     this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
+
 }
