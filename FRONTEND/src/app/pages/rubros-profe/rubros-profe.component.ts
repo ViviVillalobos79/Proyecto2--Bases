@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { Datos_Curso, Rubro } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 import { RubroService } from '../../services/sql_services/Profesores/rubro.service';
-
 
 @Component({
   selector: 'app-rubros-profe',
   templateUrl: './rubros-profe.component.html',
   styleUrls: ['./rubros-profe.component.css'],
-  providers: [ProfesorService,RubroService],
+  providers: [ProfesorService, RubroService],
 })
 export class RubrosProfeComponent implements OnInit {
-
   username: string;
   nombrecurso: string;
   grupo: string;
   nombreCarpeta: string;
   idCurso: string;
   curso: Datos_Curso;
-  total:string;
-  nombreNewRubro:string;
-  valorNewRubro:string;
+  total: string;
+  nombreNewRubro: string;
+  valorNewRubro: string;
 
-  rubros = [
-    {nombre:"hola0",id:0, valor:"30"},
-    {nombre:"hola1",id:1, valor:"31"},
-    {nombre:"hola2",id:2, valor:"32"}
-  ]
+  rubros = [];
+
+  rubrosAll: Rubro[];
 
   constructor(
     private router: Router,
@@ -38,7 +34,7 @@ export class RubrosProfeComponent implements OnInit {
     this.username = this._route.snapshot.paramMap.get('cedula');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
     this.revisarCien();
-   }
+  }
 
   ngOnInit(): void {
     this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
@@ -46,27 +42,44 @@ export class RubrosProfeComponent implements OnInit {
       this.nombrecurso = this.curso.nombre_curso;
       this.grupo = this.curso.numero_grupo.toString();
       console.log('Res ', this.curso);
-      this.revisarCien();
+      this.getRubros();
     });
   }
 
-  getRubros(){
-    
+  getRubros() {
+    this.rubroSvc.getAllRubros().subscribe((res) => {
+      console.log('All ', res);
+      this.setRubros(res);
+    });
   }
 
-  cambioValor(idvalor,porcentaje){
-    this.rubros.forEach(element => {
-      if(element.id == idvalor){
+  setRubros(rubrosH: Rubro[]) {
+    rubrosH.forEach((element) => {
+      if (element.grupo.toString() == this.idCurso) {
+        let rub = {
+          nombre: element.nombre_rubro,
+          id: element.id_rubro,
+          valor: element.porcentaje.toString(),
+        };
+        this.rubros.push(rub);
+      }
+    });
+    this.revisarCien();
+  }
+
+  cambioValor(idvalor, porcentaje) {
+    this.rubros.forEach((element) => {
+      if (element.id == idvalor) {
         element.valor = porcentaje;
       }
     });
     this.revisarCien();
   }
 
-  revisarCien(){
-    this.total = "0";
+  revisarCien() {
+    this.total = '0';
     let tot = 0;
-    this.rubros.forEach(element => {
+    this.rubros.forEach((element) => {
       tot = tot + Number(element.valor);
     });
     this.total = tot.toString();
@@ -75,25 +88,48 @@ export class RubrosProfeComponent implements OnInit {
 
   crearRubro() {
     let newTotal = Number(this.total) + Number(this.valorNewRubro);
-    if(newTotal != 100){
-      console.log("el total debe ser 100");
-    }
-    else{
+    if (newTotal != 100) {
+      console.log('el total debe ser 100');
+    } else {
       //subir new rubro
+      let rub = new Rubro();
+      rub.nombre_rubro = this.nombreNewRubro;
+      rub.porcentaje = Number(this.valorNewRubro);
+      rub.grupo = Number(this.idCurso);
+
+      this.rubroSvc.addRubro(rub).subscribe((res) => {
+        console.log('rubro agregado ', res);
+        this.actualizarRubros();
+      });
+
     }
   }
 
-  nombreNewrubro(nombre){
+  actualizarRubros(){
+    this.rubros.forEach(element => {
+      let rub = new Rubro();
+      rub.nombre_rubro = element.nombre;
+      rub.porcentaje = Number(element.valor);
+      rub.grupo = Number(this.idCurso);
+      this.rubroSvc.updateRubro(element.id,rub).subscribe((res) => {
+        console.log('rubro actualizado ', res);
+      });
+    });
+  }
+
+  nombreNewrubro(nombre) {
     this.nombreNewRubro = nombre;
   }
 
-  valorNewrubro(valor){
+  valorNewrubro(valor) {
     this.valorNewRubro = valor;
   }
 
-  visitarRubro(idRubro){
+  actualizar(){
 
   }
+
+  visitarRubro(idRubro) {}
 
   goInicio() {
     this.router.navigate(['inicio', this.username]);
@@ -118,5 +154,4 @@ export class RubrosProfeComponent implements OnInit {
   goNoticias() {
     this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
-
 }
