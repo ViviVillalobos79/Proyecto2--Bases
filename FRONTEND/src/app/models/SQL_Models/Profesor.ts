@@ -102,3 +102,9 @@ export class SP_grupo_carpetas {
   id_grupo:number;
   nombre:string;
 }
+
+export class rubrosGrupo{
+    id_rubro:number;
+    nombre_rubro:string;
+    porcentaje:number;
+}

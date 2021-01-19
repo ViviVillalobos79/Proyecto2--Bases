@@ -1,16 +1,17 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApiSQLServer.Modelos;
 
 namespace WebApiSQLServer.Repositorios
 {
-    public class NoticiaRepositorio
+    public class NoticiasRepocitorio
     {
-        public static List<Noticia> GetAllNoticias()
+
+        public static List<Noticias> GetAllNoticias()
         {
 
             Conexion conexion = new Conexion();
@@ -30,11 +31,11 @@ namespace WebApiSQLServer.Repositorios
             connection.Open();
             reader = sqlCmd.ExecuteReader();
 
-            List<Noticia> listaNoticia = new List<Noticia>();
-            Noticia noticia = null;
+            List<Noticias> listaNoticia = new List<Noticias>();
+            Noticias noticia = null;
             while (reader.Read())
             {
-                noticia = new Noticia();
+                noticia = new Noticias();
                 noticia.id_noticia = Convert.ToInt32(reader.GetValue(0));
                 noticia.titulo = reader.GetValue(1).ToString();
                 noticia.autor = Convert.ToInt32(reader.GetValue(2));
@@ -47,7 +48,7 @@ namespace WebApiSQLServer.Repositorios
             return listaNoticia;
         }
 
-        public static List<Noticia> GetNoticia(int id_Noticia)
+        public static List<Noticias> GetNoticia(int id_Noticia)
         {
 
             Conexion conexion = new Conexion();
@@ -67,12 +68,12 @@ namespace WebApiSQLServer.Repositorios
             connection.Open();
 
             reader = sqlCmd.ExecuteReader();
-            List<Noticia> listaNoticia = new List<Noticia>();
-            Noticia noticia = null;
+            List<Noticias> listaNoticia = new List<Noticias>();
+            Noticias noticia = null;
 
             while (reader.Read())
             {
-                noticia = new Noticia();
+                noticia = new Noticias();
                 noticia.id_noticia = Convert.ToInt32(reader.GetValue(0));
                 noticia.titulo = reader.GetValue(1).ToString();
                 noticia.autor = Convert.ToInt32(reader.GetValue(2));
@@ -86,7 +87,7 @@ namespace WebApiSQLServer.Repositorios
             return listaNoticia;
         }
 
-        public static bool PostNoticia(Noticia noticia)
+        public static bool PostNoticia(Noticias noticia)
         {
 
             Conexion conexion = new Conexion();
@@ -95,10 +96,10 @@ namespace WebApiSQLServer.Repositorios
             var query = "INSERT INTO xtec.NOTICIA(Titulo, Autor, Fecha, Mensaje, Grupo) " +
                         "VALUES('@Titulo', @Autor, '@Fecha', '@Mensaje', Grupo)";
 
-            query = query.Replace("@Titulo", noticia.titulo.ToString())
+            query = query.Replace("@Titulo", noticia.titulo)
                          .Replace("@Autor", noticia.autor.ToString())
-                         .Replace("@Fecha", noticia.fecha.ToString())
-                         .Replace("@Mensaje", noticia.mensaje.ToString())
+                         .Replace("@Fecha", noticia.fecha)
+                         .Replace("@Mensaje", noticia.mensaje)
                          .Replace("@Grupo", noticia.grupo.ToString());
             try
             {
@@ -115,7 +116,7 @@ namespace WebApiSQLServer.Repositorios
             }
         }
 
-        public static bool UpdateNoticia(Noticia noticia, int id_Noticia)
+        public static bool UpdateNoticia(Noticias noticia, int id_Noticia)
         {
             Conexion conexion = new Conexion();
 

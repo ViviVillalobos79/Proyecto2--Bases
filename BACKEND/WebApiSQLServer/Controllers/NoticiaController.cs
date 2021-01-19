@@ -20,31 +20,31 @@ namespace WebApiSQLServer.Controllers
         }
 
         [HttpGet]
-        public List<Noticia> GetAllNoticias()
+        public List<Noticias> GetAllNoticias()
         {
-            return NoticiaRepositorio.GetAllNoticias();
+            return NoticiasRepocitorio.GetAllNoticias();
         }
         [HttpGet("{id_Noticia}")]
-        public IEnumerable<Noticia> GetNoticia(int id_Noticia)
+        public IEnumerable<Noticias> GetNoticia(int id_Noticia)
         {
-            return NoticiaRepositorio.GetNoticia(id_Noticia);
+            return NoticiasRepocitorio.GetNoticia(id_Noticia);
         }
 
         [HttpPost]
-        public bool PostNoticia([FromBody]Noticia noticia)
+        public bool PostNoticia([FromBody] Noticias noticia)
         {
-            return NoticiaRepositorio.PostNoticia(noticia);
+            return NoticiasRepocitorio.PostNoticia(noticia);
         }
         [HttpPut("{id_Noticia}")]
-        public bool UpdateNoticia([FromBody]Noticia noticia, int id_Noticia)
+        public bool UpdateNoticia([FromBody] Noticias noticia, int id_Noticia)
         {
-            return NoticiaRepositorio.UpdateNoticia(noticia, id_Noticia);
+            return NoticiasRepocitorio.UpdateNoticia(noticia, id_Noticia);
         }
 
         [HttpDelete("{id_Noticia}")]
         public bool DeleteNoticia(int id_Noticia)
         {
-            return NoticiaRepositorio.DeleteNoticia(id_Noticia);
+            return NoticiasRepocitorio.DeleteNoticia(id_Noticia);
         }
     }
 }

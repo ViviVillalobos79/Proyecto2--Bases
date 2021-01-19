@@ -38,5 +38,13 @@ namespace WebApiSQLServer.Controllers
         {
             return ConsultasEstudiantesRepositorio.noticiasGrupo(id_grupo);
         }
+
+        [HttpGet]
+        [Route("apis/estudiante/evaluaciones/grupo/{id_grupo}")]
+        public IEnumerable<EvaluacionesGrupo> evaluacionesGrupos(int id_grupo) {
+            return ConsultasEstudiantesRepositorio.evaluacionesGrupo(id_grupo);
+        }
+
+        
     }
 }
