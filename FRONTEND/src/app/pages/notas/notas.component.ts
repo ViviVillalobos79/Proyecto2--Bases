@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
 
 @Component({
   selector: 'app-notas',
@@ -12,15 +14,26 @@ export class NotasComponent implements OnInit {
   grupo: string;
   headers = [{}];
   idCurso:string;
+  curso: Datos_Curso;
 
-  constructor(private router: Router, private _route: ActivatedRoute) {
+  constructor(
+    private router: Router, 
+    private _route: ActivatedRoute,
+    private profesorSvc: ProfesorService) {
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
 
   ngOnInit(): void {
-    this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    this.grupo = '4';
+
+    this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
+      this.curso = res[0];
+      this.nombrecurso = this.curso.nombre_curso;
+      this.grupo = this.curso.numero_grupo.toString();
+      console.log('Res ', this.curso);
+    });
+
+    
     this.headers = [
       { head: 'Carnet', value: 2017147709 },
       { head: 'Nombre', value: 'Estudiante' },
@@ -48,6 +61,6 @@ export class NotasComponent implements OnInit {
     this.router.navigate(['gesDocEst', this.carnet, this.idCurso]);
   }
   evaluacionesGo(){
-
+    this.router.navigate(['sendEva', this.carnet, this.idCurso]);
   }
 }

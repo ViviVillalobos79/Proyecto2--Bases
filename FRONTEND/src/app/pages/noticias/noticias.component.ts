@@ -88,7 +88,7 @@ export class NoticiasComponent implements OnInit {
     this.router.navigate(['noticias', this.carnet, this.idCurso]);
   }
   documentosGo(){
-    this.router.navigate(['gesDocEst', this.carnet, this.idCurso, this.idCarpeta]);
+    this.router.navigate(['gesDocEst', this.carnet, this.idCurso]);
   }
   evaluacionesGo(){
     this.router.navigate(['sendEva', this.carnet, this.idCurso]);
