@@ -19,6 +19,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { DocsEstComponent } from './pages/docs-est/docs-est.component';
 import { NoticiasProfeComponent } from './pages/noticias-profe/noticias-profe.component';
 import { EstudiantesMatriculadosComponent } from './pages/estudiantes-matriculados/estudiantes-matriculados.component';
+import { RubrosProfeComponent } from './pages/rubros-profe/rubros-profe.component';
+import { EvaluacionesProfeComponent } from './pages/evaluaciones-profe/evaluaciones-profe.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: "docEst/:carnet/:idCurso/:idCarpeta", component:DocsEstComponent, pathMatch:"full"},
   { path: "noticiaProfe/:cedula/:idCurso", component:NoticiasProfeComponent, pathMatch:"full"},
   { path: "estudiantesMatriculados/:cedula/:idCurso", component:EstudiantesMatriculadosComponent, pathMatch:"full"},
+  { path: "rubrosProfe/:cedula/:idCurso", component:RubrosProfeComponent, pathMatch:"full"},
+  { path: "evaluacionesProfe/:cedula/:idCurso/:idRubro", component:EvaluacionesProfeComponent, pathMatch:"full"},
 
   { path: "", component: LoginComponent, pathMatch: "full" },
   { path: "**", component: LoginComponent, pathMatch: "full" }

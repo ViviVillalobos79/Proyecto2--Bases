@@ -1,0 +1,52 @@
+<hr class="linea" />
+<label class="logo3">XTECDigital</label>
+
+<button class="inicio" (click)="goInicio()">Inicio</button>
+<button class="cursos" (click)="goCursos()">Cursos</button>
+<button class="micuenta" (click)="goPerfil()">Mi Cuenta</button>
+<button class="logOut" [routerLink]="['/home']">Cerrar Sesión</button>
+
+<div class="barracurso">
+  <button class="nombreCurso">{{ nombrecurso }} GR {{ grupo }}</button>
+  <button class="docs" (click)="goDocs()">DOCUMENTOS</button>
+  <button class="evaluaciones" (click)="goEvaluaciones()">EVALUACIONES</button>
+  <button class="admin" (click)="goNoticias()">Noticias</button>
+</div>
+
+<div class="look">
+  <button class="agreCarpeta" (click)="crearRubro()">Agregar rubro</button>
+  <label class="nombre">Información del rubro</label>
+  <input
+    class="nombreInput"
+    type="text"
+    name="password"
+    placeholder="Nombre del rubro"
+    (change)="nombreNewrubro($event.target.value)"
+  />
+  <input
+    class="valorInput"
+    type="text"
+    name="valor"
+    placeholder="Nombre del rubro"
+    (change)="valorNewrubro($event.target.value)"
+  />
+
+  <div class="lookfil" style="overflow: auto">
+    <label>Total: &nbsp; {{ total }}</label>
+    <div class="tramos">
+      <div *ngFor="let rubro of rubros">
+        <mat-card class="productor">
+          <h3>{{ rubro.nombre }} &nbsp;</h3>
+          <input
+            type="text"
+            value="{{ rubro.valor }}"
+            (change)="cambioValor(rubro.id, $event.target.value)"
+          />
+          <button class="searchbt" (click)="visitarRubro(rubro.id)">
+            <h3>Ver</h3>
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

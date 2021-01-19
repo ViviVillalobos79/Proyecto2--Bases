@@ -19,8 +19,8 @@ export class RubroService {
 
   constructor(private http:HttpClient) { }
 
-  getAllRubros():Observable<Rubro>{
-    return this.http.get<Rubro>(this.url);
+  getAllRubros():Observable<Rubro[]>{
+    return this.http.get<Rubro[]>(this.url);
   }
 
   getRubro(id_Rubro:number):Observable<Rubro[]>{
