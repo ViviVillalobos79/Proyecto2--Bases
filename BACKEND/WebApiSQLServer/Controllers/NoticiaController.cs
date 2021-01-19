@@ -31,7 +31,7 @@ namespace WebApiSQLServer.Controllers
         }
 
         [HttpPost]
-        public bool PostNoticia([FromBody] Noticias noticia)
+        public bool PostNoticia(Noticias noticia)
         {
             return NoticiasRepocitorio.PostNoticia(noticia);
         }

@@ -22,6 +22,7 @@ namespace WebApiSQLServer.Controllers
         public DbSet<Estudiante> Estudiante { get; set; }
         public DbSet<Evaluacion> Evaluacion { get; set; }
         public DbSet<Grupo> Grupo { get; set; }
+        public DbSet<GrupoCarpeta> GrupoCarpeta { get; set; }
         public DbSet<Miembros_Grupo> Miembros_Grupo { get; set; }
         public DbSet<Noticias> Noticia { get; set; }
         public DbSet<Profesor> Profesor { get; set; }
