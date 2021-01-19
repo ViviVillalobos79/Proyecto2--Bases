@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FileUpload } from 'src/app/models/file-upload';
+import { Datos_Curso } from 'src/app/models/SQL_Models/Profesor';
+import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
 import { UploadService } from '../../services/S3/upload.service';
 
 @Component({
@@ -25,18 +27,27 @@ export class SendEvaComponent implements OnInit {
   allFiles: Observable<Array<FileUpload>>;
 
   docs = [];
+
+  curso: Datos_Curso;
+
   constructor(
     private uploadSvc: UploadService,
     private router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private profesorSvc: ProfesorService
   ) {
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
 
   ngOnInit(): void {
-    this.nombrecurso = 'LABORATORIO DE CIRCUITOS ELECTRICOS';
-    this.grupo = '4';
+    this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
+      this.curso = res[0];
+      this.nombrecurso = this.curso.nombre_curso;
+      this.grupo = this.curso.numero_grupo.toString();
+      console.log('Res ', this.curso);
+    });
+
     this.asignaciones = ['Tarea corta', 'Examen', 'Proyecto'];
     this.rubros = ['Primera entrega', 'Segunda entrega', 'Tercer entrega'];
     this.getFile();
@@ -75,5 +86,12 @@ export class SendEvaComponent implements OnInit {
   documentosGo() {
     this.router.navigate(['gesDocEst', this.carnet, this.idCurso]);
   }
-  evaluacionesGo() {}
+  evaluacionesGo() {
+    this.router.navigate(['sendEva', this.carnet, this.idCurso]);
+  }
+  notasGo() {
+    this.router.navigate(['notas', this.carnet, this.idCurso]);
+  }
+
+
 }
