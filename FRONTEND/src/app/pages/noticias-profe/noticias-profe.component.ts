@@ -4,12 +4,13 @@ import { Datos_Curso, Noticia } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 import { EstudianteService } from '../../services/sql_services/Estudiantes/estudiante.service';
 import { NoticiasGenerales } from 'src/app/models/SQL_Models/Estudiante';
+import { NoticiaService } from '../../services/sql_services/Profesores/noticia.service';
 
 @Component({
   selector: 'app-noticias-profe',
   templateUrl: './noticias-profe.component.html',
   styleUrls: ['./noticias-profe.component.css'],
-  providers: [ProfesorService, EstudianteService],
+  providers: [ProfesorService, EstudianteService, NoticiaService],
 })
 export class NoticiasProfeComponent implements OnInit {
   username: string;
@@ -25,7 +26,8 @@ export class NoticiasProfeComponent implements OnInit {
     private router: Router,
     private _route: ActivatedRoute,
     private profesorSvc: ProfesorService,
-    private estudianteSvc: EstudianteService
+    private estudianteSvc: EstudianteService,
+    private noticiaSvc: NoticiaService
   ) {
     this.username = this._route.snapshot.paramMap.get('cedula');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
@@ -77,7 +79,16 @@ export class NoticiasProfeComponent implements OnInit {
   }
 
   crearNoticia(noticia){
+    let noti = new Noticia();
+    noti.titulo = "Quiz 30";
+    noti.autor = Number(this.username);
+    noti.fecha = "22/12/2020";
+    noti.mensaje = "Ya se encuentra en XTECDigital la especificación sobreQuiz 30";
+    noti.grupo = Number(this.idCurso);
 
+    this.noticiaSvc.addNoticia(noti).subscribe((res) => {
+      console.log('noti ', res);
+    });
   }
 
   goInicio() {
