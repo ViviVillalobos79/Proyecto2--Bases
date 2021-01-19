@@ -160,5 +160,40 @@ namespace WebApiSQLServer.Repositorios
             connection.Close();
             return lista;
         }
+
+        public static List<EvaluacionesGrupo> evaluacionesGrupo(int id_grupo)
+        {
+
+            Conexion conexion = new Conexion();
+            SqlDataReader reader = null;
+            SqlConnection connection = new SqlConnection(conexion.StringConexion);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.Text;
+
+            var query = "SELECT ID_Evaluacion, Especificacion, Fecha, Hora FROM xtec.EVALUACION AS E WHERE E.Grupo = @Grupo;";
+
+            query = query.Replace("@Grupo", id_grupo.ToString());
+
+            sqlCmd.CommandText = query;
+            sqlCmd.Connection = connection;
+            connection.Open();
+
+            reader = sqlCmd.ExecuteReader();
+            List<EvaluacionesGrupo> lista = new List<EvaluacionesGrupo>();
+            EvaluacionesGrupo evaluacion = null;
+
+            while (reader.Read())
+            {
+                evaluacion = new EvaluacionesGrupo();
+                evaluacion.id_evaluacion = Convert.ToInt32(reader.GetValue(0)); 
+                evaluacion.especificacion = reader.GetValue(1).ToString();
+                evaluacion.fecha = reader.GetValue(2).ToString();
+                evaluacion.hora = reader.GetValue(3).ToString();
+                lista.Add(evaluacion);
+            }
+            connection.Close();
+            return lista;
+        }
     }
 }

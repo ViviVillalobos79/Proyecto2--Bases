@@ -32,4 +32,15 @@ namespace WebApiSQLServer.Modelos
         public int id_rubro { get; set; }
         public int porcentaje { get; set; }
     }
+
+    public class EvaluacionesGrupo {
+        
+        public int id_evaluacion { get; set; }
+        public string especificacion { get; set; }
+        public string fecha { get; set; }
+        public string hora { get; set; }
+
+    }
+
+
 }

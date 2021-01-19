@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApiSQLServer.Modelos
 {
-    public class Noticia
+    public class Noticias
     {
         public int id_noticia { get; set; }
         public string titulo { get; set; }

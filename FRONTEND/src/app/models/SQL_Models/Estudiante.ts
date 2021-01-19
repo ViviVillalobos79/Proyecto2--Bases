@@ -25,3 +25,10 @@ export class NotaGrupoEstudiante {
     id_rubro:number;
     porcentaje:number;
 }
+
+export class EvaluacionGrupo{
+    id_evaluacion:number;
+    especificacion:string;
+    fecha:string;
+    hora:string;
+}
