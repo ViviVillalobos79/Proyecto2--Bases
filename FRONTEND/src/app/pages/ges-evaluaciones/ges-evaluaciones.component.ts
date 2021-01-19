@@ -57,7 +57,7 @@ export class GesEvaluacionesComponent implements OnInit {
   }
 
   goNoticias() {
-    //goNoticias
+    this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
 
   goMatriz() {
@@ -72,6 +72,6 @@ export class GesEvaluacionesComponent implements OnInit {
   }
 
   goEstudiantes(){
-    
+
   }
 }

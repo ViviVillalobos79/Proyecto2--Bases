@@ -105,6 +105,6 @@ export class GesDocosProfeComponent implements OnInit {
   }
 
   goNoticias() {
-    //goNoticias
+    this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
 }

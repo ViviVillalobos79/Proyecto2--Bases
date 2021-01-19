@@ -189,7 +189,7 @@ export class MatrizEvaluacionesComponent {
   }
 
   goNoticias() {
-    //goNoticias
+    this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
 
   goMatriz() {

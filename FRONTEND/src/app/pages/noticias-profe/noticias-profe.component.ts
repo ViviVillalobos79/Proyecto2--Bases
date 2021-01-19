@@ -34,20 +34,7 @@ export class NoticiasProfeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.noticias = [
-      {
-        fecha: '12 de Diciembre',
-        titulo: 'Notas',
-        cuerpo: 'Las notas estan entregadas, se pueden ver en evaluaciones',
-        autor: 'Diego',
-      },
-      {
-        fecha: '15 de Diciembre',
-        titulo: 'Quiz',
-        cuerpo: 'Descargar el quiz de documentos/quices, para la clase de hoy',
-        autor: 'Isaac',
-      },
-    ];
+    this.noticias = [];
 
     this.profesorSvc.getDatos_Curso(this.idCurso).subscribe((res) => {
       this.curso = res[0];
@@ -75,15 +62,15 @@ export class NoticiasProfeComponent implements OnInit {
       };
       this.noticiasCompletas.push(not);
     });
-
   }
 
-  crearNoticia(noticia){
+  crearNoticia(noticia) {
     let noti = new Noticia();
-    noti.titulo = "Quiz 30";
+    noti.titulo = 'Quiz 30';
     noti.autor = Number(this.username);
-    noti.fecha = "22/12/2020";
-    noti.mensaje = "Ya se encuentra en XTECDigital la especificación sobreQuiz 30";
+    noti.fecha = '22/12/2020';
+    noti.mensaje =
+      'Ya se encuentra en XTECDigital la especificación sobreQuiz 30';
     noti.grupo = Number(this.idCurso);
 
     this.noticiaSvc.addNoticia(noti).subscribe((res) => {
@@ -112,6 +99,6 @@ export class NoticiasProfeComponent implements OnInit {
   }
 
   goNoticias() {
-    //goNoticias
+    this.router.navigate(['noticiaProfe', this.username, this.idCurso]);
   }
 }
