@@ -6,13 +6,12 @@ import { Carpeta } from 'src/app/models/SQL_Models/Profesor';
 
 import { ProfesorService } from 'src/app/services/sql_services/Profesores/profesor.service';
 import { CarpetaService } from '../../services/sql_services/Profesores/carpeta.service'
-import { RubroService } from 'src/app/services/sql_services/Profesores/rubro.service';
 
 @Component({
   selector: 'app-ges-docs-est',
   templateUrl: './ges-docs-est.component.html',
   styleUrls: ['./ges-docs-est.component.css'],
-  providers:[CarpetaService,RubroService]
+  providers:[CarpetaService]
 })
 export class GesDocsEstComponent implements OnInit {
   carnet: string;
@@ -27,8 +26,7 @@ export class GesDocsEstComponent implements OnInit {
     private router: Router, 
     private _route: ActivatedRoute,
     private profesorSvc: ProfesorService,
-    private carpetaSvc: CarpetaService,
-    private rubroSvc: RubroService){
+    private carpetaSvc: CarpetaService){
     this.carnet = this._route.snapshot.paramMap.get('carnet');
     this.idCurso = this._route.snapshot.paramMap.get('idCurso');
   }
@@ -41,12 +39,6 @@ export class GesDocsEstComponent implements OnInit {
      
     });
     this.getCarpetas()
-
-    // this.rubroSvc.getAllRubros().subscribe((res) =>{
-    //   console.log('Rubros',res)
-    // })
-    
-
 
     //Verificar las carpetas del curso preguntandole al server
     //Solicitar el nombre del curso y el grupo para rellenar la informacion

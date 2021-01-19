@@ -10,7 +10,7 @@ import { UploadService } from '../../services/S3/upload.service';
   selector: 'app-send-eva',
   templateUrl: './send-eva.component.html',
   styleUrls: ['./send-eva.component.css'],
-  providers: [UploadService],
+  providers: [UploadService,ProfesorService],
 })
 export class SendEvaComponent implements OnInit {
   carnet: string;
