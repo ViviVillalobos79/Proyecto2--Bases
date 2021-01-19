@@ -61,10 +61,4 @@ namespace WebApiSQLServer.Modelos
         public string nombre_rubro { get; set; }
         public int porcentaje { get; set; }
     }
-
-    public class Grupo_Carpetas
-    {
-        public int id_grupo { get; set; }
-        public int id_carpeta { get; set; }
-    }
 }

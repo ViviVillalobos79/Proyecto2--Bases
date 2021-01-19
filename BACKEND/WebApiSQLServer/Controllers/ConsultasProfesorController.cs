@@ -60,8 +60,5 @@ namespace WebApiSQLServer.Controllers
             return ConsultasProfesorRepositorio.rubrosGrupo(id_grupo);
         }
 
-        
-
-        
     }
 }
