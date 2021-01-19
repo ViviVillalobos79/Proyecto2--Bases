@@ -1,49 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {
-  Datos_Curso,
-  EstudiantesMatriculados,
-  ReporteNotas,
-} from 'src/app/models/SQL_Models/Profesor';
+import { Persona } from 'src/app/models/Persona';
+import { Datos_Curso, EstudiantesMatriculados } from 'src/app/models/SQL_Models/Profesor';
 import { ProfesorService } from '../../services/sql_services/Profesores/profesor.service';
 import { PersonaService } from '../../services/mongo/persona.service';
-import { Persona } from 'src/app/models/Persona';
 
 @Component({
-  selector: 'app-matriz-evaluaciones',
-  templateUrl: './matriz-evaluaciones.component.html',
-  styleUrls: ['./matriz-evaluaciones.component.css'],
+  selector: 'app-estudiantes-matriculados',
+  templateUrl: './estudiantes-matriculados.component.html',
+  styleUrls: ['./estudiantes-matriculados.component.css'],
   providers: [ProfesorService, PersonaService],
 })
-export class MatrizEvaluacionesComponent {
+export class EstudiantesMatriculadosComponent implements OnInit {
   username: string;
   nombrecurso: string;
   grupo: string;
   idCurso: string;
-
-  val = [
-    {
-      valores: [
-        'Carné',
-        '2018104702',
-        '2017097108',
-        '2018085151',
-        '2019053776',
-      ],
-    },
-    {
-      valores: [
-        'Nombre',
-        'Viviana Villalobos Valverde',
-        'Sebastian Cortez Mora',
-        'Ana Gaston Lola',
-        'Max Guzman Jilas',
-      ],
-    },
-    { valores: ['Examen1', '20', '50', '100', '95'] },
-    { valores: ['Examen2', '20', '50', '100', '95'] },
-  ];
 
   personas: Persona[] = [];
 
@@ -120,52 +92,6 @@ export class MatrizEvaluacionesComponent {
 
     let values = { valores: nombres };
     this.valco.push(values);
-    this.getEvaluaciones();
-  }
-
-  getEvaluaciones() {
-    this.profesorSvc.getReporteNotas(this.idCurso).subscribe((res) => {
-      console.log('NOTAS ', res);
-      this.setListasNotas(res);
-    });
-  }
-
-  setListasNotas(notas: ReporteNotas[]) {
-    let evaluaciones = [];
-    let valorestemp = [];
-    let carnet = notas[0].carnet;
-    for (let i = 0; i < notas.length; i++) {
-      if (notas[i].carnet == carnet) {
-        evaluaciones.push(notas[i].especificacion);
-      } else {
-        break;
-      }
-    }
-
-    evaluaciones.forEach((element) => {
-      let temp1 = [element];
-      let temp2 = { valores: temp1 };
-      valorestemp.push(temp2);
-    });
-    console.log('incio ', valorestemp);
-    notas.forEach((element) => {
-      //console.log("rubro revisando ", element.especificacion);
-      valorestemp.forEach((element2) => {
-        //console.log("temo2 ", element2);
-        if (element.especificacion == element2.valores[0]) {
-          element2.valores.push(element.nota.toString());
-        }
-      });
-    });
-
-    console.log('final ', valorestemp);
-
-    valorestemp.forEach((element) => {
-      this.valco.push(element);
-    });
-
-    console.log('Final final ', this.valco);
-    console.log('Final2 final2 ', this.val);
   }
 
   goInicio() {
@@ -202,4 +128,6 @@ export class MatrizEvaluacionesComponent {
   goEstudiantes() {
     this.router.navigate(['estudiantesMatriculados', this.username, this.idCurso]);
   }
+
+
 }
