@@ -56,7 +56,7 @@ export class InicioComponent implements OnInit {
       this.setCursosProfe(res);
     });
   }
-
+ //Hola comentario
   setCursosProfe(cursosP: CursosProfesor[]) {
     this.cursos = [];
     cursosP.forEach((element) => {
